@@ -1,0 +1,72 @@
+{
+  "_ghi_chu": "Hướng dẫn cho các ô \"tự viết cả câu\" CÒN PHẢI VIẾT TAY. Từ 15/09/2026 phần lớn các ô câu do scripts/ghep_cau.js ghép từ khối du_kien (Claude chỉ ghi dữ kiện) — lam_ngay.js chỉ in khuôn cho những ô bộ mẫu chưa ghép được. KHUÔN cụ thể của từng bộ mẫu rút tự động từ bản đã ký (scripts/sinh_khuon_cau.js → assets/khuon_cau.json trong gói). Mục \"theo_bo_mau\" là khuôn viết tay, ưu tiên hơn khuôn rút tự động — dùng khi Chi nhánh muốn viết KHÁC bản đã ký.",
+  "_nguyen_tac_chung": "Viết theo đúng KHUÔN của mẫu đang dùng: cùng thứ tự vế, cùng từ nối, cùng dấu câu, cùng gạch đầu dòng. Khuôn kết thúc ở đâu thì dừng ở đó — chữ trước và sau ô đã có sẵn trong mẫu. Không thêm lời giải thích, không kể lại phần sở hữu (3/4, 1/4…), không nêu lý do giao dịch. Mỗi người nhận / mỗi thửa / mỗi hợp đồng / mỗi GCN là một phần tử mảng (¶ trong khuôn = sang phần tử mới). Giữ đúng câu chữ hồ sơ: 'Căn cước' không đổi thành 'CCCD'; 'sinh năm' hay 'sinh ngày' theo đúng giấy tờ.",
+  "_cap_nhat": "2026-09-15",
+  "cau_noi_dung_bien_dong": {
+    "cong_thuc": "{Tặng cho | Chuyển nhượng cho} {ông/bà} <Họ tên>, sinh {năm|ngày} <…>, {Căn cước|CCCD} số <…> do <nơi cấp> cấp ngày <…>, địa chỉ: <…> theo Hợp đồng {tặng cho|chuyển nhượng} quyền sử dụng đất số <…> do <VPCC> công chứng ngày <…>.",
+    "luu_y": "Câu ghi vào trang GCN — chỉ nói AI NHẬN và THEO VĂN BẢN NÀO (tách thửa thì thêm THỬA NÀO). Mỗi người nhận một phần tử mảng."
+  },
+  "cau_lap_van_ban_can_cu": {
+    "cong_thuc": "Ngày <…>, <bên chuyển> đã lập Hợp đồng {tặng cho|chuyển nhượng} quyền sử dụng đất số <…> do <VPCC> công chứng ngày <…> để thực hiện việc {tặng cho|chuyển nhượng} QSD đất cho <bên nhận>.",
+    "luu_y": "Mỗi hợp đồng một phần tử. Nhìn khuôn và khung_mau.txt: mẫu có sẵn '- ' trước ô thì từ phần tử thứ hai mới tự viết '- '; khuôn đã chứa '- ' thì phần tử nào cũng viết."
+  },
+  "cau_xac_nhan_ban_ve": {
+    "cong_thuc": "Ngày <…>, Chi nhánh Văn phòng đăng ký đất đai <…> xác nhận bản vẽ tách thửa đất, hợp thửa đất theo đề nghị của <ông/bà …> là đủ điều kiện, cụ thể:",
+    "luu_y": "Có mẫu dừng ở 'cụ thể:' vì đoạn sau mới nói tách thành mấy thửa; có mẫu viết luôn '“ thửa đất … được tách ra làm 0N thửa đất:' vào ô này. Theo đúng khuôn của mẫu đang dùng."
+  },
+  "cau_thay_doi_ban_do": {
+    "cong_thuc": "{Tờ bản đồ số <cũ> được thay đổi thành tờ số <mới> | Thửa đất số <cũ>, tờ <cũ> được thay đổi thành thửa đất số <mới>, tờ <mới>} do thay đổi bản đồ địa chính.",
+    "luu_y": "So số tờ/số thửa trên GCN cũ với bản vẽ hoặc GCN mới. KHÔNG đổi thì ghi false — cả đoạn tự biến mất. Đừng để trống khi đã xác định là không đổi: để trống sẽ ra «CẦN ĐIỀN»."
+  },
+  "cau_tach_thua": {
+    "cong_thuc": "Thửa đất <số>, tờ bản đồ <số — số MỚI nếu có đổi bản đồ>, diện tích <X> m² <mục đích> được tách ra làm <0N> thửa đất:",
+    "luu_y": "Số thửa con viết hai chữ số: 02, 03."
+  },
+  "danh_sach_thua_sau_tach": {
+    "cong_thuc": "mảng, mỗi thửa một phần tử: + Thửa đất số <X>, diện tích <Y> m² <mục đích>.",
+    "luu_y": "Không ghi tên người ở danh sách này — ai nhận thửa nào đã có ở cau_noi_dung_bien_dong."
+  },
+  "cau_cac_thua_sau_tach": {
+    "cong_thuc": "mảng, mỗi thửa một phần tử: + Thửa đất số <X>, diện tích <Y> m² <mục đích>.",
+    "luu_y": "Mỗi thửa một phần tử. Có mẫu dùng '- ' thay '+ ' ở đầu dòng — theo khuôn."
+  },
+  "cau_dien_tich_con_lai": {
+    "cong_thuc": "Diện tích còn lại là thửa đất số <X>, diện tích <Y> m² <mục đích>.",
+    "luu_y": "Bên chuyển chuyển/tặng hết, không giữ lại thửa nào thì ghi false."
+  },
+  "cau_thu_hoi_cap_moi": {
+    "cong_thuc": "Thu hồi Giấy chứng nhận này, cấp giấy chứng nhận <seri MỚI 1> cho <người 1>; <seri MỚI 2> cho <người 2> theo quy định.",
+    "luu_y": "Script ghép từ du_kien.thua_moi (mỗi thửa mới một vế \"<seri> cho <người>\"). PHẢI đủ hai vế: thu hồi tờ cũ VÀ cấp tờ mới cho TỪNG người — kể cả chủ cũ nếu được cấp GCN mới cho phần còn lại. Số seri chỉ có khi hồ sơ có tờ GCN mới; chưa có thì CHỈ chỗ seri thành «CẦN ĐIỀN: seri GCN» — không bao giờ bỏ trống cả câu."
+  },
+  "cau_danh_sach_gcn_cap_chi_tiet": {
+    "cong_thuc": "mảng — mỗi GCN mới một khối: dòng mở đầu nêu số seri và người được cấp, rồi thửa/diện tích, rồi các dòng Ghi chú.",
+    "luu_y": "Script ghép từ du_kien: người được cấp, thửa, diện tích, mục đích lấy từ thua_moi; các dòng Ghi chú (\"Số tờ bản đồ… Vlap\", \"tách ra từ … tại GCN số …\", \"thuộc xã … (cũ)\") suy từ GCN cũ — không cần tờ GCN mới. Seri chưa có thì chỉ chỗ seri thành «CẦN ĐIỀN».",
+    "theo_bo_mau": {
+      "tach-thua-phat-sinh-chu": "2.1 {Ông|Bà} <Họ tên> số seri GCN <seri mới> nội dung: ¶ + Thửa đất số <…>, diện tích <…> m² <mục đích>. ¶ Ghi chú: + Số tờ bản đồ, số thửa đất được xác định theo bản đồ Vlap ¶ + Thửa đất này được tách ra từ thửa đất số <…>, tờ bản đồ số <…> tại Giấy chứng nhận số <seri cũ> do <…> cấp ngày <ngày>. ¶ + Thửa đất thuộc <xã, huyện cũ> (cũ). ¶ 2.2 …"
+    }
+  },
+  "cau_danh_sach_gcn_cap": {
+    "cong_thuc": "mảng — mỗi GCN mới một khối: dòng mở đầu nêu số seri và NGƯỜI được cấp (họ tên + ngày tháng năm sinh), rồi các dòng của khối.",
+    "luu_y": "Script ghép từ du_kien như cau_danh_sach_gcn_cap_chi_tiet, thêm ngày tháng năm sinh của từng người được cấp (UBND xã dùng danh sách này để cập nhật hồ sơ địa chính — yêu cầu của Chi nhánh 14/09/2026). Giấy tờ chỉ ghi năm thì \"sinh năm <năm>\". Seri chưa có thì chỉ chỗ seri thành «CẦN ĐIỀN».",
+    "theo_bo_mau": {
+      "tach-thua-phat-sinh-chu": "1. {Ông|Bà} <Họ tên>, sinh {ngày <ngày>|năm <năm>}, số seri GCN <seri mới> nội dung: ¶ + Thửa đất số <…>, diện tích <…> m² <mục đích>. ¶ Ghi chú: + Số tờ bản đồ, số thửa đất được xác định theo bản đồ Vlap ¶ + Thửa đất này được tách ra từ thửa đất số <…>, tờ bản đồ số <…> tại Giấy chứng nhận số <seri cũ> do <…> cấp ngày <ngày>. ¶ + Thửa đất thuộc <xã, huyện cũ> (cũ). ¶ 2. …",
+      "tach-thua-phan-chia-chung": "1. {Bà|Ông} <Họ tên>, sinh {ngày <ngày>|năm <năm>}, số seri GCN <seri mới> nội dung: ¶ + Thửa đất số <…>, diện tích <…> m² <mục đích>. ¶ Ghi chú: + Số tờ bản đồ, số thửa đất được xác định theo bản đồ Vlap ¶ + Thửa đất này được tách ra từ thửa đất số <…>, tờ bản đồ số <…> tại Giấy chứng nhận số <seri cũ> do <…> cấp ngày <ngày>. ¶ + Thửa đất thuộc <xã, huyện cũ> (cũ). ¶ 2. {Ông|Bà} <Họ tên>, sinh {ngày|năm} <…>, số seri GCN <seri mới> nội dung: ¶ …"
+    }
+  },
+  "cau_nguon_goc_su_dung": {
+    "cong_thuc": "<Ông/Bà …> là người sử dụng đất theo Giấy chứng nhận số <seri cũ> do <cơ quan cấp> cấp ngày <…>",
+    "luu_y": "Có mẫu nối luôn mô tả thửa vào câu này, có mẫu để mẫu tự thêm ', nội dung:' — theo khuôn và khung_mau.txt, đừng viết trùng."
+  },
+  "cau_ket_luan_dieu_kien": {
+    "cong_thuc": "nhận {tặng cho | chuyển nhượng | thừa kế, tặng cho} là đủ điều kiện giải quyết",
+    "luu_y": "Nằm giữa câu cố định của mẫu — viết thường, không chấm câu. Có mẫu viết 'do nhận … là đủ điều kiện' — theo khuôn."
+  },
+  "ben_nhan_mo_ta_day_du": {
+    "cong_thuc": "{Ông/Bà} <Họ tên>, sinh {năm|ngày} <…>, {Căn cước|CCCD} số <…> do <nơi cấp> cấp ngày <…>, địa chỉ: <…>.",
+    "luu_y": "Dòng '2.1. Tên' của Phiếu chuyển. Mỗi người nhận một phiếu riêng (mảng cac_ben_nhan)."
+  },
+  "doi_tuong_mien_giam": {
+    "cong_thuc": "<căn cứ miễn giảm theo quan hệ giữa hai bên>, vd. 'bố mẹ tặng cho con'",
+    "luu_y": "Mục 'V. Đối tượng miễn giảm' của Phiếu chuyển. Tặng cho giữa người thân (bố mẹ – con, vợ – chồng, anh chị em ruột…) thì ghi đúng quan hệ đọc được trong hồ sơ. Chuyển nhượng, hoặc không có căn cứ, thì ghi false."
+  }
+}

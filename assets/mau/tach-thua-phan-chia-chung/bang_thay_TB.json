@@ -1,0 +1,15 @@
+{
+  "1. Bà Vương Thị Sửu số seri GCN AA 09288979 nội dung: + Thửa đất số 454, diện tích 261.0 m2 đất ở.Ghi chú: + Số tờ bản đồ, số thửa đất được xác định theo bản đồ Vlap+ Thửa đất này được tách ra từ thửa đất số 197, tờ bản đồ số 64 tại Giấy chứng nhận số AA 08305121, AA 08305122 do Chi nhánh Văn phòng đăng ký đất đai Quốc Oai cấp ngày 05/06/2026. + Thửa đất thuộc xã Cộng Hoà, huyện Quốc Oai, thành phố Hà Nội (cũ).2. Ông Nguyễn Khắc Châu số seri GCN AA 09288980 nội dung: + Thửa đất số 455, diện tích 260.8 m2 đất ở.Ghi chú: + Số tờ bản đồ, số thửa đất được xác định theo bản đồ Vlap+ Thửa đất này được tách ra từ thửa đất số 197, tờ bản đồ số 64 tại Giấy chứng nhận số AA 08305121, AA 08305122 do Chi nhánh Văn phòng đăng ký đất đai Quốc Oai cấp ngày 05/06/2026. + Thửa đất thuộc xã Cộng Hoà, huyện Quốc Oai, thành phố Hà Nội (cũ).": "cau_danh_sach_gcn_cap",
+
+  "gắn liền với đất số AA 08305121, AA 08305122 do Chi nhánh Văn phòng đăng ký đất đai Quốc Oai cấp ngày 05/06/2026 để quản lý theo quy định.": "gắn liền với đất số {{gcn_cu_so}} do {{gcn_cu_co_quan_cap}} cấp ngày {{gcn_cu_ngay_cap}} để quản lý theo quy định.",
+
+  "gửi kèm bản sao Giấy chứng nhận để UBND xã Hưng Đạo cập nhật hồ sơ địa chính theo quy định./.": "gửi kèm bản sao Giấy chứng nhận để UBND xã {{ubnd_xa_nhan}} cập nhật hồ sơ địa chính theo quy định./.",
+
+  "4. Văn bản gửi UBND xã Hưng Đạo cập nhật thông tin dữ liệu đất đai.": "4. Văn bản gửi UBND xã {{ubnd_xa_nhan}} cập nhật thông tin dữ liệu đất đai.",
+
+  "Kính gửi: UBND xã Hưng Đạo": "Kính gửi: UBND xã {{ubnd_xa_nhan}}",
+
+  "- MHS H26.103.25.19-260722-0057": "- MHS {{ma_ho_so}}",
+
+  "Nguyễn Thế Anh": "ten_giam_doc"
+}

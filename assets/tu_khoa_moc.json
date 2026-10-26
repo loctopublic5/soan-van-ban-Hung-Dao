@@ -1,0 +1,118 @@
+{
+  "_ghi_chu": "Từ khoá mỏ neo dùng cho scripts/loc_trang.js. CHỈ áp dụng được khi PDF có lớp văn bản thật. Hồ sơ scan thuần ảnh không dùng bảng này — xem references/loc-trang-truoc.md. So khớp sau khi bỏ dấu và viết hoa, nên viết có dấu hay không đều được.",
+  "_phien_ban": 1,
+  "_cap_nhat": "2026-09-09",
+  "moc": [
+    {
+      "ma": "don_dang_ky_bien_dong",
+      "ten": "Đơn đăng ký biến động đất đai",
+      "vi_sao": "Trục quyết định Trang 4 hay Cấp đổi — có ô 'có/không có nhu cầu cấp GCN mới'. Trang quan trọng nhất của cả bộ hồ sơ.",
+      "tu_khoa": [
+        "ĐƠN ĐĂNG KÝ BIẾN ĐỘNG",
+        "DANG KY BIEN DONG DAT DAI",
+        "NOI DUNG BIEN DONG"
+      ],
+      "keo_them": [
+        1
+      ]
+    },
+    {
+      "ma": "van_ban_cong_chung",
+      "ten": "Hợp đồng / văn bản công chứng",
+      "vi_sao": "Số hợp đồng, ngày công chứng, tên hai bên, giá chuyển nhượng — nguồn của phần lớn biến đơn.",
+      "tu_khoa": [
+        "HỢP ĐỒNG CHUYỂN NHƯỢNG",
+        "HỢP ĐỒNG TẶNG CHO",
+        "HỢP ĐỒNG THỪA KẾ",
+        "VĂN BẢN PHÂN CHIA DI SẢN",
+        "VĂN BẢN THỎA THUẬN PHÂN CHIA DI SẢN",
+        "VĂN BẢN KHAI NHẬN DI SẢN",
+        "ĐƠN ĐỀ NGHỊ TÁCH THỬA",
+        "ĐƠN ĐỀ NGHỊ HỢP THỬA"
+      ],
+      "keo_them": [
+        1,
+        2
+      ]
+    },
+    {
+      "ma": "loi_chung_cong_chung",
+      "ten": "Lời chứng của công chứng viên",
+      "vi_sao": "Số công chứng và ngày ký nằm ở đây khi trang đầu hợp đồng không ghi đủ.",
+      "tu_khoa": [
+        "LỜI CHỨNG CỦA CÔNG CHỨNG VIÊN",
+        "SỐ CÔNG CHỨNG",
+        "QUYỂN SỐ"
+      ],
+      "keo_them": []
+    },
+    {
+      "ma": "gcn_trang_1",
+      "ten": "Trang 1 Giấy chứng nhận",
+      "vi_sao": "Số phát hành GCN, số vào sổ cấp GCN, tên người sử dụng đất.",
+      "tu_khoa": [
+        "GIẤY CHỨNG NHẬN QUYỀN SỬ DỤNG ĐẤT",
+        "QUYỀN SỞ HỮU NHÀ Ở VÀ TÀI SẢN KHÁC GẮN LIỀN VỚI ĐẤT"
+      ],
+      "keo_them": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "ma": "gcn_trang_4",
+      "ten": "Trang 4 GCN — những thay đổi sau khi cấp",
+      "vi_sao": "Lịch sử biến động trước đó. Cảnh báo: mã hồ sơ ghi ở đây là mã của lần biến động TRƯỚC, không phải hồ sơ đang làm.",
+      "tu_khoa": [
+        "NHỮNG THAY ĐỔI SAU KHI CẤP GIẤY CHỨNG NHẬN",
+        "NOI DUNG THAY DOI VA CO SO PHAP LY"
+      ],
+      "keo_them": []
+    },
+    {
+      "ma": "to_khai_truoc_ba",
+      "ten": "Tờ khai lệ phí trước bạ",
+      "vi_sao": "Nguồn gốc tài sản, diện tích, giá trị — dùng đối chiếu chéo với hợp đồng.",
+      "tu_khoa": [
+        "TỜ KHAI LỆ PHÍ TRƯỚC BẠ",
+        "LE PHI TRUOC BA NHA DAT"
+      ],
+      "keo_them": []
+    },
+    {
+      "ma": "trich_do_thua_dat",
+      "ten": "Trích đo / trích lục thửa đất",
+      "vi_sao": "Số thửa, số tờ bản đồ, diện tích sau đo đạc — bắt buộc cho rổ cấp đổi và tách thửa.",
+      "tu_khoa": [
+        "TRÍCH ĐO ĐỊA CHÍNH",
+        "TRÍCH LỤC BẢN ĐỒ ĐỊA CHÍNH",
+        "SƠ ĐỒ THỬA ĐẤT"
+      ],
+      "keo_them": [
+        1
+      ]
+    }
+  ],
+  "loai_bo": {
+    "_ghi_chu": "Trang chắc chắn là rác. Chỉ loại khi trang KHÔNG đồng thời khớp một mốc ở trên.",
+    "tu_khoa": [
+      "PHIẾU TIẾP NHẬN VÀ HẸN TRẢ KẾT QUẢ",
+      "GIẤY BIÊN NHẬN HỒ SƠ",
+      "PHIẾU KIỂM SOÁT QUÁ TRÌNH GIẢI QUYẾT",
+      "SỔ HỘ KHẨU",
+      "GIẤY XÁC NHẬN TÌNH TRẠNG HÔN NHÂN"
+    ]
+  },
+  "nguong": {
+    "_ghi_chu": "Ngưỡng cho làn ảnh scan. Chỉnh ở đây, đừng sửa trong loc_trang.js. Mọi ngưỡng đều nghiêng về phía GIỮ trang: giữ nhầm một trang rác chỉ tốn thêm một ảnh nhỏ, bỏ nhầm một trang thật thì soạn văn bản bằng dữ liệu thiếu. Trang chỉ có một chữ ký hay một con dấu vẫn phải giữ, nên đừng nâng ti_le_muc_trang_trang lên nếu chưa xem chi_tiet_trang trong loc.json.",
+    "ky_tu_moi_trang_coi_la_co_lop_chu": 40,
+    "ti_le_muc_trang_trang": 0.008,
+    "khac_biet_van_tay_coi_la_trung": 2.0,
+    "le_cat_bo_khi_do_muc": 0.06,
+    "dpi_do_muc": 20,
+    "dpi_anh_nho": 45,
+    "toi_da_anh_nho": 30,
+    "_do_that": "Đo trên hồ sơ Chi nhánh (94 và 40 trang) ngày 2026-09-09: bản photo lặp lại của cùng một tờ cho khac_biet 0.06-0.92, còn hai trang KHÁC NHAU của cùng một biểu mẫu thấp nhất cũng 3.3. Ngưỡng cũ 6 loại nhầm 21/35 trang ở hồ sơ 94 trang — trang thật bị bỏ im lặng. 2.0 nằm giữa khoảng trống."
+  }
+}

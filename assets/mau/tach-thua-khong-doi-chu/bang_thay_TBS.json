@@ -1,0 +1,10 @@
+{
+  "- Thửa đất số 969, diện tích 89.1 m2 đất trồng cây lâu năm sử dụng làm lối đi chung của các thửa 970, 971, 972, 973.- Thửa đất số 970, diện tích 100.0 m2 đất ở.- Thửa đất số 971, diện tích 100.0 m2 đất ở.- Thửa đất số 972, diện tích 100.0 m2 đất ở.- Thửa đất số 973, diện tích 111.0 m2 đất ở.- Thửa đất số 974, diện tích 650.8 m2 (đất ở: 100.0 m2; đất trồng cây lâu năm: 550.8 m2).": "cau_cac_thua_sau_tach",
+  "Thửa đất số 36, tờ bản đồ số 121, diện tích 1150.9 m2 (đất ở: 511.0 m2; đất trồng cây lâu năm: 639.9 m2) được tách thành 06 thửa:": "cau_thua_cu_tach_thanh",
+  "từ số seri AA 09288730 đến số seri AA 09288734": "cau_seri_gcn_moi",
+  "Thửa đất số:     36": "Thửa đất số:     {{thua_cu_so}}",
+  "Tờ bản đồ số:  121": "Tờ bản đồ số:  {{thua_cu_to}}",
+  "bà Lê Thị Bằng": "chu_su_dung_mo_ta_ngan",
+  "CK 269116": "gcn_cu_so",
+  "CH 02623": "gcn_cu_so_vao_so"
+}

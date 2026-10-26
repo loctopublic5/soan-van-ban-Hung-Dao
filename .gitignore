@@ -1,0 +1,4 @@
+# Gói phát hành sinh bởi scripts/dong_goi.js — tải lên tài khoản Claude, không commit
+dist/
+# File khoá Word tạo ra khi đang mở một .docx (vd. ~$ONG_DAN_CAN_BO.docx)
+~$*
