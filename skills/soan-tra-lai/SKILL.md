@@ -66,9 +66,10 @@ Hay sai nhất:
   ngắn dạng 261007-0028). Không lấy mã in trong bản scan.
 - Không đọc chắc thì để rỗng — script đánh «CẦN ĐIỀN» đúng chỗ. Ngày ký, số văn bản để trống.
 
-`--can-bo "<tên>"` chọn cán bộ hợp đồng (Hải Yến / Thái) khi người dùng nói "cán bộ …". Mẫu
-trả lại theo bản đã ký **không có dòng cán bộ**, nên cờ này hiện chỉ có tác dụng với bộ BC-TB-PC
-— vẫn truyền khi người dùng nói, không sao.
+**Không có dòng cán bộ.** Thông báo trả lại giữ đúng bản gốc: chỉ Phó Giám đốc ký, không có
+cán bộ thụ lý hay cán bộ hợp đồng (người dùng chốt 27/10/2026). `--can-bo` là của Báo cáo
+(skill `soan-van-ban`) — không cần truyền khi soạn trả lại, và không thêm dòng cán bộ vào văn
+bản trả lại dù người dùng có nhắc tên cán bộ.
 
 ## Nhiều hồ sơ, nhiều dạng
 

@@ -20,7 +20,7 @@
   "_ghi_chu_nguoi_ky": "Tổ Hưng Đạo: mọi văn bản do Phó Giám đốc Tạ Khắc Minh ký thay Giám đốc (xác nhận 27/10/2026). Chức danh 'KT. GIÁM ĐỐC / PHÓ GIÁM ĐỐC' là chữ cố định trong mẫu, dòng Kính gửi của Báo cáo là 'Phó Giám đốc …' — đổi người ký cùng chức vụ thì chỉ sửa ten_nguoi_ky; đổi về Giám đốc ký thì phải sửa mẫu.",
 
   "can_bo_hop_dong_chon": ["Nguyễn Thị Hải Yến", "Ngô Quang Thái"],
-  "_ghi_chu_can_bo_hop_dong": "Tổ có hai cán bộ hợp đồng, mỗi hồ sơ một người — nên can_bo_hop_dong để rỗng ở trên và chọn theo câu lệnh: lam_ngay.js --can-bo \"Hải Yến\" (gõ một phần tên cũng được, không dấu cũng được; tên ngoài danh sách này bị từ chối để khỏi in nhầm tên). Không chọn thì ô đó thành «CẦN ĐIỀN». Thêm/bớt người thì sửa danh sách này.",
+  "_ghi_chu_can_bo_hop_dong": "Tổ có hai cán bộ hợp đồng, mỗi hồ sơ một người; chỉ Báo cáo (BC) có ô này — thông báo trả lại không có dòng cán bộ (chốt 27/10/2026). Vì vậy can_bo_hop_dong để rỗng ở trên và chọn theo câu lệnh: lam_ngay.js --can-bo \"Hải Yến\" (gõ một phần tên cũng được, không dấu cũng được; tên ngoài danh sách này bị từ chối để khỏi in nhầm tên). Không chọn thì ô đó thành «CẦN ĐIỀN». Thêm/bớt người thì sửa danh sách này.",
 
   "_co_the_khac_theo_ho_so": {
     "_ghi_chu": "Ba biến dưới thường cố định nhưng có hồ sơ đi lệch. Ghi đè bằng cách đặt thẳng giá trị vào ho_so.json — giá trị trong ho_so.json luôn thắng cấu hình.",
