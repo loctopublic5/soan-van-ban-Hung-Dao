@@ -1,0 +1,11 @@
+{
+  "+ Giấy chứng nhận này được cấp đổi từ Giấy chứng nhận số DA 968268 do Sở Tài nguyên và Môi trường thành phố Hà Nội cấp ngày 25/03/2021.": "cau_ghi_chu_cap_doi_tu",
+  "+ Thửa đất thuộc xã Phú Mãn, huyện Quốc Oai, thành phố Hà Nội (cũ).": "cau_ghi_chu_thua_thuoc",
+  "bà Trương Thị Huyền": "ben_nhan_mo_ta_ngan",
+  "AA 09288766": "gcn_moi_so",
+  "UBND xã Phú Cát": "ubnd_xa_nhan",
+  "H26.103.25.19-260629-0010": "ma_ho_so",
+  "Nguyễn Thế Anh": "ten_nguoi_ky",
+  "Thông tư số 10/2014/TT-BTNMT": "=Thông tư số 10/2024/TT-BTNMT",
+  "@sau {{cau_ghi_chu_thua_thuoc}}": "[[?cau_ghi_chu_tai_san_rieng]]{{cau_ghi_chu_tai_san_rieng}}"
+}

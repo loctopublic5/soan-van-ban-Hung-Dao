@@ -1,0 +1,15 @@
+{
+  "Xã Hưng Đạo, thành phố Hà Nội": "dia_chi_nguoi_de_nghi",
+  "GIÁM ĐỐC": "=KT. GIÁM ĐỐC",
+  "@sau KT. GIÁM ĐỐC": "PHÓ GIÁM ĐỐC",
+  "Nguyễn Thế Anh": "ten_nguoi_ky",
+  "Ông Vương Sỹ Tấn": "nguoi_de_nghi_viet_hoa",
+  "ông Vương Sỹ Tấn": "nguoi_de_nghi",
+  "261001-0001": "ma_ho_so",
+  "21/9/2026": "ngay_thong_bao_truoc",
+  "3600/TB-CNQO": "{{so_thong_bao_truoc}}/TB-CNQO",
+  "Công ty cổ phần cổ phần đo đạc và bản đồ số 1 Quốc Oai": "don_vi_do_ve",
+  "28/7/2026": "ngay_lap_trich_do",
+  "2, 1, 11, 10, 9, 8, 7, 6, 5, 4": "cac_diem_sai",
+  "đề nghị ông liên hệ": "đề nghị {{xung_ho}} liên hệ"
+}

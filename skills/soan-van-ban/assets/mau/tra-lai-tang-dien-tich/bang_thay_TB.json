@@ -1,0 +1,12 @@
+{
+  "Xã Hưng Đạo, thành phố Hà Nội": "dia_chi_nguoi_de_nghi",
+  "xã Hưng Đạo": "xã {{ten_xa}}",
+  "GIÁM ĐỐC": "=KT. GIÁM ĐỐC",
+  "@sau KT. GIÁM ĐỐC": "PHÓ GIÁM ĐỐC",
+  "Nguyễn Thế Anh": "ten_nguoi_ky",
+  "Bà Nguyễn Thị Hà": "nguoi_de_nghi_viet_hoa",
+  "bà Nguyễn Thị Hà": "nguoi_de_nghi",
+  "260928-0044": "ma_ho_so",
+  "Ngày 04/8/2011 UBND huyện Quốc Oai cấp Giấy chứng nhận số BG 894195 chủ sử dụng đất ông Nguyễn Trọng Lai và bà Cao Thị Thảo, thửa đất số 50.1, tờ bản đồ 01, diện tích 74 m2": "Ngày {{gcn_ngay_cap}} {{gcn_co_quan_cap}} cấp Giấy chứng nhận số {{gcn_so}} chủ sử dụng đất {{gcn_chu_su_dung}}, thửa đất số {{gcn_thua_so}}, tờ bản đồ {{gcn_to_ban_do}}, diện tích {{gcn_dien_tich}} m2",
+  "thửa đất số 411, tờ bản đồ 57, diện tích 75.0 m2 tăng so với Giấy chứng nhận 1.0 m2": "thửa đất số {{csdl_thua_so}}, tờ bản đồ {{csdl_to_ban_do}}, diện tích {{csdl_dien_tich}} m2 tăng so với Giấy chứng nhận {{dien_tich_tang}} m2"
+}

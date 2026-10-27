@@ -11,7 +11,7 @@ if errorlevel 1 (
   exit /b 1
 )
 
-node scripts\dong_goi.js
+node skills\soan-van-ban\scripts\dong_goi.js
 if errorlevel 1 (
   echo.
   echo CHUA DONG GOI DUOC - xem loi o tren. Khong tai gi len.
@@ -22,6 +22,7 @@ if errorlevel 1 (
 start "" "%~dp0dist"
 start "" "https://claude.ai/customize/skills"
 echo.
-echo Da mo thu muc dist va trang Skills.
-echo Tai file .zip len vao DUNG skill soan-van-ban-hung-dao - khong xoa roi them lai.
+echo Da mo thu muc dist va trang Customize.
+echo Tai dist\soan-van-ban-hung-dao.zip len muc Plugins - plugin gom 2 skill soan-van-ban va soan-tra-lai.
+echo Tai khoan chua co muc Plugins thi tai dist\skill-le\soan-van-ban.zip len muc Skills.
 pause

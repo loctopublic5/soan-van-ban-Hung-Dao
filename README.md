@@ -1,14 +1,40 @@
-# Bộ tài nguyên skill `soan-van-ban-hung-dao`
+# Plugin `soan-van-ban-hung-dao`
 
-Đặt tại `C:\Users\Admin\Desktop\Claude\soan-van-ban-hung-dao\` (hoặc cạnh dữ liệu hồ sơ).
+Bản dành cho **tổ Hưng Đạo** — Chi nhánh VPĐKĐĐ Quốc Oai, tách từ skill
+`soan-van-ban-ho-so-dat-dai` (repo skill-soan-bao-cao) ngày 26/10/2026. Đặt tại
+`C:\Users\Admin\Desktop\Claude\soan-van-ban-hung-dao\`.
+
+Một plugin, hai skill:
+
+| Skill | Gọi | Làm gì |
+|---|---|---|
+| `soan-van-ban` | `/soan-van-ban`, "soạn báo cáo / thông báo / phiếu chuyển…" | bộ BC-TB-PC trình ký (7 bộ mẫu) |
+| `soan-tra-lai` | `/soan-tra-lai`, "trả lại hồ sơ…" | thông báo trả lại hồ sơ (10 dạng), tên gọi luôn "trả lại <dạng>" |
+
+`soan-tra-lai` chỉ có SKILL.md; script, mẫu, cấu hình nằm chung trong `skills\soan-van-ban\`.
+Mẫu trả lại là các bộ mẫu `"nhom": "tra-lai"` trong `ban_do_ro_mau.json`, thư mục
+`assets\mau\tra-lai-*\`, bản gốc ở `assets\nguon_da_ky\tra-lai-*\`.
+
+Khác bản Quốc Oai gốc (27/10/2026): mọi văn bản do **KT. Giám đốc — Phó Giám đốc Tạ Khắc
+Minh** ký (biến `ten_nguoi_ky`, Báo cáo "Kính gửi: Phó Giám đốc …"); cán bộ thụ lý Nguyễn
+Quốc Đạt; cán bộ hợp đồng chọn theo lệnh `--can-bo` (Nguyễn Thị Hải Yến / Ngô Quang Thái);
+tiêu đề đời mới `CHI NHÁNH VPĐKĐĐ QUỐC OAI` · `/TB-CNQO`. Lô nhiều mẫu:
+`lam_ngay.js --vao <lô> --theo-thu-muc` (mỗi thư mục con mang tên mẫu).
+
+Lệnh trong README này chạy từ `skills\soan-van-ban\`. Phát hành: `PHAT_HANH.bat` ở gốc →
+`dist\soan-van-ban-hung-dao.zip` (plugin) và `dist\skill-le\soan-van-ban.zip` (dự phòng).
 
 `SKILL.md` chỉ giữ khung điều phối. Nghiệp vụ chi tiết nằm trong `references\`, và chỉ
 được đọc khi thật sự cần — nhờ vậy mỗi lần gọi skill không phải nạp cả cuốn tài liệu.
 
 ```
 soan-van-ban-hung-dao\
-├── SKILL.md                       ← khung điều phối; bản chuẩn nằm trong tài khoản Claude
+├── .claude-plugin\plugin.json     ← khai báo plugin
+├── PHAT_HANH.bat                  ← kiểm + đóng gói plugin
 ├── README.md                      ← file này
+├── skills\soan-tra-lai\SKILL.md   ← skill trả lại hồ sơ (dùng chung mọi thứ bên dưới)
+└── skills\soan-van-ban\           ← skill BC-TB-PC + toàn bộ script, mẫu, cấu hình:
+├── SKILL.md                       ← khung điều phối; bản chuẩn nằm trong tài khoản Claude
 ├── HUONG_DAN_CAN_BO.html          ← cẩm nang cho cán bộ: câu lệnh, tên mẫu, chạy hàng loạt
 ├── HUONG_DAN_CAN_BO.docx          ← bản in của cẩm nang — sinh bằng: node xuat_huong_dan.js
 ├── xuat_huong_dan.js              ← xuất cẩm nang .html → .docx qua Word (không vào gói skill)
@@ -40,9 +66,9 @@ soan-van-ban-hung-dao\
     ├── ban_do_ro_mau.json         ← rổ nào dùng bộ mẫu nào
     ├── tu_khoa_moc.json           ← từ khoá mỏ neo + ngưỡng lọc trang
     ├── nguon_bien.json            ← biến nào thuộc tầng nào (bản máy đọc của bien-so.md)
-    ├── cau_hinh_chi_nhanh.json    ← tên giám đốc, cán bộ, cơ quan thuế — SỬA KHI ĐỔI
+    ├── cau_hinh_chi_nhanh.json    ← người ký, cán bộ (danh sách cán bộ hợp đồng), cơ quan thuế — SỬA KHI ĐỔI
     ├── cong_thuc_cau.json         ← lưu ý chung cho ô tự viết câu + khuôn viết tay
-    └── mau\                       ← 7 bộ mẫu, 17 file .docx
+    └── mau\                       ← 7 bộ BC-TB-PC (17 file) + 10 dạng trả lại (tra-lai-*\)
         ├── chung\                 ← PC phiếu chuyển thuế, dùng chung nhiều rổ
         ├── giao-dich-trang-4\     ← chuyển nhượng / tặng cho / thừa kế, ghi trang 4
         ├── giao-dich-cap-doi\     ← ba loại trên nhưng cấp GCN mới
@@ -96,7 +122,7 @@ Mỗi lần sửa xong:
 
 ```bash
 git commit -am "..."            # để phiên bản ứng với một commit, dễ truy khi có lỗi
-node scripts/dong_goi.js        # kiểm toàn bộ rồi đóng thành dist/soan-van-ban-hung-dao.zip
+node scripts/dong_goi.js        # kiểm toàn bộ rồi đóng dist/soan-van-ban-hung-dao.zip (plugin) + dist/skill-le/soan-van-ban.zip
 ```
 
 Hoặc bấm đúp `PHAT_HANH.bat` — nó đóng gói, rồi mở sẵn thư mục `dist` và trang Skills.

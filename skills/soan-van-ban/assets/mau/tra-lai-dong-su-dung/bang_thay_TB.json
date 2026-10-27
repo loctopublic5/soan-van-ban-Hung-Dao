@@ -1,0 +1,17 @@
+{
+  "CHI NHÁNH HUYỆN QUỐC OAI": "=CHI NHÁNH VPĐKĐĐ QUỐC OAI",
+  "/TB-CNHQO": "=/TB-CNQO",
+  "tháng         năm 2025": "=tháng         năm 2026",
+  "Chi nhánh Văn phòng Đăng ký Đất đai Hà Nội huyện Quốc Oai": "=Chi nhánh Văn phòng Đăng ký Đất đai Quốc Oai",
+  "Chi nhánh Văn phòng đăng ký đất đai Hà Nội huyện Quốc Oai": "=Chi nhánh Văn phòng đăng ký đất đai Quốc Oai",
+  "Xã Hưng Đạo, thành phố Hà Nội": "dia_chi_nguoi_de_nghi",
+  "GIÁM ĐỐC": "=KT. GIÁM ĐỐC",
+  "@sau KT. GIÁM ĐỐC": "PHÓ GIÁM ĐỐC",
+  "Nguyễn Thế Anh": "ten_nguoi_ky",
+  "Ông Nguyễn Đình Thế và bà Nguyễn Thị Đào": "nguoi_de_nghi_viet_hoa",
+  "ông Nguyễn Đình Thế và bà Nguyễn Thị Đào": "nguoi_de_nghi",
+  "chuyển nhượng quyền sử dụng đất. Mã HS: 251006-0023": "{{thu_tuc}}. Mã HS: {{ma_ho_so}}",
+  "hợp đồng chuyển nhượng quyền sử dụng đất số 06408/2025/CCGD do Văn phòng công chứng Bùi Hữu Dũng thành phố Hà Nội công chứng ngày 24/9/2025": "{{hop_dong_ten}} số {{hop_dong_so}} do {{hop_dong_vpcc}} công chứng ngày {{hop_dong_ngay}}",
+  "Bà Phạm Thị Phượng chuyển nhượng cho": "{{ben_chuyen}} {{giao_dich}} cho",
+  "thửa đất số 85, tờ 17, diện tích 70.0 m2": "thửa đất số {{thua_so}}, tờ {{to_ban_do}}, diện tích {{dien_tich}} m2"
+}

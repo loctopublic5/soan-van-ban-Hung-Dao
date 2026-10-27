@@ -1,0 +1,463 @@
+{
+  "_ghi_chu": "Ánh xạ từ rổ dữ liệu của skill phan-loai-ho-so-dat-dai sang bộ văn bản đầu ra. Sửa file này khi bổ sung mẫu mới; không cần sửa SKILL.md.",
+  "_phien_ban": 3,
+  "_cap_nhat": "2026-09-15",
+  "_ten_goi_khac": "Tên cán bộ quen gọi, để lam_ngay.js --bo-mau nhận ra. Tên rổ trong ro_dung_bo_mau cũng tự được nhận, không cần chép vào đây. Tên gọi thiếu ý (\"cấp đổi\", \"tách thửa\", \"tặng cho\", \"thừa kế\") cố ý khớp nhiều bộ mẫu để script hỏi lại. Bảng tên gọi trong HUONG_DAN_CAN_BO lấy từ đây — sửa ở đây thì sửa cả bảng đó.",
+  "_tra_lai": "DANH MỤC TRẢ LẠI HỒ SƠ = các bộ mẫu có \"nhom\": \"tra-lai\" (skill soan-tra-lai). Mỗi dạng một văn bản gửi người đề nghị (riêng GCN cấp sai là công văn xin ý kiến UBND xã). Tên gọi LUÔN bắt đầu bằng \"trả lại\" — lam_ngay.js chỉ chọn mẫu trả lại khi có chữ đó, và chỉ chọn bộ BC-TB-PC khi không có. Lý do trả lại là quyết định của cán bộ, không suy ra từ bản scan: người dùng không nói dạng thì hỏi, không đoán. Bản gốc (văn bản tổ Hưng Đạo gửi 27/10/2026) ở assets/nguon_da_ky/<mã dạng>/.",
+  "bo_mau": {
+    "giao-dich-trang-4": {
+      "ten": "Giao dịch chuyển quyền, ghi biến động lên trang 4 GCN cũ",
+      "ten_goi_khac": [
+        "trang 4",
+        "chuyển nhượng trang 4",
+        "tặng cho trang 4",
+        "thừa kế trang 4",
+        "thừa kế, tặng cho trang 4",
+        "giao dịch trang 4"
+      ],
+      "nguon_goc": "C:\\Users\\Admin\\Desktop\\tEST\\Mẫu báo cáo\\Chuyển nhượng trang 4 (chuyển nhượng) và Thừa kế, tặng cho trang 4 (tặng cho/thừa kế)",
+      "van_ban": [
+        {
+          "ma": "BC",
+          "ten": "Báo cáo thẩm tra và đề xuất",
+          "mau": "mau/giao-dich-trang-4/BC-tham-tra.docx",
+          "gui": "Phó Giám đốc"
+        },
+        {
+          "ma": "TB",
+          "ten": "Thông báo cập nhật hồ sơ địa chính",
+          "mau": "mau/giao-dich-trang-4/TB-cap-nhat.docx",
+          "gui": "UBND xã"
+        },
+        {
+          "ma": "PC",
+          "ten": "Phiếu chuyển thông tin xác định nghĩa vụ tài chính",
+          "mau": "mau/chung/PC-nghia-vu-tai-chinh.docx",
+          "gui": "Cơ quan thuế"
+        }
+      ]
+    },
+    "giao-dich-cap-doi": {
+      "ten": "Giao dịch chuyển quyền, cấp GCN mới cho bên nhận",
+      "ten_goi_khac": [
+        "chuyển nhượng cấp đổi",
+        "tặng cho cấp đổi",
+        "thừa kế cấp đổi",
+        "thừa kế, tặng cho cấp đổi",
+        "giao dịch cấp đổi",
+        "chuyển nhượng cấp mới",
+        "tặng cho cấp mới",
+        "thừa kế cấp mới",
+        "giao dịch cấp mới"
+      ],
+      "nguon_goc": "C:\\Users\\Admin\\Desktop\\tEST\\Mẫu báo cáo\\Chuyển nhượng cấp đổi (chuyển nhượng) và Thừa kế, tặng cho cấp đổi (tặng cho/thừa kế)",
+      "van_ban": [
+        {
+          "ma": "BC",
+          "ten": "Báo cáo thẩm tra và đề xuất",
+          "mau": "mau/giao-dich-cap-doi/BC-tham-tra.docx",
+          "gui": "Phó Giám đốc"
+        },
+        {
+          "ma": "TB",
+          "ten": "Thông báo cấp GCN mới",
+          "mau": "mau/giao-dich-cap-doi/TB-cap-nhat.docx",
+          "gui": "UBND xã"
+        },
+        {
+          "ma": "PC",
+          "ten": "Phiếu chuyển thông tin xác định nghĩa vụ tài chính",
+          "mau": "mau/chung/PC-nghia-vu-tai-chinh.docx",
+          "gui": "Cơ quan thuế"
+        }
+      ]
+    },
+    "cap-doi-gcn": {
+      "ten": "Cấp đổi GCN không kèm chuyển quyền",
+      "ten_goi_khac": [
+        "cấp đổi giấy chứng nhận",
+        "cấp đổi GCN",
+        "cấp đổi đo đạc lại",
+        "cấp đổi do đo đạc lại"
+      ],
+      "nguon_goc": "C:\\Users\\Admin\\Desktop\\tEST\\Mẫu báo cáo\\Cấp đổi",
+      "van_ban": [
+        {
+          "ma": "BC-TD",
+          "ten": "Báo cáo kết quả thẩm tra, ký duyệt mảnh trích đo",
+          "mau": "mau/cap-doi-gcn/BC-ky-duyet-trich-do.docx",
+          "gui": "Phó Giám đốc",
+          "buoc": 1
+        },
+        {
+          "ma": "BC",
+          "ten": "Báo cáo thẩm tra và đề xuất cấp đổi",
+          "mau": "mau/cap-doi-gcn/BC-tham-tra.docx",
+          "gui": "Phó Giám đốc",
+          "buoc": 2
+        },
+        {
+          "ma": "TB",
+          "ten": "Thông báo cập nhật hồ sơ địa chính",
+          "mau": "mau/cap-doi-gcn/TB-cap-nhat.docx",
+          "gui": "UBND xã",
+          "buoc": 3
+        }
+      ]
+    },
+    "tach-thua-khong-doi-chu": {
+      "ten": "Tách thửa, chủ sử dụng giữ nguyên",
+      "ten_goi_khac": [
+        "tách thửa không đổi chủ",
+        "tách thửa không thay đổi chủ",
+        "tách thửa không phát sinh chủ",
+        "tách thửa giữ nguyên chủ"
+      ],
+      "nguon_goc": "C:\\Users\\Admin\\Desktop\\tEST\\Mẫu báo cáo\\Tách thửa không phát sinh chủ",
+      "van_ban": [
+        {
+          "ma": "BC",
+          "ten": "Báo cáo thẩm tra và đề xuất tách thửa",
+          "mau": "mau/tach-thua-khong-doi-chu/BC-tham-tra.docx",
+          "gui": "Phó Giám đốc"
+        },
+        {
+          "ma": "TB",
+          "ten": "Thông báo cấp GCN cho các thửa sau tách",
+          "mau": "mau/tach-thua-khong-doi-chu/TB-cap-gcn.docx",
+          "gui": "UBND xã"
+        },
+        {
+          "ma": "TBS",
+          "ten": "Trang bổ sung Giấy chứng nhận",
+          "mau": "mau/tach-thua-khong-doi-chu/Trang-bo-sung.docx",
+          "gui": "Kèm GCN"
+        }
+      ]
+    },
+    "tach-thua-phat-sinh-chu": {
+      "ten": "Tách thửa làm phát sinh chủ sử dụng mới",
+      "ten_goi_khac": [
+        "tách thửa tặng cho",
+        "tách thửa chuyển nhượng",
+        "tách thửa phát sinh chủ"
+      ],
+      "nguon_goc": "C:\\Users\\Admin\\Desktop\\tEST\\Mẫu báo cáo\\Tách thửa phát sinh chủ",
+      "mot_mau_hai_truong_hop": "Dùng chung cho tách thửa TẶNG CHO và tách thửa CHUYỂN NHƯỢNG. Đã đối chiếu hai bản đã ký (Mẫu báo cáo\\Tách thửa, tặng cho và …\\Tách thửa, chuyển nhượng, 14/09/2026): giống nhau từng đoạn, chỉ khác chữ 'tặng cho'/'chuyển nhượng' ở trích yếu, câu mở đầu và câu kết luận — ba chỗ đó đã là biến {{loai_giao_dich}} và {{cau_ket_luan_dieu_kien}}. Đọc hợp đồng trong hồ sơ để ghi đúng loai_giao_dich; không cần tách thành hai bộ mẫu. Bản chuyển nhượng bán hết cả thửa nên không có dòng 'Diện tích còn lại' — ghi cau_dien_tich_con_lai = false.",
+      "van_ban": [
+        {
+          "ma": "BC",
+          "ten": "Báo cáo thẩm tra và đề xuất tách thửa kèm chuyển quyền",
+          "mau": "mau/tach-thua-phat-sinh-chu/BC-tham-tra.docx",
+          "gui": "Phó Giám đốc"
+        },
+        {
+          "ma": "TB",
+          "ten": "Thông báo cấp GCN cho từng chủ",
+          "mau": "mau/tach-thua-phat-sinh-chu/TB-cap-gcn.docx",
+          "gui": "UBND xã"
+        },
+        {
+          "ma": "PC",
+          "ten": "Phiếu chuyển thông tin xác định nghĩa vụ tài chính — MỘT phiếu cho mỗi thửa nhận theo hợp đồng (người cùng nhận một thửa: chung một phiếu)",
+          "mau": "mau/chung/PC-nghia-vu-tai-chinh.docx",
+          "gui": "Cơ quan thuế",
+          "lap_lai": "cac_ben_nhan",
+          "lap_lai_bien": [
+            "hau_to",
+            "ben_nhan_mo_ta_day_du",
+            "thua_cu_so",
+            "dien_tich_thua",
+            "dien_tich_su_dung_rieng",
+            "gia_tri_theo_hop_dong",
+            "doi_tuong_mien_giam",
+            "so_dien_thoai"
+          ],
+          "lap_lai_ghi_chu": "MỖI THỬA nhận theo hợp đồng một phiếu. Đối chiếu bản đã ký: tách thửa chuyển nhượng cho 2 người mua 2 thửa có 2 phiếu (PC 550, PC 551), khác nhau đúng dòng '2.1. Tên' và số thửa; tặng cho 1 người có 1 phiếu. Nhiều người CÙNG NHẬN một thửa (vợ chồng, người đồng nhận) kê khai lệ phí trước bạ, thuế TNCN chung một tờ khai, mỗi người một dòng tỷ lệ — nên chung MỘT phiếu, mục 2.1 ghi đủ các người (sửa 09/2026; trước đó mỗi người một phiếu). 'hau_to' là tên người nhận — ra 'PC <tên>.docx'; phiếu chung thì đủ tên, ngăn bằng dấu phẩy. Người giữ lại phần còn lại KHÔNG có phiếu (không phát sinh nghĩa vụ). gia_tri_theo_hop_dong: tặng cho ghi 0, chuyển nhượng ghi đúng giá của hợp đồng người đó."
+        }
+      ]
+    },
+    "tach-thua-phan-chia-chung": {
+      "ten": "Tách thửa để phân chia tài sản chung — mỗi đồng sở hữu nhận một thửa",
+      "ten_goi_khac": [
+        "tách thửa phân chia tài sản chung",
+        "tách thửa phân chia chung",
+        "tách thửa chia tài sản chung",
+        "phân chia tài sản chung"
+      ],
+      "nguon_goc": "C:\\Users\\Admin\\Desktop\\tEST\\Mẫu báo cáo\\Tách thửa cho 2 người, cần đến 2 pc (một hồ sơ vợ chồng tách thửa chia đôi, hai Phiếu chuyển)",
+      "khac_gi_tach_thua_phat_sinh_chu": "Ở tach-thua-phat-sinh-chu, một bên chuyển quyền cho một bên khác nên chỉ MỘT người phát sinh nghĩa vụ tài chính, một Phiếu chuyển. Ở đây các đồng sở hữu chia đôi tài sản chung theo Văn bản thỏa thuận phân chia tài sản chung, MỖI NGƯỜI nhận một thửa và tự nộp thuế trên thửa của mình — nên phải có một Phiếu chuyển cho mỗi người, và Báo cáo phải nêu đủ thông tin GCN cấp mới cho từng người.",
+      "ghi_chu": "Mẫu sinh từ bản đã ký, nguồn .docx lưu ở assets/nguon_da_ky/tach-thua-phan-chia-chung/ (bản gốc là .doc Word 97-2003, đã chuyển sang .docx). Nghiệm thu 11/09/2026: mở được bằng Word 2016, cả 4 văn bản của hồ sơ gốc.",
+      "van_ban": [
+        {
+          "ma": "BC",
+          "ten": "Báo cáo thẩm tra và đề xuất tách thửa, phân chia tài sản chung",
+          "mau": "mau/tach-thua-phan-chia-chung/BC-tham-tra.docx",
+          "gui": "Phó Giám đốc"
+        },
+        {
+          "ma": "TB",
+          "ten": "Thông báo cấp GCN cho từng đồng sở hữu",
+          "mau": "mau/tach-thua-phan-chia-chung/TB-cap-gcn.docx",
+          "gui": "UBND xã"
+        },
+        {
+          "ma": "PC",
+          "ten": "Phiếu chuyển thông tin xác định nghĩa vụ tài chính — MỘT phiếu cho mỗi người nhận",
+          "mau": "mau/chung/PC-nghia-vu-tai-chinh.docx",
+          "gui": "Cơ quan thuế",
+          "lap_lai": "cac_ben_nhan",
+          "lap_lai_bien": [
+            "hau_to",
+            "ben_nhan_mo_ta_day_du",
+            "thua_cu_so",
+            "dien_tich_thua",
+            "dien_tich_su_dung_rieng",
+            "so_dien_thoai"
+          ],
+          "lap_lai_ghi_chu": "Đo trên hai Phiếu chuyển thật (PC 454 và PC 455 cùng một hồ sơ): chỉ đúng những chỗ này khác nhau, còn lại dùng chung. 'hau_to' là TÊN NGƯỜI mà phiếu lập cho — hau_to='Nguyễn Văn A' cho ra 'PC Nguyễn Văn A.docx'. Đặt theo người chứ không theo số thửa vì câu đầu tiên phải trả lời khi nhìn hai phiếu trong cùng thư mục là 'phiếu này của ai'; mã hồ sơ đã có ở tên thư mục cha. 'thua_cu_so' ở Phiếu chuyển ghi dạng '197-1 (thửa mới 454)', không phải số thửa trần."
+        }
+      ]
+    },
+    "hop-thua": {
+      "ten": "Hợp nhiều thửa cùng chủ thành một thửa",
+      "ten_goi_khac": [
+        "hợp thửa",
+        "hợp thửa đất"
+      ],
+      "nguon_goc": "C:\\Users\\Admin\\Desktop\\tEST\\Mẫu báo cáo\\hợp thửa",
+      "van_ban": [
+        {
+          "ma": "BC",
+          "ten": "Báo cáo thẩm tra và đề xuất hợp thửa",
+          "mau": "mau/hop-thua/BC-tham-tra.docx",
+          "gui": "Phó Giám đốc"
+        },
+        {
+          "ma": "TB",
+          "ten": "Thông báo cấp GCN sau hợp thửa",
+          "mau": "mau/hop-thua/TB-cap-gcn.docx",
+          "gui": "UBND xã"
+        }
+      ]
+    },
+    "tra-lai-cham-lu": {
+      "nhom": "tra-lai",
+      "ten": "Trả lại — tách thửa vướng quy hoạch phòng, chống lũ và đê điều (sông Đáy)",
+      "ten_goi_khac": ["trả lại chậm lũ", "trả lại phòng chống lũ", "trả lại đê điều", "trả lại vùng chậm lũ"],
+      "nguon_goc": "C:\\Users\\Admin\\Desktop\\Claude\\Các dạng hồ sơ trả lại\\Chậm lũ.docx",
+      "van_ban": [{ "ma": "TB-TL", "ten": "Thông báo hồ sơ chưa đủ điều kiện giải quyết", "mau": "mau/tra-lai-cham-lu/TB-tra-lai.docx", "gui": "Người đề nghị" }]
+    },
+    "tra-lai-cap-doi": {
+      "nhom": "tra-lai",
+      "ten": "Trả lại — xã đã đo vẽ bản đồ địa chính, phải đăng ký biến động đồng thời cấp đổi GCN",
+      "ten_goi_khac": ["trả lại cấp đổi", "trả lại chưa cấp đổi", "trả lại không nhu cầu cấp mới"],
+      "nguon_goc": "C:\\Users\\Admin\\Desktop\\Claude\\Các dạng hồ sơ trả lại\\Cấp đổi.docx",
+      "van_ban": [{ "ma": "TB-TL", "ten": "Thông báo hồ sơ chưa đủ điều kiện giải quyết", "mau": "mau/tra-lai-cap-doi/TB-tra-lai.docx", "gui": "Người đề nghị" }]
+    },
+    "tra-lai-huy-dang-ky": {
+      "nhom": "tra-lai",
+      "ten": "Trả lại — xin hủy nội dung đăng ký biến động mà chưa có bản án/quyết định làm căn cứ",
+      "ten_goi_khac": ["trả lại hủy đăng ký", "trả lại hủy biến động", "trả lại hủy nội dung đăng ký biến động"],
+      "nguon_goc": "C:\\Users\\Admin\\Desktop\\Claude\\Các dạng hồ sơ trả lại\\Hủy nội dung đăng ký biến động.docx",
+      "van_ban": [{ "ma": "TB-TL", "ten": "Thông báo hồ sơ chưa đủ điều kiện giải quyết", "mau": "mau/tra-lai-huy-dang-ky/TB-tra-lai.docx", "gui": "Người đề nghị" }]
+    },
+    "tra-lai-quy-hoach": {
+      "nhom": "tra-lai",
+      "ten": "Trả lại — quy hoạch",
+      "ten_goi_khac": ["trả lại quy hoạch"],
+      "nguon_goc": "C:\\Users\\Admin\\Desktop\\Claude\\Các dạng hồ sơ trả lại\\Quy hoạch.docx",
+      "canh_bao": "Bản gốc 'Quy hoạch.docx' có nội dung GIỐNG HỆT mẫu 'trả lại hủy đăng ký' (lý do: xin hủy nội dung đăng ký biến động). Người dùng dặn cứ dùng (27/10/2026) — đọc lại lý do trong văn bản ra trước khi trình ký; có bản quy hoạch thật thì thay mẫu này.",
+      "van_ban": [{ "ma": "TB-TL", "ten": "Thông báo hồ sơ chưa đủ điều kiện giải quyết", "mau": "mau/tra-lai-quy-hoach/TB-tra-lai.docx", "gui": "Người đề nghị" }]
+    },
+    "tra-lai-sai-hien-trang": {
+      "nhom": "tra-lai",
+      "ten": "Trả lại — chưa hoàn thiện bản vẽ trích đo sai hiện trạng theo thông báo trước",
+      "ten_goi_khac": ["trả lại sai hiện trạng", "trả lại bản vẽ sai hiện trạng", "trả lại trích đo sai"],
+      "nguon_goc": "C:\\Users\\Admin\\Desktop\\Claude\\Các dạng hồ sơ trả lại\\Sai hiện trạng.docx",
+      "van_ban": [{ "ma": "TB-TL", "ten": "Thông báo hồ sơ chưa đủ điều kiện giải quyết", "mau": "mau/tra-lai-sai-hien-trang/TB-tra-lai.docx", "gui": "Người đề nghị" }]
+    },
+    "tra-lai-515": {
+      "nhom": "tra-lai",
+      "ten": "Trả lại 515 — đất nông nghiệp chưa đo đạc bản đồ địa chính, phối hợp xã xác định mốc giới rồi cấp đổi",
+      "ten_goi_khac": ["trả lại 515", "trả lại chưa đo đạc", "trả lại chưa đo đạc bản đồ địa chính", "trả lại đất nông nghiệp chưa đo đạc"],
+      "nguon_goc": "C:\\Users\\Admin\\Desktop\\Claude\\Các dạng hồ sơ trả lại\\Trả lại 515.docx",
+      "van_ban": [{ "ma": "TB-TL", "ten": "Thông báo hồ sơ chưa đủ điều kiện giải quyết", "mau": "mau/tra-lai-515/TB-tra-lai.docx", "gui": "Người đề nghị" }]
+    },
+    "tra-lai-tang-dien-tich": {
+      "nhom": "tra-lai",
+      "ten": "Trả lại — diện tích tăng so với GCN, thuộc thẩm quyền UBND xã công nhận phần tăng thêm",
+      "ten_goi_khac": ["trả lại tăng diện tích", "trả lại diện tích tăng thêm"],
+      "nguon_goc": "C:\\Users\\Admin\\Desktop\\Claude\\Các dạng hồ sơ trả lại\\Tăng diện tích.docx",
+      "van_ban": [{ "ma": "TB-TL", "ten": "Thông báo hồ sơ chưa đủ điều kiện giải quyết", "mau": "mau/tra-lai-tang-dien-tich/TB-tra-lai.docx", "gui": "Người đề nghị" }]
+    },
+    "tra-lai-vi-pham": {
+      "nhom": "tra-lai",
+      "ten": "Trả lại — đất sử dụng sai mục đích, phải xử lý vi phạm trước khi chuyển quyền",
+      "ten_goi_khac": ["trả lại vi phạm", "trả lại vi phạm đất đai", "trả lại sai mục đích"],
+      "nguon_goc": "C:\\Users\\Admin\\Desktop\\Claude\\Các dạng hồ sơ trả lại\\Vi phạm đất đai.docx",
+      "van_ban": [{ "ma": "TB-TL", "ten": "Thông báo hồ sơ chưa đủ điều kiện giải quyết", "mau": "mau/tra-lai-vi-pham/TB-tra-lai.docx", "gui": "Người đề nghị" }]
+    },
+    "tra-lai-dong-su-dung": {
+      "nhom": "tra-lai",
+      "ten": "Trả lại — đồng sử dụng, thiếu văn bản cử người đại diện giữ GCN",
+      "ten_goi_khac": ["trả lại đồng sử dụng", "trả lại người đại diện", "trả lại cử người đại diện"],
+      "nguon_goc": "C:\\Users\\Admin\\Desktop\\Claude\\Các dạng hồ sơ trả lại\\Đồng sử dụng.docx",
+      "van_ban": [{ "ma": "TB-TL", "ten": "Thông báo hồ sơ chưa đủ điều kiện giải quyết", "mau": "mau/tra-lai-dong-su-dung/TB-tra-lai.docx", "gui": "Người đề nghị" }]
+    },
+    "tra-lai-gcn-cap-sai": {
+      "nhom": "tra-lai",
+      "ten": "GCN cấp không đúng quy định — CÔNG VĂN xin ý kiến UBND xã về loại đất (không phải thông báo gửi dân)",
+      "ten_goi_khac": ["trả lại GCN cấp sai", "trả lại GCN cấp không đúng quy định", "trả lại xin ý kiến xã", "trả lại thu hồi GCN cấp sai"],
+      "nguon_goc": "C:\\Users\\Admin\\Desktop\\Claude\\Các dạng hồ sơ trả lại\\Giấy chứng nhận cấp không đúng quy định.doc (đã chuyển sang .docx)",
+      "van_ban": [{ "ma": "CV", "ten": "Công văn xin ý kiến loại đất", "mau": "mau/tra-lai-gcn-cap-sai/CV-xin-y-kien.docx", "gui": "UBND xã" }]
+    }
+  },
+  "ro_dung_bo_mau": {
+    "Chuyển nhượng - Trang 4": {
+      "bo_mau": "giao-dich-trang-4",
+      "loai_giao_dich": "chuyển nhượng"
+    },
+    "Tặng cho - Trang 4": {
+      "bo_mau": "giao-dich-trang-4",
+      "loai_giao_dich": "tặng cho"
+    },
+    "Chuyển nhượng - Cấp đổi": {
+      "bo_mau": "giao-dich-cap-doi",
+      "loai_giao_dich": "chuyển nhượng"
+    },
+    "Tặng cho - Cấp đổi": {
+      "bo_mau": "giao-dich-cap-doi",
+      "loai_giao_dich": "tặng cho"
+    },
+    "Cấp đổi Giấy chứng nhận": {
+      "bo_mau": "cap-doi-gcn"
+    },
+    "Tách thửa - Không thay đổi chủ": {
+      "bo_mau": "tach-thua-khong-doi-chu"
+    },
+    "Tách thửa - Phát sinh chủ": {
+      "bo_mau": "tach-thua-phat-sinh-chu",
+      "ghi_chu": "Một mẫu cho cả tặng cho lẫn chuyển nhượng — đọc hợp đồng để ghi loai_giao_dich."
+    },
+    "Tách thửa - Tặng cho": {
+      "bo_mau": "tach-thua-phat-sinh-chu",
+      "loai_giao_dich": "tặng cho"
+    },
+    "Tách thửa - Chuyển nhượng": {
+      "bo_mau": "tach-thua-phat-sinh-chu",
+      "loai_giao_dich": "chuyển nhượng"
+    },
+    "Tách thửa - Phân chia tài sản chung": {
+      "bo_mau": "tach-thua-phan-chia-chung",
+      "ghi_chu": "Các đồng sở hữu (thường là vợ chồng) lập Văn bản thỏa thuận phân chia tài sản chung, tách thửa rồi mỗi người nhận một thửa đứng tên riêng. Dấu hiệu nhận ra: hồ sơ có 'Văn bản thỏa thuận phân chia tài sản chung' chứ không phải hợp đồng tặng cho hay chuyển nhượng, và sau tách thì KHÔNG có người mới nào ngoài chính các đồng sở hữu cũ. Cần một Phiếu chuyển cho MỖI người."
+    },
+    "Hợp thửa đất": {
+      "bo_mau": "hop-thua"
+    },
+    "Đính chính": {
+      "bo_mau": "CHUA_CO_MAU",
+      "ghi_chu": "Người dùng sẽ bổ sung mẫu sau (xác nhận 08/09/2026). Gặp rổ này thì dừng và báo, không lấy mẫu rổ khác dùng tạm."
+    },
+    "Thế chấp / Giải chấp": {
+      "bo_mau": "CHUA_CO_MAU",
+      "ghi_chu": "Người dùng sẽ bổ sung mẫu sau (xác nhận 08/09/2026). Gặp rổ này thì dừng và báo, không lấy mẫu rổ khác dùng tạm."
+    },
+    "Biến động thông tin cá nhân": {
+      "bo_mau": "CHUA_CO_MAU",
+      "ghi_chu": "Người dùng sẽ bổ sung mẫu sau (xác nhận 08/09/2026). Gặp rổ này thì dừng và báo, không lấy mẫu rổ khác dùng tạm."
+    },
+    "Chuyển nhượng quyền sử dụng đất": {
+      "bo_mau": "CAN_HOI_NHANH",
+      "ghi_chu": "Rổ cha — hồ sơ chưa đủ căn cứ phân nhánh. Không soạn văn bản khi chưa xác định được Trang 4 hay Cấp đổi."
+    },
+    "Tặng cho quyền sử dụng đất": {
+      "bo_mau": "CAN_HOI_NHANH",
+      "ghi_chu": "Rổ cha — như trên."
+    },
+    "Tách thửa đất": {
+      "bo_mau": "CAN_HOI_NHANH",
+      "ghi_chu": "Rổ cha — cần xác định có phát sinh chủ hay không."
+    },
+    "Thừa kế": {
+      "bo_mau": "CAN_HOI_NHANH",
+      "ghi_chu": "Tên rổ chuẩn của skill phân loại. Thừa kế trên thực tế gần như luôn đi kèm tặng cho, và có thể ghi trang 4 hoặc cấp GCN mới — đọc đơn đăng ký biến động để chọn nhánh 'Thừa kế - Trang 4' hay 'Thừa kế - Cấp đổi' rồi mới soạn."
+    },
+    "Thừa kế - Trang 4": {
+      "bo_mau": "giao-dich-trang-4",
+      "loai_giao_dich": "thừa kế",
+      "ghi_chu": "Thực tế thừa kế thường đi kèm tặng cho — các đồng thừa kế nhận di sản rồi tặng lại phần của mình. Khi bản scan có cả hai, viết ghép 'thừa kế, tặng cho' (xem quy_tac_thua_ke_tang_cho)."
+    },
+    "Thừa kế - Cấp đổi": {
+      "bo_mau": "giao-dich-cap-doi",
+      "loai_giao_dich": "thừa kế",
+      "ghi_chu": "Như trên, nhánh có cấp GCN mới cho bên nhận."
+    },
+    "Thừa kế (chưa rõ nhánh)": {
+      "bo_mau": "CAN_HOI_NHANH",
+      "ghi_chu": "Rổ cha, chỉ dùng khi hồ sơ thiếu đơn đăng ký biến động nên chưa biết ghi trang 4 hay cấp GCN mới."
+    }
+  },
+  "quy_tac_phieu_chuyen": {
+    "mo_ta": "Phiếu chuyển thuế chỉ lập khi hồ sơ làm phát sinh nghĩa vụ tài chính, tức là có chuyển quyền sử dụng đất sang người khác.",
+    "co_phieu_chuyen": [
+      "giao-dich-trang-4",
+      "giao-dich-cap-doi",
+      "tach-thua-phat-sinh-chu",
+      "tach-thua-phan-chia-chung"
+    ],
+    "nhieu_phieu_chuyen": {
+      "tach-thua-phat-sinh-chu": "MỘT phiếu cho mỗi thửa nhận theo hợp đồng; nhiều người cùng nhận một thửa (vợ chồng) chung một phiếu vì họ kê khai chung một tờ khai. Người giữ lại phần còn lại không có phiếu.",
+      "tach-thua-phan-chia-chung": "MỘT phiếu cho mỗi người nhận. Khai bằng \"lap_lai\": \"cac_ben_nhan\" trong bo_mau; mỗi phần tử của mảng cac_ben_nhan trong ho_so.json sinh ra một phiếu. Thiếu mảng đó thì tao_bo_van_ban.js báo thiếu chứ KHÔNG lặng lẽ sinh một phiếu — thiếu một phiếu là hồ sơ tắc ở cơ quan thuế mà nhìn thư mục kết quả vẫn thấy 'có PC rồi'."
+    },
+    "khong_co_phieu_chuyen": [
+      "cap-doi-gcn",
+      "tach-thua-khong-doi-chu",
+      "hop-thua"
+    ],
+    "can_cu": "Suy ra từ chính bộ mẫu người dùng đang dùng: ba thư mục sau không có file PC nào, ba thư mục trước đều có.",
+    "o_dac_biet": {
+      "ma_ho_so": "ĐỂ TRỐNG — cán bộ tự điền khi trình ký, TRỪ KHI cán bộ gõ sẵn mã trong câu lệnh (tra từ phần mềm một cửa): khi đó ghi đúng mã họ gõ, file ra được đặt tên theo mã ngắn. Không tự lấy mã nào đọc được trong bản scan: mã ghi ở trang 4 GCN là mã của lần biến động TRƯỚC, điền vào là sai hồ sơ. Trước đây mẫu để dấu chấm lửng, nhưng bảng thay lại trỏ mã hồ sơ vào chính chuỗi dấu chấm đó như thể là tên biến, nên mọi Phiếu chuyển in ra chữ «{{……}}» kèm cả dấu ngoặc. Nay là {{ma_ho_so}} thật: bỏ trống thì thành «CẦN ĐIỀN: ma_ho_so», vừa lộ liễu vừa được đếm vào số ô cần điền lúc bàn giao.",
+      "gia_tri_theo_hop_dong": "Tặng cho và thừa kế: ghi 0đ. Chuyển nhượng: lấy đúng giá ghi trong hợp đồng công chứng của hồ sơ.",
+      "dien_tich_thua": "Đọc từ hồ sơ PDF.",
+      "dien_tich_su_dung_rieng": "Đọc từ hồ sơ PDF. Tách riêng khỏi diện tích thửa vì hai số này khác nhau khi thửa có phần sử dụng chung.",
+      "thoi_han_su_dung": "Đọc từ hồ sơ PDF (mục thời hạn sử dụng trên GCN)."
+    }
+  },
+  "quy_tac_thua_ke_tang_cho": {
+    "mo_ta": "Một hồ sơ có thể vừa là thừa kế vừa là tặng cho — thường gặp khi các đồng thừa kế nhận di sản rồi tặng lại phần của mình cho một người. Khi bản scan có CẢ HAI yếu tố, viết ghép bằng dấu phẩy: 'thừa kế, tặng cho'.",
+    "ap_dung_cho_bien": [
+      "van_ban_can_cu_mo_ta",
+      "cau_muc_dich_giao_dich",
+      "cau_ket_luan_dieu_kien",
+      "cau_noi_dung_bien_dong",
+      "trich_yeu"
+    ],
+    "vi_du": {
+      "chi_tang_cho": "Hợp đồng tặng cho quyền sử dụng đất số 4460/2026/CCGD ... để thực hiện việc tặng cho quyền sử dụng đất cho ông A và bà B",
+      "vua_thua_ke_vua_tang_cho": "Hợp đồng thừa kế, tặng cho quyền sử dụng đất số 4460/2026/CCGD ... để thực hiện việc thừa kế, tặng cho quyền sử dụng đất cho ông A và bà B",
+      "ket_luan": "do nhận thừa kế, tặng cho là đủ điều kiện"
+    },
+    "canh_bao": "Chỉ ghép khi bản scan thật sự có cả hai. Hồ sơ chỉ có văn bản phân chia di sản thì viết 'thừa kế'; chỉ có hợp đồng tặng cho thì viết 'tặng cho'. Ghép bừa làm sai bản chất giao dịch."
+  },
+  "quy_chuan_dat_ten": {
+    "ma_ngan": "Phần đuôi của mã hồ sơ: 'H26.103.25.19-260519-0009' → '260519-0009'.",
+    "ten_file": "<mã văn bản> <mã ngắn>.docx — ví dụ: 'BC 260519-0009.docx', 'TB 260519-0009.docx', 'PC 260519-0009.docx'.",
+    "ten_thu_muc": "<mã ngắn> <tên người hồ sơ> — ví dụ: '260519-0009 Nguyễn Văn A'. Mỗi hồ sơ một thư mục, chứa đủ bộ văn bản của hồ sơ đó.",
+    "ma_van_ban": {
+      "BC": "Báo cáo thẩm tra",
+      "TB": "Thông báo gửi UBND xã",
+      "PC": "Phiếu chuyển thuế",
+      "TBS": "Trang bổ sung GCN",
+      "TB-TL": "Thông báo trả lại hồ sơ (chưa đủ điều kiện giải quyết) gửi người đề nghị",
+      "CV": "Công văn xin ý kiến gửi UBND xã",
+      "BC-TD": "Báo cáo ký duyệt mảnh trích đo"
+    }
+  },
+  "xu_ly_ban_scan_sau_khi_xong": {
+    "quy_tac": "CHUYỂN bản scan vào thư mục kết quả của chính hồ sơ đó, KHÔNG xoá.",
+    "vi_sao": "Thư mục 'Đã phân loại' vẫn vơi dần đúng như một hàng đợi, nhưng bản gốc nằm cạnh các văn bản sinh ra từ nó nên sau này tra ngược còn thấy căn cứ. Xoá hẳn một bản scan hồ sơ đất đai là việc không có đường lùi.",
+    "cach_lam": "tao_bo_van_ban.js sinh thêm chuyen_ban_scan.ps1 để người dùng bấm chạy; phiên làm việc không có quyền xoá/di chuyển file trên máy người dùng."
+  },
+  "phien_ban": 4
+}

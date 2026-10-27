@@ -1,0 +1,12 @@
+{
+  "xã Hưng Đạo": "xã {{ten_xa}}",
+  "Tạ Khắc Minh": "ten_nguoi_ky",
+  "bà Nguyễn Thị Đức": "nguoi_de_nghi",
+  "MHS 261008-0070": "MHS {{ma_ho_so}}",
+  "MHS: H26.103.25.19-261008-0070": "MHS: {{ma_ho_so}}",
+  "Ngày 08/10/2026,": "Ngày {{ngay_nhan_ho_so}},",
+  "Giấy chứng nhận số AG 362319 do UBND huyện Quốc Oai cấp ngày 04/10/2006": "Giấy chứng nhận số {{gcn_so}} do {{gcn_co_quan_cap}} cấp ngày {{gcn_ngay_cap}}",
+  "thửa đất số 62, tờ bản đồ số 15, diện tích 280.6 m2": "thửa đất số {{thua_so}}, tờ bản đồ số {{to_ban_do}}, diện tích {{dien_tich}} m2",
+  "mục đích sử dụng: Đất thổ cư": "mục đích sử dụng: {{muc_dich_su_dung}}",
+  "không có loại đất: Đất thổ cư": "không có loại đất: {{muc_dich_su_dung}}"
+}

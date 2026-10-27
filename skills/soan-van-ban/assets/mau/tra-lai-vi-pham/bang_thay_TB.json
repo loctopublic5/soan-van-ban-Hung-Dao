@@ -1,0 +1,18 @@
+{
+  "CHI NHÁNH HUYỆN QUỐC OAI": "=CHI NHÁNH VPĐKĐĐ QUỐC OAI",
+  "/TB-CNHQO": "=/TB-CNQO",
+  "tháng         năm 2025": "=tháng         năm 2026",
+  "Chi nhánh Văn phòng Đăng ký Đất đai Hà Nội huyện Quốc Oai": "=Chi nhánh Văn phòng Đăng ký Đất đai Quốc Oai",
+  "Chi nhánh Văn phòng đăng ký đất đai Hà Nội huyện Quốc Oai": "=Chi nhánh Văn phòng đăng ký đất đai Quốc Oai",
+  "Xã Hưng Đạo, thành phố Hà Nội": "dia_chi_nguoi_de_nghi",
+  "xã Hưng Đạo": "xã {{ten_xa}}",
+  "GIÁM ĐỐC": "=KT. GIÁM ĐỐC",
+  "@sau KT. GIÁM ĐỐC": "PHÓ GIÁM ĐỐC",
+  "Nguyễn Thế Anh": "ten_nguoi_ky",
+  "Ông Trần Chí Hào(UQ: Trần Văn Chính)": "nguoi_de_nghi_viet_hoa",
+  "ông Trần Chí Hào(UQ: Trần Văn Chính)": "nguoi_de_nghi",
+  "đăng ký biến động chuyển nhượng quyền sử dụng đất": "thu_tuc",
+  "251004-0023": "ma_ho_so",
+  "Ngày 30/12/2016 UBND huyện Quốc Oai cấp Giấy chứng nhận số CE 646688, thửa đất số 1694, tờ bản đồ số 3, diện tích 264.0 m2, mục đích sử dụng: Đất chuyên trồng lúa nước; chủ sử dụng ông Nguyễn Văn Dương và bà Nguyễn Thị Điều": "Ngày {{gcn_ngay_cap}} {{gcn_co_quan_cap}} cấp Giấy chứng nhận số {{gcn_so}}, thửa đất số {{thua_so}}, tờ bản đồ số {{to_ban_do}}, diện tích {{dien_tich}} m2, mục đích sử dụng: {{muc_dich_su_dung}}; chủ sử dụng {{gcn_chu_su_dung}}",
+  "đề nghị bà liên hệ": "đề nghị {{xung_ho}} liên hệ"
+}

@@ -1,0 +1,13 @@
+{
+  "Xã Hưng Đạo, thành phố Hà Nội": "dia_chi_nguoi_de_nghi",
+  "GIÁM ĐỐC": "=KT. GIÁM ĐỐC",
+  "@sau KT. GIÁM ĐỐC": "PHÓ GIÁM ĐỐC",
+  "Nguyễn Thế Anh": "ten_nguoi_ky",
+  "Hộ ông Nguyễn Văn Đích": "nguoi_de_nghi_viet_hoa",
+  "hộ ông Nguyễn Văn Đích": "nguoi_de_nghi",
+  "261007-0028": "ma_ho_so",
+  "02/10/2026": "ngay_don",
+  "thửa đất số 29, tờ bản đồ 12, diện tích 614.2 m2": "thửa đất số {{thua_so}}, tờ bản đồ {{to_ban_do}}, diện tích {{dien_tich}} m2",
+  "thửa đất của ông có": "thửa đất của {{xung_ho}} có",
+  "Thửa đất của ông khi": "Thửa đất của {{xung_ho}} khi"
+}
