@@ -77,6 +77,9 @@ code { border: none; background: none; padding: 0; font-size: 10.5pt; }
 .ten { background: none; padding: 0; }
 .cong-thuc, .go, .canh-bao { padding: 8pt 10pt; }
 h2 { margin-top: 20pt; }
+.cong-thuc .nhan { margin-top: 16pt; }
+.go p, .cau { page-break-inside: avoid; }
+.lien { page-break-after: avoid; }
 `;
 
   than = than
