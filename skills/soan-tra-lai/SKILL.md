@@ -87,8 +87,10 @@ bản trả lại dù người dùng có nhắc tên cán bộ.
   Script dò mọi tên thư mục trước khi làm gì; một tên sai, một file nằm lẻ ngoài thư mục, hay
   `--goc-ra` nằm trong lô là dừng cả lô và in lý do. Lượt 4 vẫn là chạy lại đúng lệnh đó.
 
-Kết quả mỗi hồ sơ một thư mục `<mã ngắn> <người đề nghị>`, file `TB-TL <mã>.docx` (hoặc
-`CV <mã>.docx` với GCN cấp sai).
+Kết quả tự xếp mỗi hồ sơ một thư mục `<mã ngắn> <tên chủ> - <dạng trả lại>` (vd. `Nguyễn Văn A -
+Trả lại vi phạm` khi chưa có mã), file `TB-TL <mã>.docx` (hoặc `CV <mã>.docx` với GCN cấp sai).
+Người dùng dặn "lưu theo tên chủ và dạng trả lại" thì script đã làm đúng như vậy — chỉ cần
+`--goc-ra`, không tự tạo thêm tầng thư mục.
 
 ## Bàn giao
 

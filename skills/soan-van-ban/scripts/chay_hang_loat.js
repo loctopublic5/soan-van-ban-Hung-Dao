@@ -122,7 +122,9 @@ function main() {
 
     const soO = Number((ketQua.match(/tổng (\d+) ô «CẦN ĐIỀN»/) || [0, 0])[1]);
     const ma = maNgan(duLieu.ma_ho_so);
-    const thuMuc = tenAnToan(`${ma} ${duLieu.ten_nguoi_ho_so || ''}`);
+    // Tên thư mục do tao_bo_van_ban.js đặt (tên chủ + loại biến động) — đọc lại dòng nó in.
+    const daIn = (ketQua.match(/^Thư mục:\s+(.+)$/m) || [])[1];
+    const thuMuc = daIn ? path.basename(daIn.trim()) : tenAnToan(`${ma} ${duLieu.ten_nguoi_ho_so || ''}`);
     xong.push({ ...d, ma, thuMuc, soO, duLieu });
     console.log(`  ✓ ${d.ho_so.padEnd(38)} → ${thuMuc}${soO ? `   (${soO} ô cần điền)` : ''}`);
   }

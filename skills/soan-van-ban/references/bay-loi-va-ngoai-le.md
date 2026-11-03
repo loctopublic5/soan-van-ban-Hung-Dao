@@ -61,7 +61,7 @@ Các biến chịu ảnh hưởng được liệt kê ở `quy_tac_thua_ke_tang_
 Đã cài sẵn trong script, ghi ở đây để đối chiếu khi nghi sai — **không tự đổi**:
 
 - Mã ngắn = đuôi mã hồ sơ: `H26.103.25.19-260519-0009` → `260519-0009`
-- Thư mục: `260519-0009 Nguyễn Văn A` — mỗi hồ sơ một thư mục, đủ bộ văn bản
+- Thư mục: `260519-0009 Nguyễn Văn A - Tách thửa tặng cho` (tên chủ - loại biến động) — mỗi hồ sơ một thư mục, đủ bộ văn bản
 - File: `BC 260519-0009.docx`, `TB 260519-0009.docx`, `PC 260519-0009.docx`
 - Không có mã hồ sơ thì dùng riêng tên người. **Không bịa mã.** Mã hồ sơ do hệ thống một
   cửa cấp, không có trong bản scan; một mã trông như thật sẽ được chép sang mọi bước sau.

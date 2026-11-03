@@ -22,6 +22,11 @@ bộ hợp đồng có hai người luân phiên** — người dùng nói "cán
 thêm `--can-bo "<tên họ gõ>"` vào lệnh `lam_ngay.js`. Không nói thì ô đó ra «CẦN ĐIỀN»:
 hỏi một câu nếu chưa bàn giao, đừng tự chọn người.
 
+**Thư mục kết quả tự đặt theo tên chủ và loại biến động**: mỗi hồ sơ một thư mục
+`<mã ngắn> <tên chủ> - <loại biến động>` (chưa có mã thì bỏ mã), ví dụ
+`Nguyễn Văn A - Tách thửa tặng cho`. Người dùng dặn "lưu theo tên chủ và tên biến động" thì
+đó chính là cách script đã làm — chỉ cần `--goc-ra`, không tự tạo thêm tầng thư mục.
+
 **Hai danh mục, một kho mẫu.** Plugin này còn skill `soan-tra-lai` (thông báo trả lại hồ sơ).
 Mẫu trả lại nằm chung kho nhưng **chỉ được chọn khi tên gọi có chữ "trả lại"** — gõ "cấp
 đổi" không bao giờ ra nhầm "trả lại cấp đổi". Người dùng muốn trả lại hồ sơ thì làm theo

@@ -7,6 +7,7 @@
   "bo_mau": {
     "giao-dich-trang-4": {
       "ten": "Giao dịch chuyển quyền, ghi biến động lên trang 4 GCN cũ",
+      "ten_thu_muc": "{giao_dich|giao dịch} trang 4",
       "ten_goi_khac": [
         "trang 4",
         "chuyển nhượng trang 4",
@@ -39,6 +40,7 @@
     },
     "giao-dich-cap-doi": {
       "ten": "Giao dịch chuyển quyền, cấp GCN mới cho bên nhận",
+      "ten_thu_muc": "{giao_dich|giao dịch} cấp đổi",
       "ten_goi_khac": [
         "chuyển nhượng cấp đổi",
         "tặng cho cấp đổi",
@@ -137,6 +139,7 @@
     },
     "tach-thua-phat-sinh-chu": {
       "ten": "Tách thửa làm phát sinh chủ sử dụng mới",
+      "ten_thu_muc": "Tách thửa {giao_dich|phát sinh chủ}",
       "ten_goi_khac": [
         "tách thửa tặng cho",
         "tách thửa chuyển nhượng",
@@ -443,7 +446,7 @@
   "quy_chuan_dat_ten": {
     "ma_ngan": "Phần đuôi của mã hồ sơ: 'H26.103.25.19-260519-0009' → '260519-0009'.",
     "ten_file": "<mã văn bản> <mã ngắn>.docx — ví dụ: 'BC 260519-0009.docx', 'TB 260519-0009.docx', 'PC 260519-0009.docx'.",
-    "ten_thu_muc": "<mã ngắn> <tên người hồ sơ> — ví dụ: '260519-0009 Nguyễn Văn A'. Mỗi hồ sơ một thư mục, chứa đủ bộ văn bản của hồ sơ đó.",
+    "ten_thu_muc": "[<mã ngắn> ]<tên chủ> - <loại biến động> — ví dụ: '260519-0009 Nguyễn Văn A - Tách thửa tặng cho', không có mã thì 'Nguyễn Văn A - Trả lại vi phạm'. Tên chủ bỏ danh xưng (ông/bà/hộ) và người ủy quyền. Loại biến động lấy từ \"ten_thu_muc\" của bộ mẫu ({giao_dich|mặc định} thay bằng giao dịch của hồ sơ), không có thì tên gọi đầu tiên trong ten_goi_khac. Mỗi hồ sơ một thư mục, chứa đủ bộ văn bản của hồ sơ đó (tổ Hưng Đạo, 03/11/2026).",
     "ma_van_ban": {
       "BC": "Báo cáo thẩm tra",
       "TB": "Thông báo gửi UBND xã",

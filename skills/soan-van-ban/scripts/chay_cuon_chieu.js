@@ -311,8 +311,11 @@ function dien(ts, ds) {
   const ma = maNgan(duLieu.ma_ho_so);
   const coMa = /^\d{6}-\d{4}$/.test(ma);
   const tenNguoi = tenAnToan(duLieu.ten_nguoi_ho_so || '');
+  // Tên thư mục do tao_bo_van_ban.js đặt (tên chủ + loại biến động) — đọc lại đúng dòng nó in,
+  // đừng tự tính: lệch một chữ là lệnh dọn chuyển bản scan vào một thư mục không có thật.
+  const daIn = (ketQua.match(/^Thư mục:\s+(.+)$/m) || [])[1];
   fs.writeFileSync(path.join(tm, 'da_dien.json'), JSON.stringify({
-    thu_muc_ket_qua: coMa ? tenAnToan(`${ma} ${tenNguoi}`) : tenNguoi,
+    thu_muc_ket_qua: daIn ? path.basename(daIn.trim()) : (coMa ? tenAnToan(`${ma} ${tenNguoi}`) : tenNguoi),
     so_o_can_dien: soO,
     pdf_nguon: duLieu.pdf_nguon,
     luc: new Date().toISOString(),

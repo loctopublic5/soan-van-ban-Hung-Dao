@@ -17,9 +17,11 @@
  *
  * QUY CHUẨN ĐẶT TÊN
  *   Mã ngắn = phần đuôi của mã hồ sơ: "H26.103.25.19-260519-0009" → "260519-0009".
- *   Thư mục kết quả:  "<mã ngắn> <tên người hồ sơ>"      vd: 260519-0009 Nguyễn Văn A
+ *   Thư mục kết quả:  "<mã ngắn> <tên chủ> - <loại biến động>"
+ *                     vd: 260519-0009 Nguyễn Văn A - Tách thửa tặng cho
  *   Tên file:         "<mã văn bản> <mã ngắn>.docx"      vd: BC 260519-0009.docx
- *   KHÔNG có mã hồ sơ: dùng riêng tên người — "Nguyễn Văn A\BC Nguyễn Văn A.docx".
+ *   KHÔNG có mã hồ sơ: bỏ mã — "Nguyễn Văn A - Trả lại vi phạm\TB-TL Nguyễn Văn A.docx".
+ *   chay_cuon_chieu.js, chay_hang_loat.js đọc lại tên thư mục từ dòng "Thư mục:" in ra ở đây.
  *   Mã hồ sơ do hệ thống một cửa cấp, không có trong bản scan; bịa một mã trông như thật
  *   thì nguy hiểm hơn là không có mã, vì nó sẽ được chép sang mọi bước sau.
  * Mã văn bản (BC, TB, PC, TBS, BC-TD) lấy từ assets/ban_do_ro_mau.json, nên thêm loại
@@ -68,6 +70,21 @@ function maNgan(ma) {
  *  Linux thì nó không coi dấu \\ là dấu phân cách, trả về nguyên cả đường dẫn. */
 function tenCuoi(p) {
   return String(p || '').replace(/\//g, '\\').replace(/\\+$/, '').split('\\').pop();
+}
+
+/** Loại biến động cho tên thư mục: "Tách thửa tặng cho", "Tặng cho trang 4", "Trả lại vi phạm".
+ *  Bộ mẫu dùng chung cho nhiều giao dịch khai "ten_thu_muc" có chỗ {giao_dich|mặc định}; bộ
+ *  khác lấy tên gọi đầu tiên của nó — chính là tên cán bộ gõ khi gọi mẫu. */
+function tenBienDong(boMau, giaoDich) {
+  const mau = boMau.ten_thu_muc || (boMau.ten_goi_khac || [])[0] || '';
+  const s = mau.replace(/\{giao_dich\|?([^}]*)\}/, (_, macDinh) => String(giaoDich || '').trim() || macDinh).trim();
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
+/** Tên chủ cho tên thư mục: bỏ danh xưng và người ủy quyền — "hộ ông Nguyễn Văn A (UQ: …)" →
+ *  "Nguyễn Văn A". Thông báo trả lại chỉ có nguoi_de_nghi viết như giữa câu. */
+function tenChu(s) {
+  return String(s || '').replace(/\(UQ:[^)]*\)/gi, '').replace(/^\s*(hộ\s+)?(ông|bà)\s+/i, '').trim();
 }
 
 /** Bỏ ký tự Windows không cho phép trong tên file/thư mục. */
@@ -216,12 +233,17 @@ function main() {
   const ma = maNgan(duLieu.ma_ho_so);
   const coMa = /^\d{6}-\d{4}$/.test(ma);
   // Thông báo trả lại không có du_kien để ghép ten_nguoi_ho_so — dùng người đề nghị.
-  const tenNguoi = tenAnToan(duLieu.ten_nguoi_ho_so || duLieu.nguoi_de_nghi || '');
+  const tenNguoi = tenAnToan(tenChu(duLieu.ten_nguoi_ho_so || duLieu.nguoi_de_nghi || ''));
   if (!coMa && !tenNguoi) {
     console.error('Không có cả mã hồ sơ lẫn tên người — không đặt tên file được.');
     process.exit(2);
   }
-  const tenThuMuc = coMa ? tenAnToan(`${ma} ${tenNguoi}`) : tenNguoi;
+  // Thư mục theo tên chủ và loại biến động (tổ Hưng Đạo, 03/11/2026): nhìn thư mục kết quả là
+  // biết hồ sơ của ai, soạn theo mẫu nào — "Nguyễn Văn A - Tách thửa tặng cho". Có mã thì mã
+  // đứng đầu, để hai hồ sơ cùng chủ cùng loại không đè lên nhau và thư mục xếp theo ngày nhận.
+  const bienDong = tenAnToan(tenBienDong(boMau, duLieu.loai_giao_dich || (khai && khai.loai_giao_dich)));
+  const chuVaBienDong = [tenNguoi, bienDong].filter(Boolean).join(' - ');
+  const tenThuMuc = coMa ? tenAnToan(`${ma} ${chuVaBienDong}`) : chuVaBienDong;
   const dauTenFile = coMa ? ma : tenNguoi;
   const thuMucRa = path.join(ts['goc-ra'], tenThuMuc);
   fs.mkdirSync(thuMucRa, { recursive: true });
