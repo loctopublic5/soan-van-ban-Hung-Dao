@@ -222,7 +222,7 @@ td:last-child, th:last-child { padding-right: 0; }
   <p class="eyebrow">Tổ Hưng Đạo — Chi nhánh VPĐKĐĐ Quốc Oai</p>
   <h1>Cẩm nang soạn văn bản hồ sơ đất đai bằng Claude</h1>
   <p class="lead">Claude là trợ lý trên máy tính: anh/chị gõ một câu bằng tiếng Việt, Claude đọc bản scan hồ sơ, điền vào đúng mẫu của Chi nhánh và trả về file Word. Cẩm nang này viết cho người <b>chưa dùng Claude bao giờ</b>. Chỉ cần chép đúng câu lệnh mẫu, thay chỗ chấm chấm bằng thông tin hồ sơ của mình.</p>
-  <p class="meta">Dùng với plugin soan-van-ban-hung-dao (hai lệnh /soan-van-ban và /soan-tra-lai) · cập nhật 02/11/2026</p>
+  <p class="meta">Dùng với plugin vpdk (hai lệnh /soan-van-ban và /soan-tra-lai) · cập nhật 04/11/2026</p>
 </header>
 
 <section class="cong-thuc" aria-labelledby="hai-lenh">
@@ -240,7 +240,8 @@ td:last-child, th:last-child { padding-right: 0; }
 <ol class="buoc">
   <li><b>Mở ứng dụng Claude</b> trên máy tính và đăng nhập tài khoản của tổ (hỏi người phụ trách nếu chưa có). Màn hình chính có <b>một ô để gõ</b> ở phía dưới — mọi việc đều bắt đầu từ ô đó.</li>
   <li><b>Kiểm tra plugin đã có chưa:</b> bấm vào ô gõ, gõ dấu gạch chéo <b>/</b>. Danh sách lệnh hiện ra phải có <b>soan-van-ban</b> và <b>soan-tra-lai</b>. Không thấy thì báo người phụ trách cài plugin, chưa làm tiếp.</li>
-  <li><b>Cho Claude quyền mở thư mục hồ sơ.</b> Claude chỉ đọc được file trong thư mục anh/chị đã cho phép. Khi Claude hỏi xin quyền một thư mục, hãy đồng ý. Nên gom hồ sơ và kết quả về một thư mục cố định, ví dụ <code>D:\Hồ sơ Claude</code>, cho quyền một lần là dùng mãi.</li>
+  <li><b>Cho Claude quyền mở thư mục hồ sơ.</b> Claude chỉ đọc được file trong thư mục anh/chị đã cho phép. Khi Claude hỏi xin quyền một thư mục, hãy đồng ý. Nên gom mọi thứ về một thư mục cố định, ví dụ <code>D:\Hồ sơ Claude</code>, cho quyền một lần là dùng mãi.</li>
+  <li><b>Tạo hai thư mục con đúng tên</b>, viết thường có dấu: <code>hs chuyển</code> (hồ sơ đủ điều kiện) và <code>hs trả lại</code> (hồ sơ phải trả lại). Thả bản scan vào đúng thư mục. Kết quả tự về hai thư mục <code>kết quả chuyển</code> và <code>kết quả trả lại</code> nằm cạnh đó, không cần tạo trước.</li>
   <li><b>Thử một hồ sơ cũ đã làm tay</b> bằng câu lệnh ở mục 2. So kết quả với bản anh/chị đã làm để quen cách Claude trả lời.</li>
 </ol>
 
@@ -271,7 +272,7 @@ td:last-child, th:last-child { padding-right: 0; }
 
 <div class="go">
   <p class="nhan">Ví dụ — gõ đúng như thế này</p>
-  <p>/soan-van-ban Soạn bộ văn bản cho file <code>D:\Hồ sơ Claude\Nguyễn Văn A.pdf</code> theo mẫu tách thửa tặng cho, cán bộ Hải Yến. Mã hồ sơ 261102-0011, nhận ngày 02/11/2026. Lưu kết quả vào <code>D:\Hồ sơ Claude\Kết quả</code>.</p>
+  <p>/soan-van-ban Soạn bộ văn bản cho file <code>D:\Hồ sơ Claude\hs chuyển\Nguyễn Văn A.pdf</code> theo mẫu tách thửa tặng cho, cán bộ Hải Yến. Mã hồ sơ 261102-0011, nhận ngày 02/11/2026. Lưu kết quả vào <code>D:\Hồ sơ Claude\Kết quả</code>.</p>
 </div>
 
 <div class="them">
@@ -351,7 +352,7 @@ td:last-child, th:last-child { padding-right: 0; }
 
 <div class="go">
   <p class="nhan">Ví dụ — gõ đúng như thế này</p>
-  <p>/soan-tra-lai Soạn thông báo cho file <code>D:\Hồ sơ Claude\Trần Văn B.pdf</code> theo dạng trả lại tăng diện tích. Mã hồ sơ 261102-0014. Theo cơ sở dữ liệu là thửa 411, tờ 57, diện tích 75.0 m², tăng 1.0 m². Lưu kết quả vào <code>D:\Hồ sơ Claude\Kết quả</code>.</p>
+  <p>/soan-tra-lai Soạn thông báo cho file <code>D:\Hồ sơ Claude\hs trả lại\Trần Văn B.pdf</code> theo dạng trả lại tăng diện tích. Mã hồ sơ 261102-0014. Theo cơ sở dữ liệu là thửa 411, tờ 57, diện tích 75.0 m², tăng 1.0 m². Lưu kết quả vào <code>D:\Hồ sơ Claude\Kết quả</code>.</p>
 </div>
 
 <h3>Bảng dạng trả lại</h3>
@@ -385,32 +386,32 @@ td:last-child, th:last-child { padding-right: 0; }
 <p>Có hai cách. Mỗi lần nên tối đa khoảng 10 hồ sơ; lô lớn thì chia ra, mỗi phần một cuộc trò chuyện mới.</p>
 
 <h3>Cách 1 — kể từng hồ sơ trong câu lệnh (ít hồ sơ)</h3>
-<p>Mở đầu bằng <code>/soan-van-ban</code> (lệnh này lo được cả lô lẫn trả lại). Mỗi hồ sơ một dòng: tên file — tên mẫu. Được lẫn cả trả lại với BC-TB-PC. Hồ sơ nào cũng phải có tên mẫu; thiếu thì Claude hỏi lại trước khi làm.</p>
+<p>Mỗi hồ sơ một dòng: tên file — tên mẫu. Hồ sơ nào cũng phải có tên mẫu; thiếu thì Claude hỏi lại trước khi làm. Hồ sơ trả lại làm giống vậy với lệnh <code>/soan-tra-lai</code> và thư mục <code>hs trả lại</code>.</p>
 <div class="go">
   <p class="nhan">Ví dụ — gõ đúng như thế này</p>
-  <p class="lien">/soan-van-ban Soạn văn bản cho các hồ sơ trong thư mục <code>D:\Hồ sơ Claude\Lô 02-11</code>, cán bộ Thái:</p>
+  <p class="lien">/soan-van-ban Soạn văn bản cho các hồ sơ trong thư mục <code>D:\Hồ sơ Claude\hs chuyển</code>, cán bộ Thái:</p>
   <p class="lien">– Nguyễn Văn A.pdf: tách thửa tặng cho</p>
-  <p class="lien">– Trần Văn B.pdf: trả lại vi phạm</p>
-  <p class="lien">– Lê Thị C.pdf: trả lại chậm lũ</p>
-  <p>Lưu kết quả vào <code>D:\Hồ sơ Claude\Kết quả</code>.</p>
+  <p>– Lê Thị C.pdf: tặng cho trang 4</p>
 </div>
 
 <h3>Cách 2 — xếp vào thư mục mang tên mẫu (lô lớn)</h3>
 <ol class="buoc">
-  <li><b>Trong thư mục lô, tạo mỗi mẫu một thư mục con, đặt tên đúng bằng tên mẫu</b> trong bảng, ví dụ:<br>
-    <code>D:\Hồ sơ Claude\Lô 02-11\tách thửa tặng cho</code><br>
-    <code>D:\Hồ sơ Claude\Lô 02-11\trả lại vi phạm</code><br>
-    <code>D:\Hồ sơ Claude\Lô 02-11\trả lại chậm lũ</code></li>
+  <li><b>Trong <code>hs chuyển</code> và <code>hs trả lại</code>, tạo mỗi mẫu một thư mục con, đặt tên đúng bằng tên mẫu</b> trong bảng. Trong <code>hs trả lại</code> được bỏ chữ “trả lại”. Ví dụ:<br>
+    <code>D:\Hồ sơ Claude\hs chuyển\tách thửa tặng cho</code><br>
+    <code>D:\Hồ sơ Claude\hs trả lại\vi phạm</code><br>
+    <code>D:\Hồ sơ Claude\hs trả lại\chậm lũ</code></li>
   <li><b>Kéo từng file PDF vào đúng thư mục của mẫu nó cần.</b> Không để file nào nằm lẻ ngoài các thư mục con.</li>
-  <li><b>Thư mục kết quả để ở ngoài thư mục lô</b> (ví dụ <code>D:\Hồ sơ Claude\Kết quả</code>), rồi gõ:
+  <li><b>Mỗi thư mục một lệnh</b>, gõ:
     <div class="go">
       <p class="nhan">Gõ vào Claude</p>
-      <p>/soan-van-ban Soạn văn bản cho lô <code>D:\Hồ sơ Claude\Lô 02-11</code> theo tên thư mục, cán bộ Hải Yến. Lưu kết quả vào <code>D:\Hồ sơ Claude\Kết quả</code>.</p>
+      <p class="lien">/soan-van-ban Soạn văn bản cho <code>D:\Hồ sơ Claude\hs chuyển</code> theo tên thư mục, cán bộ Hải Yến.</p>
+      <p>/soan-tra-lai Soạn thông báo cho <code>D:\Hồ sơ Claude\hs trả lại</code> theo tên thư mục.</p>
     </div>
   </li>
 </ol>
 <div class="them">
-  <p><b>Claude soát tên thư mục trước khi làm.</b> Tên nào sai, thiếu chữ “trả lại”, hay có file nằm lẻ, Claude dừng cả lô và chỉ đúng chỗ phải sửa. Sửa xong gõ lại đúng câu đó.</p>
+  <p><b>Claude soát tên thư mục trước khi làm.</b> Tên nào sai, mẫu trả lại nằm trong <code>hs chuyển</code>, hay có file nằm lẻ, Claude dừng cả lô và chỉ đúng chỗ phải sửa. Sửa xong gõ lại đúng câu đó.</p>
+  <p><b>Hồ sơ cũ để lại trong thư mục không bị làm lại.</b> Lần sau chỉ hồ sơ mới được soạn. Muốn soạn lại, gõ thêm <i>“soạn lại cả hồ sơ đã soạn”</i>; văn bản cũ của hồ sơ đó sẽ bị ghi đè, kể cả phần đã điền tay.</p>
   <p><b>Bị ngắt giữa chừng</b> (hết lượt, mất mạng): quay lại đúng cuộc trò chuyện đó và gõ <i>“Làm tiếp lô đang dở.”</i> Hồ sơ đã xong thì Claude không làm lại.</p>
 </div>
 
@@ -433,7 +434,8 @@ td:last-child, th:last-child { padding-right: 0; }
 
 <h2 id="nhan-ket-qua">7. Nhận kết quả — phần việc của cán bộ</h2>
 <p>Khi xong, Claude báo ba điều: đã soạn những file nào và để ở đâu; còn bao nhiêu ô <span class="can-dien">«CẦN ĐIỀN»</span> và là những ô nào; chỗ nào trong hồ sơ mâu thuẫn hoặc mờ, cần xác minh. Đọc kỹ điều thứ ba và đối chiếu với bản giấy.</p>
-<p><b>Mỗi hồ sơ một thư mục, tự đặt theo tên chủ và loại biến động</b>, ví dụ <code>Nguyễn Văn A - Tách thửa tặng cho</code> hay <code>Trần Văn B - Trả lại vi phạm</code>; có mã hồ sơ thì mã đứng đầu: <code>261102-0011 Nguyễn Văn A - Tách thửa tặng cho</code>. Không cần dặn cách đặt tên trong câu lệnh.</p>
+<p><b>Mỗi lần soạn một thư mục đợt</b>, nằm trong <code>kết quả chuyển</code> hoặc <code>kết quả trả lại</code> và đặt theo ngày, ví dụ <code>D:\Hồ sơ Claude\kết quả chuyển\2026-11-04 lần 1</code>. Nhìn thư mục đợt là biết lần đó soạn những hồ sơ nào. Hai thư mục <code>_lam_viec</code> và <code>_so_ho_so</code> bên cạnh là của Claude, đừng xoá.</p>
+<p><b>Trong đợt, mỗi hồ sơ một thư mục, tự đặt theo tên chủ và loại biến động</b>, ví dụ <code>Nguyễn Văn A - Tách thửa tặng cho</code> hay <code>Trần Văn B - Trả lại vi phạm</code>; có mã hồ sơ thì mã đứng đầu: <code>261102-0011 Nguyễn Văn A - Tách thửa tặng cho</code>. Không cần dặn cách đặt tên trong câu lệnh.</p>
 <p>Mở từng file bằng Word, bấm <b>Ctrl + F</b>, gõ <b>CẦN ĐIỀN</b> để nhảy tới từng chỗ, ví dụ <span class="can-dien">«CẦN ĐIỀN: seri GCN»</span>, rồi điền. <b>Không trình ký khi còn dấu «.</b></p>
 
 <h3>Các ô thường còn trống — không phải lỗi</h3>
@@ -482,8 +484,8 @@ td:last-child, th:last-child { padding-right: 0; }
   <tbody>
     <tr><td>Soạn BC-TB-PC một hồ sơ</td><td>/soan-van-ban Soạn bộ văn bản cho file <span class="o">đường dẫn file PDF</span> theo mẫu <span class="o">tên mẫu</span>, cán bộ <span class="o">Hải Yến hoặc Thái</span>. Mã hồ sơ <span class="o">mã</span>, nhận ngày <span class="o">ngày</span>. Lưu kết quả vào <span class="o">thư mục</span>.</td></tr>
     <tr><td>Soạn trả lại một hồ sơ</td><td>/soan-tra-lai Soạn thông báo cho file <span class="o">đường dẫn file PDF</span> theo dạng <span class="o">trả lại …</span>. Mã hồ sơ <span class="o">mã</span>. Lưu kết quả vào <span class="o">thư mục</span>.</td></tr>
-    <tr><td>Nhiều hồ sơ, kể từng file</td><td>/soan-van-ban Soạn văn bản cho các hồ sơ trong thư mục <span class="o">đường dẫn thư mục</span>, cán bộ <span class="o">tên</span>: – <span class="o">file 1</span>: <span class="o">tên mẫu</span> – <span class="o">file 2</span>: <span class="o">tên mẫu</span>. Lưu kết quả vào <span class="o">thư mục</span>.</td></tr>
-    <tr><td>Lô đã xếp thư mục theo mẫu</td><td>/soan-van-ban Soạn văn bản cho lô <span class="o">đường dẫn thư mục lô</span> theo tên thư mục, cán bộ <span class="o">tên</span>. Lưu kết quả vào <span class="o">thư mục ngoài lô</span>.</td></tr>
+    <tr><td>Nhiều hồ sơ, kể từng file</td><td>/soan-van-ban Soạn văn bản cho các hồ sơ trong thư mục <span class="o">đường dẫn thư mục</span>, cán bộ <span class="o">tên</span>: – <span class="o">file 1</span>: <span class="o">tên mẫu</span> – <span class="o">file 2</span>: <span class="o">tên mẫu</span>.</td></tr>
+    <tr><td>Lô đã xếp thư mục theo mẫu</td><td>/soan-van-ban Soạn văn bản cho <span class="o">đường dẫn thư mục hs chuyển</span> theo tên thư mục, cán bộ <span class="o">tên</span>.<br>/soan-tra-lai Soạn thông báo cho <span class="o">đường dẫn thư mục hs trả lại</span> theo tên thư mục.</td></tr>
     <tr><td>Chưa biết dùng mẫu nào</td><td>Xem giúp hồ sơ <span class="o">đường dẫn file PDF</span> hợp với mẫu BC-TB-PC nào. Chưa soạn.</td></tr>
     <tr><td>Xem danh sách mẫu</td><td>Cho tôi xem danh sách mẫu BC-TB-PC và các dạng trả lại đang có.</td></tr>
     <tr><td>Làm tiếp khi bị ngắt</td><td>Làm tiếp lô đang dở.</td></tr>

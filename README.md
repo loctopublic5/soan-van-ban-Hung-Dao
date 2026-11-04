@@ -1,8 +1,27 @@
-# Plugin `soan-van-ban-hung-dao`
+# Plugin `vpdk`
 
-Bản dành cho **tổ Hưng Đạo** — Chi nhánh VPĐKĐĐ Quốc Oai, tách từ skill
-`soan-van-ban-ho-so-dat-dai` (repo skill-soan-bao-cao) ngày 26/10/2026. Đặt tại
-`C:\Users\Admin\Desktop\Claude\soan-van-ban-hung-dao\`.
+Phôi soạn văn bản hồ sơ đất đai, dùng lại cho nhiều phòng, tổ. Bản đang cấu hình cho **tổ Hưng
+Đạo** — Chi nhánh VPĐKĐĐ Quốc Oai, tách từ skill `soan-van-ban-ho-so-dat-dai` (repo
+skill-soan-bao-cao) ngày 26/10/2026. Đặt tại `C:\Users\Admin\Desktop\Claude\soan-van-ban-hung-dao\`.
+
+**Dùng cho phòng khác:** sửa `assets\cau_hinh_chi_nhanh.json` (người ký, cán bộ, cơ quan thuế) và
+tiêu đề trong các mẫu `assets\mau\` (`CHI NHÁNH VPĐKĐĐ QUỐC OAI`, `/TB-CNQO` đang là chữ cố định
+trong từng file .docx), rồi đóng gói.
+
+**Thư mục của phòng** (`lam_ngay.js` nhận theo tên thư mục, không cần `--goc-ra`):
+
+```
+<thư mục hồ sơ>\
+├── hs chuyển\                       ← nguồn BC-TB-PC; thư mục con mang tên mẫu
+├── hs trả lại\                      ← nguồn trả lại; thư mục con mang tên dạng
+├── kết quả chuyển\
+│   ├── 2026-11-04 lần 1\<từng hồ sơ>\   ← mỗi lần soạn một thư mục đợt
+│   ├── _lam_viec\  _so_ho_so\
+└── kết quả trả lại\                 ← cùng cấu trúc
+```
+
+Hồ sơ đã soạn được bỏ qua ở các lần sau (`--soan-lai` để soạn lại). Đợt chốt ở lượt 1, ghi vào
+`dot_ket_qua` của `ho_so.json`. `chay_cuon_chieu.js`, `chay_hang_loat.js` chưa chia đợt.
 
 Một plugin, hai skill:
 
@@ -22,13 +41,13 @@ tiêu đề đời mới `CHI NHÁNH VPĐKĐĐ QUỐC OAI` · `/TB-CNQO`. Lô nh
 `lam_ngay.js --vao <lô> --theo-thu-muc` (mỗi thư mục con mang tên mẫu).
 
 Lệnh trong README này chạy từ `skills\soan-van-ban\`. Phát hành: `PHAT_HANH.bat` ở gốc →
-`dist\soan-van-ban-hung-dao.zip` (plugin) và `dist\skill-le\soan-van-ban.zip` (dự phòng).
+`dist\vpdk.zip` (plugin) và `dist\skill-le\soan-van-ban.zip` (dự phòng).
 
 `SKILL.md` chỉ giữ khung điều phối. Nghiệp vụ chi tiết nằm trong `references\`, và chỉ
 được đọc khi thật sự cần — nhờ vậy mỗi lần gọi skill không phải nạp cả cuốn tài liệu.
 
 ```
-soan-van-ban-hung-dao\
+vpdk\
 ├── .claude-plugin\plugin.json     ← khai báo plugin
 ├── PHAT_HANH.bat                  ← kiểm + đóng gói plugin
 ├── README.md                      ← file này
@@ -122,7 +141,7 @@ Mỗi lần sửa xong:
 
 ```bash
 git commit -am "..."            # để phiên bản ứng với một commit, dễ truy khi có lỗi
-node scripts/dong_goi.js        # kiểm toàn bộ rồi đóng dist/soan-van-ban-hung-dao.zip (plugin) + dist/skill-le/soan-van-ban.zip
+node scripts/dong_goi.js        # kiểm toàn bộ rồi đóng dist/vpdk.zip (plugin) + dist/skill-le/soan-van-ban.zip
 ```
 
 Hoặc bấm đúp `PHAT_HANH.bat` — nó đóng gói, rồi mở sẵn thư mục `dist` và trang Skills.

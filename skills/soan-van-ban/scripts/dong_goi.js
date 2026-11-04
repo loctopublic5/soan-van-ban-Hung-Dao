@@ -138,6 +138,15 @@ function kiem(dsFile) {
     }
   }
 
+  // Hai thư mục nguồn của phòng: đổi tên là kết quả về sai chỗ hoặc mẫu trả lại lọt vào hs chuyển.
+  const { nguonHoSo, tenTheoNguon } = require('./lam_ngay.js');
+  const nguonThu = (p) => (nguonHoSo(p) || {}).ketQua;
+  if (nguonThu('D:/x/HS Chuyển/lô/a.pdf') !== 'kết quả chuyển' || nguonThu('D:/x/hs trả lại') !== 'kết quả trả lại'
+    || nguonThu('D:/x/hs chuyển.pdf') || tenTheoNguon('vi phạm', nguonHoSo('D:/hs trả lại')) !== 'trả lại vi phạm'
+    || tenTheoNguon('trang 4', nguonHoSo('D:/hs chuyển')) !== 'trang 4') {
+    loi.push('nguonHoSo/tenTheoNguon không còn nhận đúng "hs chuyển", "hs trả lại"');
+  }
+
   for (const sk of skillAnhEm()) {
     if (sk.ten !== sk.thuMuc) loi.push(`skills/${sk.thuMuc}/SKILL.md mang name "${sk.ten}" — phải trùng tên thư mục`);
   }

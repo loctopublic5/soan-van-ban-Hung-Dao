@@ -1,6 +1,6 @@
 ---
 name: soan-van-ban
-description: "Soạn bộ văn bản trình ký BC-TB-PC cho hồ sơ đăng ký biến động đất đai của tổ Hưng Đạo — báo cáo thẩm tra gửi Phó Giám đốc, thông báo gửi UBND xã, phiếu chuyển thuế — bằng cách điền dữ liệu đọc từ hồ sơ vào mẫu .docx của Chi nhánh, giữ nguyên thể thức. Dùng khi người dùng nhắc đến soạn/lập/viết báo cáo, tờ trình, thông báo cập nhật, phiếu chuyển cho hồ sơ đất đai, hoặc sau khi đã phân loại hồ sơ bằng skill phan-loai-ho-so-dat-dai. KHÔNG dùng cho thông báo TRẢ LẠI hồ sơ (chưa đủ điều kiện giải quyết) — việc đó là của skill soan-tra-lai."
+description: "Soạn bộ văn bản trình ký BC-TB-PC cho hồ sơ đăng ký biến động đất đai — báo cáo thẩm tra gửi Phó Giám đốc, thông báo gửi UBND xã, phiếu chuyển thuế — bằng cách điền dữ liệu đọc từ hồ sơ vào mẫu .docx của Chi nhánh, giữ nguyên thể thức. Dùng khi người dùng nhắc đến soạn/lập/viết báo cáo, tờ trình, thông báo cập nhật, phiếu chuyển cho hồ sơ đất đai, hoặc sau khi đã phân loại hồ sơ bằng skill phan-loai-ho-so-dat-dai. KHÔNG dùng cho thông báo TRẢ LẠI hồ sơ (chưa đủ điều kiện giải quyết) — việc đó là của skill soan-tra-lai."
 ---
 
 # Soạn văn bản trình ký cho hồ sơ đất đai
@@ -16,28 +16,42 @@ viết cho tròn câu.
 
 Skill này nối tiếp `phan-loai-ho-so-dat-dai`: rổ dữ liệu của hồ sơ quyết định bộ mẫu.
 
-**Tổ Hưng Đạo.** Mọi văn bản do **KT. Giám đốc — Phó Giám đốc** ký (`ten_nguoi_ky` trong
-cấu hình), Báo cáo "Kính gửi: Phó Giám đốc …". Cán bộ thụ lý cố định trong cấu hình; **cán
-bộ hợp đồng có hai người luân phiên** — người dùng nói "cán bộ Hải Yến", "cán bộ Thái" thì
-thêm `--can-bo "<tên họ gõ>"` vào lệnh `lam_ngay.js`. Không nói thì ô đó ra «CẦN ĐIỀN»:
-hỏi một câu nếu chưa bàn giao, đừng tự chọn người.
+**Người ký, cán bộ theo cấu hình của phòng** (`assets/cau_hinh_chi_nhanh.json`). Plugin `vpdk`
+là phôi dùng cho nhiều phòng, tổ. Mọi văn bản do **KT. Giám đốc — Phó Giám đốc** ký
+(`ten_nguoi_ky`), Báo cáo "Kính gửi: Phó Giám đốc …". Cán bộ thụ lý cố định trong cấu hình;
+**cán bộ hợp đồng chọn theo lượt** từ danh sách `can_bo_hop_dong_chon` — người dùng nói "cán bộ
+<tên>" thì thêm `--can-bo "<tên họ gõ>"` vào lệnh `lam_ngay.js`. Không nói thì ô đó ra
+«CẦN ĐIỀN»: hỏi một câu nếu chưa bàn giao, đừng tự chọn người.
 
-**Thư mục kết quả tự đặt theo tên chủ và loại biến động**: mỗi hồ sơ một thư mục
-`<mã ngắn> <tên chủ> - <loại biến động>` (chưa có mã thì bỏ mã), ví dụ
-`Nguyễn Văn A - Tách thửa tặng cho`. Người dùng dặn "lưu theo tên chủ và tên biến động" thì
-đó chính là cách script đã làm — chỉ cần `--goc-ra`, không tự tạo thêm tầng thư mục.
+**Thư mục của phòng.** Hồ sơ nguồn nằm ở hai thư mục cạnh nhau: `hs chuyển` (BC-TB-PC, skill
+này) và `hs trả lại` (skill `soan-tra-lai`). Hồ sơ nằm trong đó thì **không truyền `--goc-ra`**:
+script tự trả về `kết quả chuyển` / `kết quả trả lại` cạnh nó, mỗi lần soạn một thư mục đợt
+(`2026-11-04 lần 1`), trong đó mỗi hồ sơ một thư mục. Hồ sơ đã soạn ở lần trước được bỏ qua;
+người dùng muốn soạn lại thì thêm `--soan-lai` (ghi đè vào đúng đợt cũ, hỏi trước nếu họ có thể
+đã sửa tay file kết quả). Báo cho người dùng đường dẫn thư mục đợt mà script in ra.
+
+```bash
+node scripts/lam_ngay.js --vao "<...>\hs chuyển" --can-bo "<tên>"   # thư mục con mang tên mẫu
+node scripts/lam_ngay.js --vao "<...>\hs chuyển\A.pdf" --bo-mau "<tên mẫu>"
+```
+
+`hs chuyển` không nhận mẫu trả lại: script dừng và bảo chuyển hồ sơ sang `hs trả lại`.
+
+**Thư mục hồ sơ tự đặt theo tên chủ và loại biến động**: `<mã ngắn> <tên chủ> - <loại biến
+động>` (chưa có mã thì bỏ mã), ví dụ `Nguyễn Văn A - Tách thửa tặng cho`. Người dùng dặn "lưu
+theo tên chủ và tên biến động" thì đó chính là cách script đã làm — không tự tạo thêm tầng thư mục.
 
 **Hai danh mục, một kho mẫu.** Plugin này còn skill `soan-tra-lai` (thông báo trả lại hồ sơ).
 Mẫu trả lại nằm chung kho nhưng **chỉ được chọn khi tên gọi có chữ "trả lại"** — gõ "cấp
 đổi" không bao giờ ra nhầm "trả lại cấp đổi". Người dùng muốn trả lại hồ sơ thì làm theo
 SKILL.md của `soan-tra-lai` (thư mục `../soan-tra-lai/` cạnh skill này).
 
-**Lô nhiều hồ sơ, mỗi hồ sơ một mẫu** (kể cả lẫn BC-TB-PC với trả lại): xếp mỗi hồ sơ vào
-thư mục con mang **tên mẫu** rồi chạy một lệnh —
-`node scripts/lam_ngay.js --vao "<thư mục lô>" --theo-thu-muc --goc-ra "<kết quả>"`.
-Script dò hết tên thư mục trước; tên nào không khớp đúng một mẫu thì dừng cả lô và in lý do.
-Người dùng kể danh sách trong câu lệnh ("file A tách thửa tặng cho, file B trang 4") thì
-chạy mỗi nhóm một lệnh `--bo-mau`, cùng `--goc-ra`.
+**Lô nhiều hồ sơ, mỗi hồ sơ một mẫu**: xếp mỗi hồ sơ vào thư mục con mang **tên mẫu** trong
+`hs chuyển` rồi chạy lệnh trên. Thư mục lô nằm ngoài quy hoạch thì dùng
+`node scripts/lam_ngay.js --vao "<thư mục lô>" --theo-thu-muc --goc-ra "<kết quả>"` (được lẫn
+BC-TB-PC với trả lại; kết quả chung một đợt). Script dò hết tên thư mục trước; tên nào không khớp
+đúng một mẫu thì dừng cả lô và in lý do. Người dùng kể danh sách trong câu lệnh ("file A tách
+thửa tặng cho, file B trang 4") thì chạy mỗi nhóm một lệnh `--bo-mau`.
 
 ## Tài nguyên
 
@@ -57,8 +71,8 @@ Chi nhánh đã ký.
 bằng mắt thì dễ tin nhầm một ghi chú đã cũ.
 
 **File vào, file ra.** Bản scan là file người dùng gửi kèm trong cuộc trò chuyện, hoặc
-đường dẫn họ đưa. Không chỉ `--goc-ra` thì `lam_ngay.js` tự chọn: trên claude.ai ghi vào
-thư mục outputs để người dùng tải về; trên máy tính thì ghi vào `ket_qua_soan/` cạnh chỗ
+đường dẫn họ đưa. Hồ sơ ngoài hai thư mục của phòng mà không chỉ `--goc-ra` thì `lam_ngay.js`
+tự chọn: trên claude.ai ghi vào thư mục outputs để người dùng tải về; trên máy tính thì ghi vào `ket_qua_soan/` cạnh chỗ
 đang làm. Xong thì đưa file cho người dùng và nói rõ tên từng file. Script dọn bản scan
 (`don_dep_sau_soan.ps1`) chỉ có nghĩa khi làm thẳng trên máy Windows của người dùng.
 
@@ -100,6 +114,7 @@ node scripts/so_ho_so.js --so "C:\...\Ket qua"
 ```
 
 Sổ do `tao_bo_van_ban.js` tự ghi mỗi lượt sinh văn bản, nằm ở `<thư mục kết quả>/_so_ho_so/`
+(chuyển và trả lại mỗi bên một sổ, muốn gộp thì truyền hai `--so`)
 — không phải nhớ gì, không phải ghi chép gì thêm. Bỏ `--so` thì script dùng thư mục kết
 quả đã chạy gần đây nhất. Thêm `--lap` xem đủ danh sách hồ sơ chạy lại, `--chi-tiet` xem
 từng hồ sơ, `--thang 2026-09` xem một tháng. Gộp số liệu nhiều máy: chép các file
@@ -112,8 +127,7 @@ bộ mẫu ("soạn file này bằng mẫu tách thửa", "thư mục D:\lô nà
 lối tắt — họ đã tự trả lời hai câu mà quy trình đầy đủ phải dò mới biết:
 
 ```bash
-node scripts/lam_ngay.js --vao "<file .pdf hoặc thư mục>" --bo-mau <tên mẫu> \
-  --goc-ra "C:\...\Ket qua"
+node scripts/lam_ngay.js --vao "<file .pdf hoặc thư mục>" --bo-mau <tên mẫu>
 ```
 
 Bốn lượt là xong: chạy lệnh → đọc **một** file `mini.pdf` mà nó in ra → ghi **dữ kiện**

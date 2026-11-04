@@ -150,7 +150,8 @@ function phienBan() {
  * số thật chứ không phải đếm thư mục. Sổ hỏng thì im lặng bỏ qua — xem so_ho_so.js.
  */
 function vaoSo(ts, duLieu, them) {
-  const kq = ghiSo(ts['goc-ra'], {
+  // Kết quả chia theo đợt mà sổ thì một quyển: --goc-so giữ sổ ở thư mục kết quả gốc.
+  const kq = ghiSo(ts['goc-so'] || ts['goc-ra'], {
     ma_ho_so: String(duLieu.ma_ho_so || ''),
     ten: String(duLieu.ten_nguoi_ho_so || ''),
     khoa: khoaHoSo(duLieu),

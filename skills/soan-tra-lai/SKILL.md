@@ -1,6 +1,6 @@
 ---
 name: soan-tra-lai
-description: "Soạn THÔNG BÁO TRẢ LẠI hồ sơ đất đai (hồ sơ chưa đủ điều kiện giải quyết) của tổ Hưng Đạo — Chi nhánh VPĐKĐĐ Quốc Oai, theo đúng mẫu đã ký cho từng dạng: chậm lũ, cấp đổi, hủy đăng ký, quy hoạch, sai hiện trạng, 515, tăng diện tích, vi phạm, đồng sử dụng, và công văn xin ý kiến xã khi GCN cấp không đúng quy định. Dùng khi người dùng nói trả lại hồ sơ, thông báo chưa đủ điều kiện, gửi trả hồ sơ, hoặc gọi /soan-tra-lai. Không dùng cho bộ BC-TB-PC trình ký (skill soan-van-ban)."
+description: "Soạn THÔNG BÁO TRẢ LẠI hồ sơ đất đai (hồ sơ chưa đủ điều kiện giải quyết) theo đúng mẫu đã ký cho từng dạng: chậm lũ, cấp đổi, hủy đăng ký, quy hoạch, sai hiện trạng, 515, tăng diện tích, vi phạm, đồng sử dụng, và công văn xin ý kiến xã khi GCN cấp không đúng quy định. Dùng khi người dùng nói trả lại hồ sơ, thông báo chưa đủ điều kiện, gửi trả hồ sơ, hoặc gọi /soan-tra-lai. Không dùng cho bộ BC-TB-PC trình ký (skill soan-van-ban)."
 ---
 
 # Soạn thông báo trả lại hồ sơ
@@ -47,9 +47,12 @@ Ba luật giữ cho không lẫn mẫu:
 ## Một hồ sơ
 
 ```bash
-node <soan-van-ban>/scripts/lam_ngay.js --vao "<file .pdf>" --bo-mau "trả lại vi phạm" \
-  --goc-ra "<thư mục kết quả>"
+node <soan-van-ban>/scripts/lam_ngay.js --vao "<...>\hs trả lại\A.pdf" --bo-mau "trả lại vi phạm"
 ```
+
+Hồ sơ nằm trong thư mục `hs trả lại` thì **không truyền `--goc-ra`**: kết quả tự về
+`kết quả trả lại` cạnh nó, mỗi lần soạn một thư mục đợt (`2026-11-04 lần 1`). Hồ sơ ngoài thư
+mục đó thì thêm `--goc-ra "<thư mục kết quả>"`.
 
 Bốn lượt như skill `soan-van-ban`: chạy lệnh → đọc **một** `mini.pdf` nó in → điền khung
 `ho_so.json` đã sinh sẵn → chạy **lại đúng lệnh đó** ra `.docx`. Khung trả lại không có khối
@@ -74,23 +77,27 @@ bản trả lại dù người dùng có nhắc tên cán bộ.
 ## Nhiều hồ sơ, nhiều dạng
 
 - **Người dùng kể trong câu lệnh** ("file A trả lại chậm lũ, file B và C trả lại vi phạm"):
-  chạy mỗi dạng một lệnh `--bo-mau`, tất cả cùng `--goc-ra`. Hồ sơ nào chưa được nói dạng thì
+  chạy mỗi dạng một lệnh `--bo-mau`. Hồ sơ nào chưa được nói dạng thì
   hỏi trước khi chạy, đừng chạy phần đã rõ rồi đoán phần còn lại.
-- **Lô lớn — xếp theo thư mục**: mỗi thư mục con mang đúng tên gọi ở bảng trên ("trả lại chậm
-  lũ", "trả lại vi phạm"…; được lẫn cả thư mục BC-TB-PC như "tách thửa tặng cho"), hồ sơ nằm
-  trong thư mục của dạng nó cần, rồi:
+- **Lô lớn — xếp theo thư mục**: trong `hs trả lại`, mỗi thư mục con mang tên dạng ở bảng trên
+  (ở đây được bỏ chữ "trả lại": `vi phạm` hay `trả lại vi phạm` đều nhận), hồ sơ nằm trong thư
+  mục của dạng nó cần, rồi:
 
   ```bash
-  node <soan-van-ban>/scripts/lam_ngay.js --vao "<thư mục lô>" --theo-thu-muc --goc-ra "<kết quả>"
+  node <soan-van-ban>/scripts/lam_ngay.js --vao "<...>\hs trả lại"
   ```
 
-  Script dò mọi tên thư mục trước khi làm gì; một tên sai, một file nằm lẻ ngoài thư mục, hay
-  `--goc-ra` nằm trong lô là dừng cả lô và in lý do. Lượt 4 vẫn là chạy lại đúng lệnh đó.
+  Script dò mọi tên thư mục trước khi làm gì; một tên sai hay một file nằm lẻ ngoài thư mục là
+  dừng cả lô và in lý do. Lượt 4 vẫn là chạy lại đúng lệnh đó.
 
-Kết quả tự xếp mỗi hồ sơ một thư mục `<mã ngắn> <tên chủ> - <dạng trả lại>` (vd. `Nguyễn Văn A -
-Trả lại vi phạm` khi chưa có mã), file `TB-TL <mã>.docx` (hoặc `CV <mã>.docx` với GCN cấp sai).
-Người dùng dặn "lưu theo tên chủ và dạng trả lại" thì script đã làm đúng như vậy — chỉ cần
-`--goc-ra`, không tự tạo thêm tầng thư mục.
+Hồ sơ đã soạn ở lần trước được bỏ qua, nên hồ sơ cũ để lại trong `hs trả lại` không lẫn vào đợt
+mới; muốn soạn lại thì thêm `--soan-lai` (ghi đè vào đúng đợt cũ, hỏi trước nếu họ có thể đã sửa
+tay file kết quả).
+
+Kết quả: `kết quả trả lại\<đợt>\<mã ngắn> <tên chủ> - <dạng trả lại>\` (vd. `Nguyễn Văn A - Trả
+lại vi phạm` khi chưa có mã), file `TB-TL <mã>.docx` (hoặc `CV <mã>.docx` với GCN cấp sai).
+Người dùng dặn "lưu theo tên chủ và dạng trả lại" thì script đã làm đúng như vậy — không tự tạo
+thêm tầng thư mục.
 
 ## Bàn giao
 
