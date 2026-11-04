@@ -25,10 +25,9 @@ là phôi dùng cho nhiều phòng, tổ. Mọi văn bản do **KT. Giám đốc
 
 **Thư mục của phòng.** Hồ sơ nguồn nằm ở hai thư mục cạnh nhau: `hs chuyển` (BC-TB-PC, skill
 này) và `hs trả lại` (skill `soan-tra-lai`). Hồ sơ nằm trong đó thì **không truyền `--goc-ra`**:
-script tự trả về `kết quả chuyển` / `kết quả trả lại` cạnh nó, mỗi lần soạn một thư mục đợt
-(`2026-11-04 lần 1`), trong đó mỗi hồ sơ một thư mục. Hồ sơ đã soạn ở lần trước được bỏ qua;
-người dùng muốn soạn lại thì thêm `--soan-lai` (ghi đè vào đúng đợt cũ, hỏi trước nếu họ có thể
-đã sửa tay file kết quả). Báo cho người dùng đường dẫn thư mục đợt mà script in ra.
+script tự trả về `kết quả chuyển` / `kết quả trả lại` cạnh nó, mỗi hồ sơ một thư mục. Hồ sơ đã
+soạn ở lần trước được bỏ qua; người dùng muốn soạn lại thì thêm `--soan-lai` (ghi đè văn bản cũ,
+hỏi trước nếu họ có thể đã sửa tay file kết quả).
 
 ```bash
 node scripts/lam_ngay.js --vao "<...>\hs chuyển" --can-bo "<tên>"   # thư mục con mang tên mẫu
@@ -49,7 +48,7 @@ SKILL.md của `soan-tra-lai` (thư mục `../soan-tra-lai/` cạnh skill này).
 **Lô nhiều hồ sơ, mỗi hồ sơ một mẫu**: xếp mỗi hồ sơ vào thư mục con mang **tên mẫu** trong
 `hs chuyển` rồi chạy lệnh trên. Thư mục lô nằm ngoài quy hoạch thì dùng
 `node scripts/lam_ngay.js --vao "<thư mục lô>" --theo-thu-muc --goc-ra "<kết quả>"` (được lẫn
-BC-TB-PC với trả lại; kết quả chung một đợt). Script dò hết tên thư mục trước; tên nào không khớp
+BC-TB-PC với trả lại). Script dò hết tên thư mục trước; tên nào không khớp
 đúng một mẫu thì dừng cả lô và in lý do. Người dùng kể danh sách trong câu lệnh ("file A tách
 thửa tặng cho, file B trang 4") thì chạy mỗi nhóm một lệnh `--bo-mau`.
 

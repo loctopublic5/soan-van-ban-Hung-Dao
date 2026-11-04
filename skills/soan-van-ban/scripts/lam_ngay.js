@@ -43,15 +43,14 @@
  * bộ BC-TB-PC chỉ được chọn khi không có chữ đó.
  *
  * THƯ MỤC CỦA PHÒNG — --vao nằm trong "hs chuyển" hoặc "hs trả lại" thì không cần --goc-ra:
- *   <gốc>\hs chuyển\...     → <gốc>\kết quả chuyển\2026-11-04 lần 1\<từng hồ sơ>\
- *   <gốc>\hs trả lại\...    → <gốc>\kết quả trả lại\2026-11-04 lần 1\<từng hồ sơ>\
+ *   <gốc>\hs chuyển\...     → <gốc>\kết quả chuyển\<từng hồ sơ>\
+ *   <gốc>\hs trả lại\...    → <gốc>\kết quả trả lại\<từng hồ sơ>\
  *   Trỏ thẳng vào hai thư mục đó mà không có --bo-mau: tự chạy như --theo-thu-muc. Trong
  *   "hs trả lại" tên mẫu được bỏ chữ "trả lại" ("vi phạm"); "hs chuyển" không nhận mẫu trả lại.
- *   Mỗi lần soạn một thư mục đợt riêng, có --goc-ra hay không cũng vậy. Hồ sơ đã soạn rồi được
- *   bỏ qua, nên hồ sơ cũ nằm lại trong thư mục nguồn không lẫn vào đợt mới.
+ *   Hồ sơ đã soạn rồi được bỏ qua, nên hồ sơ cũ nằm lại trong thư mục nguồn không bị soạn lại.
  *
  * Cờ khác:
- *   --soan-lai         soạn lại cả hồ sơ đã soạn, ghi đè vào đúng đợt cũ của nó
+ *   --soan-lai         soạn lại cả hồ sơ đã soạn, ghi đè văn bản cũ
  *   --can-bo "Hải Yến" cán bộ hợp đồng của lượt này (danh sách trong cau_hinh_chi_nhanh.json)
  *   --lv <thư mục>     nơi để file trung gian (mặc định "<--goc-ra>/_lam_viec")
  *   --trang 1,7,12     bỏ hẳn bước lọc, dùng đúng các trang này
@@ -123,7 +122,7 @@ function thuMucHoSo(gocLamViec, ten) {
   return thang;
 }
 
-/* ------------------------------------------------- thư mục nguồn và đợt ---- */
+/* --------------------------------------------------------- thư mục nguồn ---- */
 
 /** Quy hoạch thư mục của phòng: hai nguồn, mỗi nguồn trả về một thư mục kết quả cạnh nó.
  *  Nhận theo tên thư mục (bỏ dấu, nên không vướng dạng tổ hợp dấu hay chữ hoa). */
@@ -142,14 +141,6 @@ function nguonHoSo(vao) {
 function tenTheoNguon(ten, nguon) {
   if (!nguon || nguon.nhom !== 'tra-lai' || !ten || ten === '?') return ten;
   return /(^|-)tra-lai(-|$)/.test(boDau(ten)) ? ten : `trả lại ${ten}`;
-}
-/** "2026-11-04 lần 1": năm trước để thư mục tự xếp đúng thứ tự thời gian. */
-function tenDotMoi(gocRa, luc = new Date()) {
-  const hai = (x) => String(x).padStart(2, '0');
-  const ngay = `${luc.getFullYear()}-${hai(luc.getMonth() + 1)}-${hai(luc.getDate())}`;
-  let n = 1;
-  while (fs.existsSync(path.join(gocRa, `${ngay} lần ${n}`))) n++;
-  return `${ngay} lần ${n}`;
 }
 
 /* ----------------------------------------------------------------- bộ mẫu ---- */
@@ -365,17 +356,15 @@ function motHoSo(pdf, ctx) {
 
   /* Lượt 4: đã có dữ liệu → điền luôn, không đọc lại gì. */
   const duLieu = docJson(fileDuLieu);
-  if (duLieu && Object.keys(duLieu).some((k) => !k.startsWith('_') && k !== 'bo_mau' && k !== 'dot_ket_qua' && coGiaTri(duLieu[k]))) {
-    // Hồ sơ cũ còn nằm trong thư mục nguồn: đã soạn và chưa sửa gì thì không đụng tới, để đợt
-    // mới chỉ có hồ sơ mới và không ghi đè bản cán bộ đã điền tay. Đổi --can-bo là có việc mới.
+  if (duLieu && Object.keys(duLieu).some((k) => !k.startsWith('_') && k !== 'bo_mau' && coGiaTri(duLieu[k]))) {
+    // Hồ sơ cũ còn nằm trong thư mục nguồn: đã soạn và chưa sửa gì thì không đụng tới, để khỏi
+    // ghi đè bản cán bộ đã điền tay. Đổi --can-bo là có việc mới.
     const doiCanBo = ts.canBoChon && ts.canBoChon !== duLieu.can_bo_hop_dong;
     if (!ts['soan-lai'] && !doiCanBo && fs.existsSync(fileDaSoan)
       && fs.statSync(fileDuLieu).mtimeMs <= fs.statSync(fileDaSoan).mtimeMs) {
-      console.log(`  Đã soạn ở đợt "${duLieu.dot_ket_qua}" — bỏ qua (soạn lại: thêm --soan-lai).`);
+      console.log('  Đã soạn từ trước — bỏ qua (soạn lại: thêm --soan-lai).');
       return { trangThai: 'bo-qua' };
     }
-    duLieu.dot_ket_qua = duLieu.dot_ket_qua || ts.dotMoi();
-    const gocDot = path.join(ts['goc-ra'], duLieu.dot_ket_qua);
     duLieu.bo_mau = duLieu.bo_mau || tenBoMau;
     if (!duLieu.pdf_nguon) duLieu.pdf_nguon = path.resolve(pdf);
     // Cấu hình trộn vào SAU cùng nhưng không đè: giá trị viết thẳng trong ho_so.json
@@ -395,9 +384,8 @@ function motHoSo(pdf, ctx) {
       kq = execFileSync('node', [
         path.join(__dirname, 'tao_bo_van_ban.js'),
         '--du-lieu', fileDuLieu,
-        '--goc-ra', gocDot,
-        '--goc-so', ts['goc-ra'],
-        '--goc-ra-may', ts['goc-ra-may'] ? `${ts['goc-ra-may'].replace(/[\\/]+$/, '')}\\${duLieu.dot_ket_qua}` : gocDot,
+        '--goc-ra', ts['goc-ra'],
+        '--goc-ra-may', ts['goc-ra-may'] || ts['goc-ra'],
       ], { encoding: 'utf8' });
     } catch (e) {
       console.log(`  ✗ ${String(e.stderr || e.message).split('\n').filter(Boolean)[0]}`);
@@ -410,7 +398,7 @@ function motHoSo(pdf, ctx) {
     const cacO = (kq.match(/Các ô cần cán bộ tự điền: (.+)/) || [])[1];
     if (cacO) console.log(`  Ô «CẦN ĐIỀN» (${soO}): ${cacO}`);
     fs.writeFileSync(fileDaSoan, `${new Date().toISOString()}\n`, 'utf8');
-    return { trangThai: 'xong', soO, dot: duLieu.dot_ket_qua };
+    return { trangThai: 'xong', soO };
   }
 
   /* Lượt 1: chưa lọc thì lọc; đã lọc rồi thì in lại việc phải làm. */
@@ -448,15 +436,7 @@ function motHoSo(pdf, ctx) {
     .map((v) => ({ ten: v.lap_lai, ma: v.ma, bien: v.lap_lai_bien }));
   const ghepDuoc = new Set(bienGhepDuoc(tenBoMau));
   const traLai = banDo.bo_mau[tenBoMau].nhom === 'tra-lai';
-  const fileKhungJson = path.join(tmThat, 'ho_so.json');
-  const dotCu = (docJson(fileKhungJson) || {}).dot_ket_qua;
-  const nhom = sinhKhung(bien, nguon, cauHinh, dieuKien, lapLai, fileKhungJson, ghepDuoc, tenBoMau, traLai);
-  // Chốt đợt ngay lượt 1 và ghi vào hồ sơ: lượt 4 có thể cách lượt 1 cả ngày mà vẫn về đúng đợt.
-  fs.writeFileSync(fileKhungJson, JSON.stringify({
-    ...docJson(fileKhungJson),
-    _dot_ket_qua: 'do script đặt, không sửa',
-    dot_ket_qua: dotCu || ts.dotMoi(),
-  }, null, 2), 'utf8');
+  const nhom = sinhKhung(bien, nguon, cauHinh, dieuKien, lapLai, path.join(tmThat, 'ho_so.json'), ghepDuoc, tenBoMau, traLai);
   console.log(`  RỒI ĐIỀN: ${path.resolve(tmThat, 'ho_so.json')}   (khung đã sinh sẵn, chỉ điền giá trị)`);
   if (traLai) {
     // Không có du_kien để dặn, nên dặn nghĩa từng ô: cùng một chữ "nguoi_de_nghi" mà viết hoa
@@ -661,14 +641,6 @@ function main() {
   }
   ts.lv = ts.lv || path.join(ts['goc-ra'], '_lam_viec');
   fs.mkdirSync(ts.lv, { recursive: true });
-  // Đặt tên đợt lúc thật sự có hồ sơ mới, và tạo luôn thư mục để lần chạy sau không trùng số.
-  ts.dotMoi = () => {
-    if (!ts.dot) {
-      ts.dot = tenDotMoi(ts['goc-ra']);
-      fs.mkdirSync(path.join(ts['goc-ra'], ts.dot), { recursive: true });
-    }
-    return ts.dot;
-  };
 
   const pb = docJson(path.join(GOC_SKILL, 'assets/phien_ban.json'));
   console.log(`Phiên bản skill: ${pb ? pb.phien_ban : 'bản đang phát triển (chưa đóng gói)'}`);
@@ -687,7 +659,6 @@ function main() {
   if (!khuonCau) { try { khuonCau = require('./sinh_khuon_cau.js').khuonCau(); } catch { khuonCau = {}; } }
 
   const dem = { xong: 0, choDoc: 0, boQua: 0, loi: 0 };
-  const cacDot = new Set();
   let tongO = 0;
   for (const v of viec) {
     const tenBoMau = v.tenBoMau;
@@ -706,7 +677,7 @@ function main() {
     const ctx = { ts, banDo, tenBoMau, nguon, cauHinh, congThuc, khuonCau, bienBoMau };
     for (const pdf of dsPdf) {
       const r = motHoSo(pdf, ctx);
-      if (r.trangThai === 'xong') { dem.xong++; tongO += r.soO || 0; cacDot.add(r.dot); }
+      if (r.trangThai === 'xong') { dem.xong++; tongO += r.soO || 0; }
       else if (r.trangThai === 'bo-qua') dem.boQua++;
       else if (r.trangThai === 'cho-doc') dem.choDoc++;
       else dem.loi++;
@@ -719,7 +690,7 @@ function main() {
     console.log('Không cần đọc references/bien-so.md — danh sách biến ở trên đã rút thẳng từ mẫu.');
   }
   if (dem.xong) {
-    console.log(`${dem.xong} hồ sơ đã ra văn bản tại ${[...cacDot].map((d) => path.resolve(ts['goc-ra'], d)).join(' · ')}`);
+    console.log(`${dem.xong} hồ sơ đã ra văn bản tại ${path.resolve(ts['goc-ra'])}`);
     if (tongO) console.log(`CÒN ${tongO} Ô «CẦN ĐIỀN» — phải điền hết trước khi trình ký.`);
     else console.log('Không còn ô trống nào.');
   }
@@ -727,5 +698,5 @@ function main() {
   if (dem.loi) console.log(`${dem.loi} hồ sơ vướng, xem dòng ✗ ở trên.`);
 }
 
-module.exports = { chonBoMau, nguonHoSo, tenTheoNguon, tenDotMoi };
+module.exports = { chonBoMau, nguonHoSo, tenTheoNguon };
 if (require.main === module) main();

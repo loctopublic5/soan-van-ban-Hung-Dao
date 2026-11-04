@@ -51,8 +51,7 @@ node <soan-van-ban>/scripts/lam_ngay.js --vao "<...>\hs trả lại\A.pdf" --bo-
 ```
 
 Hồ sơ nằm trong thư mục `hs trả lại` thì **không truyền `--goc-ra`**: kết quả tự về
-`kết quả trả lại` cạnh nó, mỗi lần soạn một thư mục đợt (`2026-11-04 lần 1`). Hồ sơ ngoài thư
-mục đó thì thêm `--goc-ra "<thư mục kết quả>"`.
+`kết quả trả lại` cạnh nó. Hồ sơ ngoài thư mục đó thì thêm `--goc-ra "<thư mục kết quả>"`.
 
 Bốn lượt như skill `soan-van-ban`: chạy lệnh → đọc **một** `mini.pdf` nó in → điền khung
 `ho_so.json` đã sinh sẵn → chạy **lại đúng lệnh đó** ra `.docx`. Khung trả lại không có khối
@@ -90,11 +89,10 @@ bản trả lại dù người dùng có nhắc tên cán bộ.
   Script dò mọi tên thư mục trước khi làm gì; một tên sai hay một file nằm lẻ ngoài thư mục là
   dừng cả lô và in lý do. Lượt 4 vẫn là chạy lại đúng lệnh đó.
 
-Hồ sơ đã soạn ở lần trước được bỏ qua, nên hồ sơ cũ để lại trong `hs trả lại` không lẫn vào đợt
-mới; muốn soạn lại thì thêm `--soan-lai` (ghi đè vào đúng đợt cũ, hỏi trước nếu họ có thể đã sửa
-tay file kết quả).
+Hồ sơ đã soạn ở lần trước được bỏ qua; muốn soạn lại thì thêm `--soan-lai` (ghi đè văn bản cũ,
+hỏi trước nếu họ có thể đã sửa tay file kết quả).
 
-Kết quả: `kết quả trả lại\<đợt>\<mã ngắn> <tên chủ> - <dạng trả lại>\` (vd. `Nguyễn Văn A - Trả
+Kết quả: `kết quả trả lại\<mã ngắn> <tên chủ> - <dạng trả lại>\` (vd. `Nguyễn Văn A - Trả
 lại vi phạm` khi chưa có mã), file `TB-TL <mã>.docx` (hoặc `CV <mã>.docx` với GCN cấp sai).
 Người dùng dặn "lưu theo tên chủ và dạng trả lại" thì script đã làm đúng như vậy — không tự tạo
 thêm tầng thư mục.

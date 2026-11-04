@@ -4,9 +4,15 @@ Phôi soạn văn bản hồ sơ đất đai, dùng lại cho nhiều phòng, t�
 Đạo** — Chi nhánh VPĐKĐĐ Quốc Oai, tách từ skill `soan-van-ban-ho-so-dat-dai` (repo
 skill-soan-bao-cao) ngày 26/10/2026. Đặt tại `C:\Users\Admin\Desktop\Claude\soan-van-ban-hung-dao\`.
 
-**Dùng cho phòng khác:** sửa `assets\cau_hinh_chi_nhanh.json` (người ký, cán bộ, cơ quan thuế) và
-tiêu đề trong các mẫu `assets\mau\` (`CHI NHÁNH VPĐKĐĐ QUỐC OAI`, `/TB-CNQO` đang là chữ cố định
-trong từng file .docx), rồi đóng gói.
+**Dùng cho phòng khác:** sửa `skills\soan-van-ban\assets\cau_hinh_chi_nhanh.json` rồi đóng gói:
+`tieu_de_chi_nhanh` (tiêu đề góc trái), `ky_hieu_chi_nhanh` (`/TB-…`, `/CV-…`), `ten_chi_nhanh` (tên
+trong câu văn, địa danh ngày tháng), người ký, cán bộ, cơ quan thuế. `kiem_tra_mau.js` báo lỗi nếu
+tên đơn vị đang cấu hình còn sót thành chữ cứng trong mẫu.
+
+Chữ riêng còn nằm trong mẫu, phòng khác địa bàn phải đọc lại và sửa mẫu: dòng `VĂN PHÒNG ĐĂNG KÝ
+ĐẤT ĐAI HÀ NỘI`, `Hà Nội, ngày…`; căn cứ quy hoạch huyện Quốc Oai trong `trả lại chậm lũ`; "Chi
+nhánh số 7 - Điểm tiếp nhận huyện Quốc Oai" trong `trả lại GCN cấp sai`; "chi nhánh số 7" trong
+các thông báo trả lại; các quyết định của UBND thành phố Hà Nội.
 
 **Thư mục của phòng** (`lam_ngay.js` nhận theo tên thư mục, không cần `--goc-ra`):
 
@@ -14,14 +20,11 @@ trong từng file .docx), rồi đóng gói.
 <thư mục hồ sơ>\
 ├── hs chuyển\                       ← nguồn BC-TB-PC; thư mục con mang tên mẫu
 ├── hs trả lại\                      ← nguồn trả lại; thư mục con mang tên dạng
-├── kết quả chuyển\
-│   ├── 2026-11-04 lần 1\<từng hồ sơ>\   ← mỗi lần soạn một thư mục đợt
-│   ├── _lam_viec\  _so_ho_so\
-└── kết quả trả lại\                 ← cùng cấu trúc
+├── kết quả chuyển\<tên chủ> - <mẫu>\  ← mỗi hồ sơ một thư mục; cạnh đó _lam_viec\, _so_ho_so\
+└── kết quả trả lại\<tên chủ> - <mẫu>\
 ```
 
-Hồ sơ đã soạn được bỏ qua ở các lần sau (`--soan-lai` để soạn lại). Đợt chốt ở lượt 1, ghi vào
-`dot_ket_qua` của `ho_so.json`. `chay_cuon_chieu.js`, `chay_hang_loat.js` chưa chia đợt.
+Hồ sơ đã soạn được bỏ qua ở các lần sau (`--soan-lai` để soạn lại).
 
 Một plugin, hai skill:
 

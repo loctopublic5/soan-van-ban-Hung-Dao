@@ -38,6 +38,8 @@ const DAU_HIEU = [
   { ten: 'số tiền',            re: /\b\d{1,3}(?:\.\d{3}){2,}\s*(?:đ|đồng)/g },
 ];
 
+const DON_VI = JSON.parse(fs.readFileSync(path.join(__dirname, '../assets/cau_hinh_chi_nhanh.json'), 'utf8')).gia_tri;
+const GIU_TEN_DON_VI = /(2030 huyện|Điểm tiếp nhận huyện) [^,.]{0,30}?(?= được| tiếp nhận)/g;
 const TU_PHAP_LY = /(Luật|Nghị định|Thông tư|Quyết định|Nghị quyết|Kế hoạch|Chỉ thị|Thủ tướng|Điều|NĐ-CP|TT-BTNMT|QĐ-|KH-|CT-TTg|HĐND|TCĐC)/;
 
 function docThamSo(argv) {
@@ -87,6 +89,14 @@ function soi(duongDan) {
         nang.push({ giaTri, bang: f });
       }
     }
+  }
+
+  // Tên đơn vị đang cấu hình phải đi qua biến, kể cả mẫu mới làm từ văn bản đã ký: sót một chỗ
+  // là phòng khác dùng phôi sẽ in nhầm tên đơn vị. Hai đoạn GIU_TEN_DON_VI là căn cứ, nơi tiếp
+  // nhận gắn với địa bàn, chữ của chúng không đổi theo cấu hình.
+  const chuBoGiu = chu.normalize('NFC').replace(GIU_TEN_DON_VI, '');
+  for (const k of ['tieu_de_chi_nhanh', 'ky_hieu_chi_nhanh', 'ten_chi_nhanh']) {
+    if (DON_VI[k] && chuBoGiu.includes(DON_VI[k].normalize('NFC'))) nang.push({ giaTri: `${DON_VI[k]} (phải dùng {{${k}}})`, bang: 'cau_hinh_chi_nhanh.json' });
   }
 
   // Lớp 2 — quét theo dấu hiệu.

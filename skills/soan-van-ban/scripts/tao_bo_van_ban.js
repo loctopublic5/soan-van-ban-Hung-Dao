@@ -150,8 +150,7 @@ function phienBan() {
  * số thật chứ không phải đếm thư mục. Sổ hỏng thì im lặng bỏ qua — xem so_ho_so.js.
  */
 function vaoSo(ts, duLieu, them) {
-  // Kết quả chia theo đợt mà sổ thì một quyển: --goc-so giữ sổ ở thư mục kết quả gốc.
-  const kq = ghiSo(ts['goc-so'] || ts['goc-ra'], {
+  const kq = ghiSo(ts['goc-ra'], {
     ma_ho_so: String(duLieu.ma_ho_so || ''),
     ten: String(duLieu.ten_nguoi_ho_so || ''),
     khoa: khoaHoSo(duLieu),
@@ -174,6 +173,12 @@ function main() {
   const gocSkill = path.resolve(__dirname, '..');
   const banDo = JSON.parse(fs.readFileSync(path.join(gocSkill, 'assets/ban_do_ro_mau.json'), 'utf8'));
   let duLieu = JSON.parse(fs.readFileSync(ts['du-lieu'], 'utf8'));
+  // Tiêu đề, ký hiệu đơn vị nằm trong mọi mẫu nên phải có ở mọi đường vào (lam_ngay.js đã trộn
+  // cả cấu hình, chay_cuon_chieu.js và chay_hang_loat.js thì không).
+  const cauHinh = JSON.parse(fs.readFileSync(path.join(gocSkill, 'assets/cau_hinh_chi_nhanh.json'), 'utf8')).gia_tri;
+  for (const k of ['tieu_de_chi_nhanh', 'ky_hieu_chi_nhanh', 'ten_chi_nhanh']) {
+    if (!duLieu[k]) duLieu[k] = cauHinh[k];
+  }
 
   // Bộ mẫu đến từ một trong hai đường: suy ra từ rổ của skill phân loại, hoặc do người
   // dùng chỉ định thẳng ("soạn file này bằng mẫu tách thửa"). Có "bo_mau" rồi thì không
