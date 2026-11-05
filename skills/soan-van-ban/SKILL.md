@@ -1,6 +1,6 @@
 ---
 name: soan-van-ban
-description: "Soạn bộ văn bản trình ký BC-TB-PC cho hồ sơ đăng ký biến động đất đai — báo cáo thẩm tra gửi Phó Giám đốc, thông báo gửi UBND xã, phiếu chuyển thuế — bằng cách điền dữ liệu đọc từ hồ sơ vào mẫu .docx của Chi nhánh, giữ nguyên thể thức. Dùng khi người dùng nhắc đến soạn/lập/viết báo cáo, tờ trình, thông báo cập nhật, phiếu chuyển cho hồ sơ đất đai, hoặc sau khi đã phân loại hồ sơ bằng skill phan-loai-ho-so-dat-dai. KHÔNG dùng cho thông báo TRẢ LẠI hồ sơ (chưa đủ điều kiện giải quyết) — việc đó là của skill soan-tra-lai; văn bản trả lời phiếu cung cấp thông tin (CCTT) là của skill soan-tra-loi-cctt."
+description: "Soạn bộ văn bản trình ký BC-TB-PC cho hồ sơ đăng ký biến động đất đai — báo cáo thẩm tra gửi Phó Giám đốc, thông báo gửi UBND xã, phiếu chuyển thuế — bằng cách điền dữ liệu đọc từ hồ sơ vào mẫu .docx của Chi nhánh, giữ nguyên thể thức. Dùng khi người dùng nhắc đến soạn/lập/viết báo cáo, tờ trình, thông báo cập nhật, phiếu chuyển cho hồ sơ đất đai, hoặc sau khi đã phân loại hồ sơ bằng skill phan-loai-ho-so-dat-dai. KHÔNG dùng cho thông báo TRẢ LẠI hồ sơ (chưa đủ điều kiện giải quyết) — việc đó là của skill soan-tra-lai."
 ---
 
 # Soạn văn bản trình ký cho hồ sơ đất đai

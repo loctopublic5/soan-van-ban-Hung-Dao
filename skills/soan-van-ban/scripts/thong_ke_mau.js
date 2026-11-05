@@ -89,7 +89,7 @@ function main() {
   // "không có", người dùng thì chắc chắn là đã chép rồi. Nói rõ ra thay vì im lặng.
   const daKhai = new Set(Object.keys(banDo.bo_mau));
   const thua = fs.readdirSync(path.join(goc, 'assets/mau'), { withFileTypes: true })
-    .filter((d) => d.isDirectory() && d.name !== 'chung' && !d.name.startsWith('cctt-') && !daKhai.has(d.name))
+    .filter((d) => d.isDirectory() && d.name !== 'chung' && !daKhai.has(d.name))
     .map((d) => d.name);
   if (thua.length) {
     console.log(`CÓ THƯ MỤC MẪU NHƯNG CHƯA KHAI trong assets/ban_do_ro_mau.json: ${thua.join(', ')}`);
