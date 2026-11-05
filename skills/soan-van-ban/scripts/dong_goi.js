@@ -147,6 +147,26 @@ function kiem(dsFile) {
     loi.push('nguonHoSo/tenTheoNguon không còn nhận đúng "hs chuyển", "hs trả lại"');
   }
 
+  // Trả lời CCTT: sai đếm, sai gộp hay lọt GCN không đúng trường hợp là văn bản ký ra vẫn đọc xuôi.
+  const { dongHoSo, cacVanBan, chiaNhom, loiNhom, MAU } = require('./soan_cctt.js');
+  const phieu = (so, xa, ngay, them) => ({ so_van_ban: so, ngay_van_ban: ngay, co_quan: `Phòng A - UBND xã ${xa}`, so_gcn: 'S 1',
+    co_quan_cap: 'UBND huyện X', ngay_cap: '01/02/2004', nguoi_duoc_cap: 'ông A', ...them });
+  const p1 = phieu('1/A', 'B', '02/11/2026'), p2 = phieu('2/C', 'B', '02/11/2026', { co_quan: 'phòng a – UBND xã B' });
+  const p3 = phieu('3/A', 'D', '03/11/2026');
+  const moc = '31/3/2015';
+  if (chiaNhom([p1, p2, p3]).length !== 2 || chiaNhom([p1, p2, p3], true).length !== 3
+    || chiaNhom([{ ...p1, nhom: 'x' }, { ...p2, nhom: 'y' }]).length !== 2
+    || cacVanBan([p1, p2]) !== 'các Văn bản số: 1/A, 2/C ngày 02/11/2026'
+    || cacVanBan([p1, p3]) !== 'các Văn bản số: 1/A ngày 02/11/2026, 3/A ngày 03/11/2026'
+    || cacVanBan([p1]) !== 'Văn bản số 1/A ngày 02/11/2026'
+    || /thửa/.test(dongHoSo(p1)) || !/thửa đất số 5, tờ bản đồ số 6/.test(dongHoSo({ ...p1, so_thua: '5', so_to: '6' }))
+    || !/«CẦN ĐIỀN: so_gcn»/.test(dongHoSo({ ...p1, so_gcn: '' }))
+    || loiNhom([p1, p2], MAU['không có scan'], moc).length
+    || !loiNhom([p1, p3], MAU['không có scan'], moc).length
+    || !loiNhom([{ ...p1, ngay_cap: '31/03/2015' }], MAU['không có scan'], moc).length) {
+    loi.push('soan_cctt.js không còn gộp, ghép câu hoặc chặn mẫu đúng');
+  }
+
   for (const sk of skillAnhEm()) {
     if (sk.ten !== sk.thuMuc) loi.push(`skills/${sk.thuMuc}/SKILL.md mang name "${sk.ten}" — phải trùng tên thư mục`);
   }

@@ -1,6 +1,6 @@
 ---
 name: soan-tra-lai
-description: "Soạn THÔNG BÁO TRẢ LẠI hồ sơ đất đai (hồ sơ chưa đủ điều kiện giải quyết) theo đúng mẫu đã ký cho từng dạng: chậm lũ, cấp đổi, hủy đăng ký, quy hoạch, sai hiện trạng, 515, tăng diện tích, vi phạm, đồng sử dụng, và công văn xin ý kiến xã khi GCN cấp không đúng quy định. Dùng khi người dùng nói trả lại hồ sơ, thông báo chưa đủ điều kiện, gửi trả hồ sơ, hoặc gọi /soan-tra-lai. Không dùng cho bộ BC-TB-PC trình ký (skill soan-van-ban)."
+description: "Soạn THÔNG BÁO TRẢ LẠI hồ sơ đất đai (hồ sơ chưa đủ điều kiện giải quyết) theo đúng mẫu đã ký cho từng dạng: chậm lũ, cấp đổi, hủy đăng ký, quy hoạch, sai hiện trạng, 515, tăng diện tích, vi phạm, đồng sử dụng, và công văn xin ý kiến xã khi GCN cấp không đúng quy định. Dùng khi người dùng nói trả lại hồ sơ, thông báo chưa đủ điều kiện, gửi trả hồ sơ, hoặc gọi /soan-tra-lai. Không dùng cho bộ BC-TB-PC trình ký (skill soan-van-ban) và văn bản trả lời phiếu cung cấp thông tin gửi phòng của xã (skill soan-tra-loi-cctt)."
 ---
 
 # Soạn thông báo trả lại hồ sơ

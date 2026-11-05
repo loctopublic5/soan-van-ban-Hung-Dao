@@ -23,6 +23,6 @@ start "" "%~dp0dist"
 start "" "https://claude.ai/customize/skills"
 echo.
 echo Da mo thu muc dist va trang Customize.
-echo Tai dist\vpdk.zip len muc Plugins - plugin gom 2 skill soan-van-ban va soan-tra-lai.
+echo Tai dist\vpdk.zip len muc Plugins - plugin gom 3 skill soan-van-ban, soan-tra-lai va soan-tra-loi-cctt.
 echo Tai khoan chua co muc Plugins thi tai dist\skill-le\soan-van-ban.zip len muc Skills.
 pause

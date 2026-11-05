@@ -222,15 +222,16 @@ td:last-child, th:last-child { padding-right: 0; }
   <p class="eyebrow">Tổ Hưng Đạo — Chi nhánh VPĐKĐĐ Quốc Oai</p>
   <h1>Cẩm nang soạn văn bản hồ sơ đất đai bằng Claude</h1>
   <p class="lead">Claude là trợ lý trên máy tính: anh/chị gõ một câu bằng tiếng Việt, Claude đọc bản scan hồ sơ, điền vào đúng mẫu của Chi nhánh và trả về file Word. Cẩm nang này viết cho người <b>chưa dùng Claude bao giờ</b>. Chỉ cần chép đúng câu lệnh mẫu, thay chỗ chấm chấm bằng thông tin hồ sơ của mình.</p>
-  <p class="meta">Dùng với plugin vpdk (hai lệnh /soan-van-ban và /soan-tra-lai) · cập nhật 04/11/2026</p>
+  <p class="meta">Dùng với plugin vpdk (ba lệnh /soan-van-ban, /soan-tra-lai và /soan-tra-loi-cctt) · cập nhật 05/11/2026</p>
 </header>
 
 <section class="cong-thuc" aria-labelledby="hai-lenh">
-  <h2 id="hai-lenh" class="nhan">Chỉ có hai lệnh — chọn đúng lệnh trước</h2>
-  <p class="cau">/soan-van-ban — soạn bộ Báo cáo, Thông báo, Phiếu chuyển để trình ký.<br>/soan-tra-lai — soạn Thông báo trả lại hồ sơ chưa đủ điều kiện giải quyết.</p>
+  <h2 id="hai-lenh" class="nhan">Chỉ có ba lệnh — chọn đúng lệnh trước</h2>
+  <p class="cau">/soan-van-ban — soạn bộ Báo cáo, Thông báo, Phiếu chuyển để trình ký.<br>/soan-tra-lai — soạn Thông báo trả lại hồ sơ chưa đủ điều kiện giải quyết.<br>/soan-tra-loi-cctt — soạn văn bản trả lời phiếu cung cấp thông tin của phòng thuộc xã.</p>
   <dl class="bon-phan">
     <div><dt>Hồ sơ đủ điều kiện</dt><dd>Dùng <b>/soan-van-ban</b>. Ra BC gửi Phó Giám đốc, TB gửi UBND xã, PC gửi cơ quan thuế.</dd></div>
     <div><dt>Hồ sơ phải trả lại</dt><dd>Dùng <b>/soan-tra-lai</b>. Ra một thông báo gửi người dân, theo đúng dạng trả lại.</dd></div>
+    <div><dt>Xã đề nghị cung cấp hồ sơ</dt><dd>Dùng <b>/soan-tra-loi-cctt</b>. Ra văn bản trả lời gửi phòng của xã, gộp nhiều phiếu hoặc riêng từng phiếu.</dd></div>
     <div><dt>Người ký</dt><dd>Mọi văn bản: KT. Giám đốc — Phó Giám đốc Tạ Khắc Minh. Không cần gõ.</dd></div>
     <div><dt>Cán bộ</dt><dd>Chỉ Báo cáo có dòng cán bộ hợp đồng: gõ “cán bộ Hải Yến” hoặc “cán bộ Thái”.</dd></div>
   </dl>
@@ -239,9 +240,9 @@ td:last-child, th:last-child { padding-right: 0; }
 <h2 id="lan-dau">1. Lần đầu dùng Claude — làm một lần là xong</h2>
 <ol class="buoc">
   <li><b>Mở ứng dụng Claude</b> trên máy tính và đăng nhập tài khoản của tổ (hỏi người phụ trách nếu chưa có). Màn hình chính có <b>một ô để gõ</b> ở phía dưới — mọi việc đều bắt đầu từ ô đó.</li>
-  <li><b>Kiểm tra plugin đã có chưa:</b> bấm vào ô gõ, gõ dấu gạch chéo <b>/</b>. Danh sách lệnh hiện ra phải có <b>soan-van-ban</b> và <b>soan-tra-lai</b>. Không thấy thì báo người phụ trách cài plugin, chưa làm tiếp.</li>
+  <li><b>Kiểm tra plugin đã có chưa:</b> bấm vào ô gõ, gõ dấu gạch chéo <b>/</b>. Danh sách lệnh hiện ra phải có <b>soan-van-ban</b>, <b>soan-tra-lai</b> và <b>soan-tra-loi-cctt</b>. Không thấy thì báo người phụ trách cài plugin, chưa làm tiếp.</li>
   <li><b>Cho Claude quyền mở thư mục hồ sơ.</b> Claude chỉ đọc được file trong thư mục anh/chị đã cho phép. Khi Claude hỏi xin quyền một thư mục, hãy đồng ý. Nên gom mọi thứ về một thư mục cố định, ví dụ <code>D:\Hồ sơ Claude</code>, cho quyền một lần là dùng mãi.</li>
-  <li><b>Tạo hai thư mục con đúng tên</b>, viết thường có dấu: <code>hs chuyển</code> (hồ sơ đủ điều kiện) và <code>hs trả lại</code> (hồ sơ phải trả lại). Thả bản scan vào đúng thư mục. Kết quả tự về hai thư mục <code>kết quả chuyển</code> và <code>kết quả trả lại</code> nằm cạnh đó, không cần tạo trước.</li>
+  <li><b>Tạo ba thư mục con đúng tên</b>, viết thường có dấu: <code>hs chuyển</code> (hồ sơ đủ điều kiện), <code>hs trả lại</code> (hồ sơ phải trả lại) và <code>hs cctt</code> (phiếu xã đề nghị cung cấp thông tin). Thả bản scan vào đúng thư mục. Kết quả tự về <code>kết quả chuyển</code>, <code>kết quả trả lại</code>, <code>kết quả cctt</code> nằm cạnh đó, không cần tạo trước.</li>
   <li><b>Thử một hồ sơ cũ đã làm tay</b> bằng câu lệnh ở mục 2. So kết quả với bản anh/chị đã làm để quen cách Claude trả lời.</li>
 </ol>
 
@@ -382,7 +383,22 @@ td:last-child, th:last-child { padding-right: 0; }
   <p><b>Quên chữ “trả lại” thì Claude không chọn mẫu trả lại.</b> Gõ “theo mẫu chậm lũ” sẽ bị hỏi lại; gõ “theo mẫu cấp đổi” sẽ ra bộ BC-TB-PC cấp đổi chứ không phải thông báo trả lại. Luôn gõ đủ: “trả lại chậm lũ”, “trả lại cấp đổi”.</p>
 </div>
 
-<h2 id="nhieu-ho-so">5. Nhiều hồ sơ cùng lúc</h2>
+<h2 id="cctt">5. Trả lời phiếu cung cấp thông tin — lệnh /soan-tra-loi-cctt</h2>
+<p>Trả lời thế nào là <b>anh/chị quyết định</b> sau khi tra lưu trữ, nên câu lệnh phải nói rõ mẫu. Hiện có một mẫu: <b>không có scan</b>, dùng khi Giấy chứng nhận cấp trước ngày Chi nhánh thành lập và Chi nhánh không có hồ sơ. Giấy chứng nhận cấp từ ngày đó trở đi thì Claude dừng lại báo, không soạn.</p>
+
+<section class="cong-thuc" aria-labelledby="cau-cctt">
+  <h3 id="cau-cctt" class="nhan">Câu lệnh chuẩn — chép và thay chỗ chấm chấm</h3>
+  <p class="cau">/soan-tra-loi-cctt Trả lời các phiếu trong <span class="o">đường dẫn thư mục hs cctt</span> theo mẫu không có scan.</p>
+</section>
+
+<p><b>Mặc định gộp:</b> các phiếu cùng một phòng của một xã vào một văn bản, mỗi xã một văn bản. Muốn khác thì nói thêm vào cuối câu lệnh:</p>
+<ul>
+  <li>Riêng hết: “trả lời riêng từng phiếu”.</li>
+  <li>Tự chia: “gộp phiếu 25 với 26, còn phiếu 79 riêng”.</li>
+</ul>
+<p>Một văn bản chỉ gửi được một nơi, nên phiếu của hai xã không gộp chung được. Kết quả nằm trong <code>kết quả cctt</code>, tên file có số phiếu và mẫu, ví dụ <code>25, 26 UBND xã Kiều Phú - không có scan.docx</code>. Số và ngày của văn bản trả lời để trống cho văn thư.</p>
+
+<h2 id="nhieu-ho-so">6. Nhiều hồ sơ cùng lúc</h2>
 <p>Có hai cách. Mỗi lần nên tối đa khoảng 10 hồ sơ; lô lớn thì chia ra, mỗi phần một cuộc trò chuyện mới.</p>
 
 <h3>Cách 1 — kể từng hồ sơ trong câu lệnh (ít hồ sơ)</h3>
@@ -415,7 +431,7 @@ td:last-child, th:last-child { padding-right: 0; }
   <p><b>Bị ngắt giữa chừng</b> (hết lượt, mất mạng): quay lại đúng cuộc trò chuyện đó và gõ <i>“Làm tiếp lô đang dở.”</i> Hồ sơ đã xong thì Claude không làm lại.</p>
 </div>
 
-<h2 id="claude-hoi">6. Claude hỏi lại — trả lời thế nào</h2>
+<h2 id="claude-hoi">7. Claude hỏi lại — trả lời thế nào</h2>
 <p>Claude chỉ dừng lại khi thiếu thông tin hoặc hồ sơ có điểm vướng. Đọc câu hỏi, trả lời ngắn đúng câu đó.</p>
 <div class="bang-cuon">
 <table>
@@ -432,7 +448,7 @@ td:last-child, th:last-child { padding-right: 0; }
 </table>
 </div>
 
-<h2 id="nhan-ket-qua">7. Nhận kết quả — phần việc của cán bộ</h2>
+<h2 id="nhan-ket-qua">8. Nhận kết quả — phần việc của cán bộ</h2>
 <p>Khi xong, Claude báo ba điều: đã soạn những file nào và để ở đâu; còn bao nhiêu ô <span class="can-dien">«CẦN ĐIỀN»</span> và là những ô nào; chỗ nào trong hồ sơ mâu thuẫn hoặc mờ, cần xác minh. Đọc kỹ điều thứ ba và đối chiếu với bản giấy.</p>
 <p>Kết quả nằm trong <code>kết quả chuyển</code> hoặc <code>kết quả trả lại</code>. Hai thư mục <code>_lam_viec</code> và <code>_so_ho_so</code> bên cạnh là của Claude, đừng xoá.</p>
 <p><b>Mỗi hồ sơ một thư mục, tự đặt theo tên chủ và mẫu đã dùng</b>, ví dụ <code>Nguyễn Văn A - Tách thửa tặng cho</code> hay <code>Trần Văn B - Trả lại vi phạm</code>; có mã hồ sơ thì mã đứng đầu: <code>261102-0011 Nguyễn Văn A - Tách thửa tặng cho</code>. Không cần dặn cách đặt tên trong câu lệnh.</p>
@@ -467,7 +483,7 @@ td:last-child, th:last-child { padding-right: 0; }
   <p><b>Đừng nhờ Claude viết lại câu cho “hay hơn”</b>, đừng gõ tên người ký khác, đừng đưa Claude mẫu khác để “dùng tạm”. Câu văn và thể thức lấy đúng từ văn bản Chi nhánh đã ký; sửa ngoài mẫu thì dễ sai mà người ký khó thấy. Thấy sai thì báo như mục 8.</p>
 </div>
 
-<h2 id="bao-loi">8. Khi văn bản sai — báo lại đúng cách</h2>
+<h2 id="bao-loi">9. Khi văn bản sai — báo lại đúng cách</h2>
 <p>Sửa tay trong file chỉ chữa được hồ sơ đang làm, hồ sơ sau vẫn sai y như cũ. Hãy báo người phụ trách plugin để sửa ngay ở mẫu. Báo đủ ba thứ:</p>
 <ol class="buoc">
   <li><b>Phiên bản.</b> Hỏi Claude: <i>“Plugin soạn văn bản đang dùng phiên bản nào?”</i></li>
@@ -484,6 +500,7 @@ td:last-child, th:last-child { padding-right: 0; }
   <tbody>
     <tr><td>Soạn BC-TB-PC một hồ sơ</td><td>/soan-van-ban Soạn bộ văn bản cho file <span class="o">đường dẫn file PDF</span> theo mẫu <span class="o">tên mẫu</span>, cán bộ <span class="o">Hải Yến hoặc Thái</span>. Mã hồ sơ <span class="o">mã</span>, nhận ngày <span class="o">ngày</span>. Lưu kết quả vào <span class="o">thư mục</span>.</td></tr>
     <tr><td>Soạn trả lại một hồ sơ</td><td>/soan-tra-lai Soạn thông báo cho file <span class="o">đường dẫn file PDF</span> theo dạng <span class="o">trả lại …</span>. Mã hồ sơ <span class="o">mã</span>. Lưu kết quả vào <span class="o">thư mục</span>.</td></tr>
+    <tr><td>Trả lời phiếu CCTT</td><td>/soan-tra-loi-cctt Trả lời các phiếu trong <span class="o">đường dẫn thư mục hs cctt</span> theo mẫu không có scan.</td></tr>
     <tr><td>Nhiều hồ sơ, kể từng file</td><td>/soan-van-ban Soạn văn bản cho các hồ sơ trong thư mục <span class="o">đường dẫn thư mục</span>, cán bộ <span class="o">tên</span>: – <span class="o">file 1</span>: <span class="o">tên mẫu</span> – <span class="o">file 2</span>: <span class="o">tên mẫu</span>.</td></tr>
     <tr><td>Lô đã xếp thư mục theo mẫu</td><td>/soan-van-ban Soạn văn bản cho <span class="o">đường dẫn thư mục hs chuyển</span> theo tên thư mục, cán bộ <span class="o">tên</span>.<br>/soan-tra-lai Soạn thông báo cho <span class="o">đường dẫn thư mục hs trả lại</span> theo tên thư mục.</td></tr>
     <tr><td>Chưa biết dùng mẫu nào</td><td>Xem giúp hồ sơ <span class="o">đường dẫn file PDF</span> hợp với mẫu BC-TB-PC nào. Chưa soạn.</td></tr>

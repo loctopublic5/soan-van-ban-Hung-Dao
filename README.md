@@ -12,7 +12,9 @@ tên đơn vị đang cấu hình còn sót thành chữ cứng trong mẫu.
 Chữ riêng còn nằm trong mẫu, phòng khác địa bàn phải đọc lại và sửa mẫu: dòng `VĂN PHÒNG ĐĂNG KÝ
 ĐẤT ĐAI HÀ NỘI`, `Hà Nội, ngày…`; căn cứ quy hoạch huyện Quốc Oai trong `trả lại chậm lũ`; "Chi
 nhánh số 7 - Điểm tiếp nhận huyện Quốc Oai" trong `trả lại GCN cấp sai`; "chi nhánh số 7" trong
-các thông báo trả lại; các quyết định của UBND thành phố Hà Nội.
+các thông báo trả lại; các quyết định của UBND thành phố Hà Nội. Mẫu CCTT lấy ngày, quyết định
+thành lập từ `ngay_thanh_lap_chi_nhanh`, `quyet_dinh_thanh_lap_chi_nhanh`; ngày này cũng là mốc
+script chặn mẫu `không có scan`, phòng khác phải sửa cho đúng.
 
 **Thư mục của phòng** (`lam_ngay.js` nhận theo tên thư mục, không cần `--goc-ra`):
 
@@ -20,20 +22,25 @@ các thông báo trả lại; các quyết định của UBND thành phố Hà N
 <thư mục hồ sơ>\
 ├── hs chuyển\                       ← nguồn BC-TB-PC; thư mục con mang tên mẫu
 ├── hs trả lại\                      ← nguồn trả lại; thư mục con mang tên dạng
+├── hs cctt\                         ← phiếu cung cấp thông tin (soan_cctt.js)
 ├── kết quả chuyển\<tên chủ> - <mẫu>\  ← mỗi hồ sơ một thư mục; cạnh đó _lam_viec\, _so_ho_so\
-└── kết quả trả lại\<tên chủ> - <mẫu>\
+├── kết quả trả lại\<tên chủ> - <mẫu>\
+└── kết quả cctt\<số phiếu> <xã hoặc tên chủ> - <mẫu>.docx
 ```
 
 Hồ sơ đã soạn được bỏ qua ở các lần sau (`--soan-lai` để soạn lại).
 
-Một plugin, hai skill:
+Một plugin, ba skill:
 
 | Skill | Gọi | Làm gì |
 |---|---|---|
 | `soan-van-ban` | `/soan-van-ban`, "soạn báo cáo / thông báo / phiếu chuyển…" | bộ BC-TB-PC trình ký (7 bộ mẫu) |
 | `soan-tra-lai` | `/soan-tra-lai`, "trả lại hồ sơ…" | thông báo trả lại hồ sơ (10 dạng), tên gọi luôn "trả lại <dạng>" |
+| `soan-tra-loi-cctt` | `/soan-tra-loi-cctt`, "trả lời CCTT…" | văn bản trả lời phiếu đề nghị cung cấp thông tin, gộp hoặc riêng |
 
-`soan-tra-lai` chỉ có SKILL.md; script, mẫu, cấu hình nằm chung trong `skills\soan-van-ban\`.
+`soan-tra-lai` và `soan-tra-loi-cctt` chỉ có SKILL.md; script, mẫu, cấu hình nằm chung trong
+`skills\soan-van-ban\`. Mẫu CCTT ở `assets\mau\cctt-*\`, không qua `ban_do_ro_mau.json`: thêm mẫu
+thì thêm một dòng vào `MAU` trong `scripts\soan_cctt.js` và một dòng vào bảng của SKILL.md.
 Mẫu trả lại là các bộ mẫu `"nhom": "tra-lai"` trong `ban_do_ro_mau.json`, thư mục
 `assets\mau\tra-lai-*\`, bản gốc ở `assets\nguon_da_ky\tra-lai-*\`.
 
