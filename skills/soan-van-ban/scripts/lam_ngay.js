@@ -168,7 +168,10 @@ function chonBoMau(banDo, nhap) {
   // được chọn khi câu gọi có chữ "trả lại", và ngược lại — để "cấp đổi" không bao giờ ra
   // nhầm "trả lại cấp đổi", hay "trả lại cấp đổi" ra nhầm bộ BC-TB-PC cấp đổi.
   const traLai = /(^|-)tra-lai(-|$)/.test(boDau(nhap));
-  const cac = tatCa.filter((x) => (banDo.bo_mau[x].nhom === 'tra-lai') === traLai);
+  // Riêng bộ khai "goi_khong_tra_lai" (mất GCN: hồ sơ được giải quyết chứ không bị trả lại) nhận
+  // cả tên không có chữ đó.
+  const cac = tatCa.filter((x) => (banDo.bo_mau[x].nhom === 'tra-lai') === traLai
+    || (!traLai && banDo.bo_mau[x].goi_khong_tra_lai));
   // Mẫu trả lại khớp theo mã và tên gọi thôi, không theo câu mô tả: mô tả dài ("…tách thửa
   // vướng quy hoạch…") làm "trả lại tách thửa" rơi đúng vào một dạng trong khi nhiều dạng
   // khác cũng là hồ sơ tách thửa.
@@ -542,7 +545,7 @@ function inLoiChonMau(chon, nhap, banDo) {
   }
 }
 
-const saiNguon = (bo, nguon) => Boolean(nguon) && nguon.nhom === 'chuyen' && bo.nhom === 'tra-lai';
+const saiNguon = (bo, nguon) => Boolean(nguon) && nguon.nhom === 'chuyen' && bo.nhom === 'tra-lai' && !bo.goi_khong_tra_lai;
 
 /** --theo-thu-muc: mỗi thư mục con của --vao mang TÊN MẪU ("trả lại chậm lũ", "tách thửa
  *  tặng cho"), hồ sơ nào cần mẫu nào thì nằm trong thư mục đó. Dò hết tên thư mục trước khi

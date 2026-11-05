@@ -1,6 +1,6 @@
 ---
 name: soan-tra-lai
-description: "Soạn THÔNG BÁO TRẢ LẠI hồ sơ đất đai (hồ sơ chưa đủ điều kiện giải quyết) theo đúng mẫu đã ký cho từng dạng: chậm lũ, cấp đổi, hủy đăng ký, quy hoạch, sai hiện trạng, 515, tăng diện tích, vi phạm, đồng sử dụng, và công văn xin ý kiến xã khi GCN cấp không đúng quy định. Dùng khi người dùng nói trả lại hồ sơ, thông báo chưa đủ điều kiện, gửi trả hồ sơ, hoặc gọi /soan-tra-lai. Không dùng cho bộ BC-TB-PC trình ký (skill soan-van-ban) và văn bản trả lời phiếu cung cấp thông tin gửi phòng của xã (skill soan-tra-loi-cctt)."
+description: "Soạn THÔNG BÁO TRẢ LẠI hồ sơ đất đai (hồ sơ chưa đủ điều kiện giải quyết) theo đúng mẫu đã ký cho từng dạng: chậm lũ, cấp đổi, hủy đăng ký, quy hoạch, sai hiện trạng, 515, tăng diện tích, vi phạm, đồng sử dụng, và công văn xin ý kiến xã khi GCN cấp không đúng quy định; kèm bộ 3 văn bản cấp lại khi mất giấy chứng nhận (công văn niêm yết, báo cáo, quyết định). Dùng khi người dùng nói trả lại hồ sơ, thông báo chưa đủ điều kiện, gửi trả hồ sơ, mất giấy chứng nhận, mất GCN, cấp lại GCN do mất, hoặc gọi /soan-tra-lai. Không dùng cho bộ BC-TB-PC trình ký (skill soan-van-ban) và văn bản trả lời phiếu cung cấp thông tin gửi phòng của xã (skill soan-tra-loi-cctt)."
 ---
 
 # Soạn thông báo trả lại hồ sơ
@@ -32,13 +32,16 @@ Skill này dùng chung script và mẫu với skill `soan-van-ban` của cùng p
 | `trả lại vi phạm` | đất sử dụng sai mục đích, xử lý vi phạm trước khi chuyển quyền | TB-TL |
 | `trả lại đồng sử dụng` | nhiều người chung thửa, thiếu văn bản cử người đại diện giữ GCN | TB-TL |
 | `trả lại GCN cấp sai` | GCN cấp không đúng quy định — **công văn xin ý kiến UBND xã**, không gửi dân | CV |
+| `mất giấy chứng nhận` | cấp lại GCN do mất — **một lệnh ra đủ 3 văn bản**, xem mục "Mất giấy chứng nhận" | CV, BC, QD |
 
 Danh sách chuẩn luôn khớp mẫu thật: `lam_ngay.js --bo-mau "trả lại"` in đủ các dạng.
 
 Ba luật giữ cho không lẫn mẫu:
 
 1. **Chữ "trả lại" là bắt buộc.** Script chỉ chọn mẫu trả lại khi có chữ đó, và không bao giờ
-   chọn mẫu trả lại khi thiếu nó. Gõ "chậm lũ" trơn thì script dừng và chỉ tên đúng.
+   chọn mẫu trả lại khi thiếu nó. Gõ "chậm lũ" trơn thì script dừng và chỉ tên đúng. Ngoại lệ
+   duy nhất: `mất giấy chứng nhận` (hay `mất GCN`), vì hồ sơ này được giải quyết chứ không bị
+   trả lại.
 2. **Không đoán dạng.** Người dùng không nói dạng cho một hồ sơ, hoặc lời họ khớp nhiều dạng
    (script in "khớp nhiều bộ mẫu") → hỏi lại, đưa danh sách để họ chọn. Đọc bản scan thấy
    "giống vi phạm" cũng không tự chọn.
@@ -72,6 +75,25 @@ Hay sai nhất:
 cán bộ thụ lý hay cán bộ hợp đồng (người dùng chốt 27/10/2026). `--can-bo` là của Báo cáo
 (skill `soan-van-ban`) — không cần truyền khi soạn trả lại, và không thêm dòng cán bộ vào văn
 bản trả lại dù người dùng có nhắc tên cán bộ.
+
+## Mất giấy chứng nhận
+
+Không phải trả lại hồ sơ: đây là bộ văn bản cấp lại GCN, người dùng gọi một lần là ra đủ ba file
+`CV`, `BC`, `QD` (`--bo-mau "mất giấy chứng nhận"`), dùng chung một `ho_so.json`. Thứ tự thật của
+thủ tục khác lúc soạn:
+
+1. `CV` gửi UBND xã niêm yết 15 ngày, Phó Giám đốc ký. Sau đó xã có 5 ngày gửi kết quả về.
+2. `BC` trình Phó Giám đốc, **cán bộ thẩm định ký** (`can_bo_thu_ly` trong cấu hình). Đây là ngoại
+   lệ của luật "không có dòng cán bộ" ở trên.
+3. `QD` hủy GCN cũ, cấp GCN mới, Phó Giám đốc ký. Điều 1–3 chính là mục 1–3 của `BC`.
+
+Cần phân biệt ba ô chỉ người: `nguoi_de_nghi` (người nộp hồ sơ), `gcn_chu_su_dung` (chủ trên GCN bị
+mất), `nguoi_duoc_cap` (người nhận GCN mới, viết "ông A và vợ bà B"). `gcn_moi_so` chưa có thì để
+rỗng: script đánh «CẦN ĐIỀN» đúng chỗ, không bao giờ lấy số GCN cũ.
+
+Khi bàn giao, luôn nhắc: `BC` có câu "không nhận đơn thư phản ánh" nên `BC` và `QD` chỉ trình ký sau
+khi có kết quả niêm yết đúng như vậy. Có người phản ánh thì bộ mẫu này không dùng được, báo người
+dùng tự xử lý.
 
 ## Nhiều hồ sơ, nhiều dạng
 

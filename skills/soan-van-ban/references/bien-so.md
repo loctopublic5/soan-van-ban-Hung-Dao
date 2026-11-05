@@ -416,6 +416,22 @@ node scripts/xem_mau.js --file assets/mau/<bo-mau>/<file>.docx --o-trong
 Chọn nhầm biến ở đây làm văn bản gọi sai vai của người trong hồ sơ — lỗi đọc lên vẫn
 trôi nên khó phát hiện, mà bản chất là ghi sai chủ thể pháp lý.
 
+### tra-lai-mat-gcn
+
+Một lệnh ra ba văn bản CV, BC, QD, dùng chung một `ho_so.json`, câu văn cố định như mẫu trả lại.
+
+| Biến | Nghĩa |
+|---|---|
+| `nguoi_de_nghi` | Người **nộp hồ sơ**, có thể kèm "(UQ: …)" |
+| `gcn_chu_su_dung` | Chủ **ghi trên GCN bị mất** |
+| `nguoi_duoc_cap` | Người được cấp **GCN mới**, viết "ông A và vợ bà B" như bản đã ký |
+| `gcn_so`, `gcn_moi_so` | Seri GCN bị mất và seri GCN mới. Seri mới thường chưa có lúc soạn: để rỗng |
+| `so_vao_so`, `gcn_nam_cap` | Số vào sổ và năm cấp, chỉ công văn CV dùng |
+| `dia_chi_thua_cu_nay` | Địa chỉ thửa kèm "(nay là …)", chỉ công văn CV dùng |
+| `dia_chi_thua` | Địa chỉ thửa hiện nay, BC và QD dùng |
+
+Tên đơn vị và địa chỉ Chi nhánh lấy từ cấu hình, gồm cả `dia_chi_chi_nhanh`, `ten_chi_nhanh_in_hoa`.
+
 ### cap-doi-gcn
 
 | Biến | Tầng | Ghi chú |

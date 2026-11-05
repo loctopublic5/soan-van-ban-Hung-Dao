@@ -34,3 +34,22 @@ node scripts/tao_mau.js --vao assets/nguon_da_ky/tach-thua-phan-chia-chung/TB-ng
   --bang assets/mau/tach-thua-phan-chia-chung/bang_thay_TB.json \
   --ra   assets/mau/tach-thua-phan-chia-chung/TB-cap-gcn.docx
 ```
+
+## tra-lai-mat-gcn
+
+Bản gốc `.doc` ở `D:\Draft\a Đạt\` (05/11/2026), đã chuyển sang `.docx` bằng Word. Công văn lấy từ
+một hồ sơ, Báo cáo và Quyết định lấy từ một hồ sơ khác.
+
+**Không nằm trong git:** repo công khai, nên các file dưới đây và ba `bang_thay_*.json` chứa dữ liệu
+thật của hồ sơ chỉ giữ trên máy người bảo trì (khai trong `.gitignore`). Sinh lại mẫu phải có chúng.
+
+| File | Là gì |
+|---|---|
+| `CV-goc.docx` | Công văn niêm yết công khai |
+| `BC-goc.docx` | Báo cáo (file gốc đặt tên Tờ trình) |
+| `QD-goc.docx` | Quyết định, bản chuyển nguyên trạng |
+| `QD-nguon-da-cat.docx` | bản trên đã bỏ 37 đoạn thừa trong ô Nơi nhận (có một dấu "." lạc) và hai ngắt section sau bảng chữ ký, giữ `sectPr` của phần văn bản. Đây mới là nguồn của mẫu QD |
+
+Bảng thay nằm trong `assets/mau/tra-lai-mat-gcn/`: `bang_thay_CV.json` với `CV-goc.docx` ra
+`CV-niem-yet.docx`, `bang_thay_BC.json` với `BC-goc.docx` ra `BC-tham-tra.docx`,
+`bang_thay_QD.json` với `QD-nguon-da-cat.docx` ra `QD-huy-cap-lai.docx`.

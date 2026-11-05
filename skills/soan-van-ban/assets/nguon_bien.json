@@ -60,7 +60,14 @@
       "hop_dong_ngay": "ngày công chứng",
       "ben_chuyen": "bên chuyển quyền, viết như ĐẦU CÂU: \"Bà Trần Thị B\"",
       "giao_dich": "chuyển nhượng | tặng cho",
-      "ngay_nhan_ho_so": "ngày Trung tâm phục vụ hành chính công tiếp nhận hồ sơ — phiếu tiếp nhận"
+      "ngay_nhan_ho_so": "ngày Trung tâm phục vụ hành chính công tiếp nhận hồ sơ — phiếu tiếp nhận",
+      "nguoi_duoc_cap": "mất GCN: người được cấp GCN mới, viết giữa câu theo đúng lối văn bản đã ký: \"ông Nguyễn Văn A và vợ bà Trần Thị B\", một người thì \"bà Trần Thị B\"",
+      "so_vao_so": "số vào sổ cấp GCN, chép trên GCN hoặc đơn, chỉ phần số: \"12345\"",
+      "gcn_nam_cap": "năm cấp GCN, 4 chữ số",
+      "dia_chi_thua": "địa chỉ thửa đất hiện nay, đầy đủ: \"Thôn A, xã Hưng Đạo, thành phố Hà Nội\"",
+      "dia_chi_thua_cu_nay": "địa chỉ thửa đất như trên GCN, kèm địa danh hiện nay nếu đã đổi: \"Thôn A, xã B, huyện C, thành phố Hà Nội cũ (nay là xã Hưng Đạo, thành phố Hà Nội)\"",
+      "thoi_han_su_dung": "thời hạn sử dụng chép trên GCN: \"Đất ở lâu dài, đất trồng cây lâu năm đến 01/01/2050\"",
+      "hinh_thuc_su_dung": "hình thức sử dụng: \"Sử dụng chung của vợ và chồng\", \"Sử dụng riêng\""
     }
   },
   "doc_tu_gcn_moi": {

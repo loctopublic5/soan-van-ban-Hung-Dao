@@ -35,14 +35,15 @@ Một plugin, ba skill:
 | Skill | Gọi | Làm gì |
 |---|---|---|
 | `soan-van-ban` | `/soan-van-ban`, "soạn báo cáo / thông báo / phiếu chuyển…" | bộ BC-TB-PC trình ký (7 bộ mẫu) |
-| `soan-tra-lai` | `/soan-tra-lai`, "trả lại hồ sơ…" | thông báo trả lại hồ sơ (10 dạng), tên gọi luôn "trả lại <dạng>" |
+| `soan-tra-lai` | `/soan-tra-lai`, "trả lại hồ sơ…", "mất giấy chứng nhận" | thông báo trả lại hồ sơ (10 dạng), tên gọi luôn "trả lại <dạng>"; bộ 3 văn bản mất GCN (CV, BC, QD) |
 | `soan-tra-loi-cctt` | `/soan-tra-loi-cctt`, "trả lời CCTT…" | văn bản trả lời phiếu đề nghị cung cấp thông tin, gộp hoặc riêng |
 
 `soan-tra-lai` và `soan-tra-loi-cctt` chỉ có SKILL.md; script, mẫu, cấu hình nằm chung trong
 `skills\soan-van-ban\`. Mẫu CCTT ở `assets\mau\cctt-*\`, không qua `ban_do_ro_mau.json`: thêm mẫu
 thì thêm một dòng vào `MAU` trong `scripts\soan_cctt.js` và một dòng vào bảng của SKILL.md.
 Mẫu trả lại là các bộ mẫu `"nhom": "tra-lai"` trong `ban_do_ro_mau.json`, thư mục
-`assets\mau\tra-lai-*\`, bản gốc ở `assets\nguon_da_ky\tra-lai-*\`.
+`assets\mau\tra-lai-*\`, bản gốc ở `assets\nguon_da_ky\tra-lai-*\`. Bộ `tra-lai-mat-gcn` khai thêm
+`"goi_khong_tra_lai": true` nên gọi được bằng tên không có chữ "trả lại".
 
 Khác bản Quốc Oai gốc (27/10/2026): mọi văn bản do **KT. Giám đốc — Phó Giám đốc Tạ Khắc
 Minh** ký (biến `ten_nguoi_ky`, Báo cáo "Kính gửi: Phó Giám đốc …"); cán bộ thụ lý Nguyễn
@@ -97,7 +98,7 @@ vpdk\
     ├── nguon_bien.json            ← biến nào thuộc tầng nào (bản máy đọc của bien-so.md)
     ├── cau_hinh_chi_nhanh.json    ← người ký, cán bộ (danh sách cán bộ hợp đồng), cơ quan thuế — SỬA KHI ĐỔI
     ├── cong_thuc_cau.json         ← lưu ý chung cho ô tự viết câu + khuôn viết tay
-    └── mau\                       ← 7 bộ BC-TB-PC (17 file) + 10 dạng trả lại (tra-lai-*\)
+    └── mau\                       ← 7 bộ BC-TB-PC (17 file) + 10 dạng trả lại + bộ mất GCN (tra-lai-*\)
         ├── chung\                 ← PC phiếu chuyển thuế, dùng chung nhiều rổ
         ├── giao-dich-trang-4\     ← chuyển nhượng / tặng cho / thừa kế, ghi trang 4
         ├── giao-dich-cap-doi\     ← ba loại trên nhưng cấp GCN mới

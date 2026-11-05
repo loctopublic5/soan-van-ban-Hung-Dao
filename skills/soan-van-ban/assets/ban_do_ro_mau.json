@@ -3,7 +3,7 @@
   "_phien_ban": 3,
   "_cap_nhat": "2026-09-15",
   "_ten_goi_khac": "Tên cán bộ quen gọi, để lam_ngay.js --bo-mau nhận ra. Tên rổ trong ro_dung_bo_mau cũng tự được nhận, không cần chép vào đây. Tên gọi thiếu ý (\"cấp đổi\", \"tách thửa\", \"tặng cho\", \"thừa kế\") cố ý khớp nhiều bộ mẫu để script hỏi lại. Bảng tên gọi trong HUONG_DAN_CAN_BO lấy từ đây — sửa ở đây thì sửa cả bảng đó.",
-  "_tra_lai": "DANH MỤC TRẢ LẠI HỒ SƠ = các bộ mẫu có \"nhom\": \"tra-lai\" (skill soan-tra-lai). Mỗi dạng một văn bản gửi người đề nghị (riêng GCN cấp sai là công văn xin ý kiến UBND xã). Tên gọi LUÔN bắt đầu bằng \"trả lại\" — lam_ngay.js chỉ chọn mẫu trả lại khi có chữ đó, và chỉ chọn bộ BC-TB-PC khi không có. Lý do trả lại là quyết định của cán bộ, không suy ra từ bản scan: người dùng không nói dạng thì hỏi, không đoán. Bản gốc (văn bản tổ Hưng Đạo gửi 27/10/2026) ở assets/nguon_da_ky/<mã dạng>/.",
+  "_tra_lai": "DANH MỤC TRẢ LẠI HỒ SƠ = các bộ mẫu có \"nhom\": \"tra-lai\" (skill soan-tra-lai). Mỗi dạng một văn bản gửi người đề nghị (riêng GCN cấp sai là công văn xin ý kiến UBND xã; tra-lai-mat-gcn là ngoại lệ: bộ 3 văn bản cấp lại GCN, khai goi_khong_tra_lai nên gọi được không cần chữ \"trả lại\"). Tên gọi LUÔN bắt đầu bằng \"trả lại\" — lam_ngay.js chỉ chọn mẫu trả lại khi có chữ đó, và chỉ chọn bộ BC-TB-PC khi không có. Lý do trả lại là quyết định của cán bộ, không suy ra từ bản scan: người dùng không nói dạng thì hỏi, không đoán. Bản gốc (văn bản tổ Hưng Đạo gửi 27/10/2026) ở assets/nguon_da_ky/<mã dạng>/.",
   "bo_mau": {
     "giao-dich-trang-4": {
       "ten": "Giao dịch chuyển quyền, ghi biến động lên trang 4 GCN cũ",
@@ -314,6 +314,20 @@
       "ten_goi_khac": ["trả lại GCN cấp sai", "trả lại GCN cấp không đúng quy định", "trả lại xin ý kiến xã", "trả lại thu hồi GCN cấp sai"],
       "nguon_goc": "C:\\Users\\Admin\\Desktop\\Claude\\Các dạng hồ sơ trả lại\\Giấy chứng nhận cấp không đúng quy định.doc (đã chuyển sang .docx)",
       "van_ban": [{ "ma": "CV", "ten": "Công văn xin ý kiến loại đất", "mau": "mau/tra-lai-gcn-cap-sai/CV-xin-y-kien.docx", "gui": "UBND xã" }]
+    },
+    "tra-lai-mat-gcn": {
+      "nhom": "tra-lai",
+      "goi_khong_tra_lai": true,
+      "ten": "Mất giấy chứng nhận — bộ 3 văn bản cấp lại GCN: công văn niêm yết gửi xã, báo cáo, quyết định hủy và cấp lại (hồ sơ được giải quyết, không phải trả lại)",
+      "ten_thu_muc": "Mất giấy chứng nhận",
+      "ten_goi_khac": ["trả lại mất giấy chứng nhận", "trả lại mất GCN", "mất giấy chứng nhận", "mất GCN", "cấp lại GCN do mất", "cấp lại giấy chứng nhận do mất"],
+      "nguon_goc": "D:\\Draft\\a Đạt\\ (Công khai mất Giấy chứng nhận.doc, TỜ TRÌNH MẤT GCN.doc, Quyết định mất Giấy chứng nhận.doc — đã chuyển sang .docx)",
+      "canh_bao": "Công văn ký trước. Báo cáo và Quyết định chỉ trình ký sau khi xã gửi kết quả niêm yết không có phản ánh, và đã có số seri GCN mới.",
+      "van_ban": [
+        { "ma": "CV", "ten": "Công văn đề nghị niêm yết công khai mất GCN", "mau": "mau/tra-lai-mat-gcn/CV-niem-yet.docx", "gui": "UBND xã" },
+        { "ma": "BC", "ten": "Báo cáo hủy GCN và đề xuất cấp lại", "mau": "mau/tra-lai-mat-gcn/BC-tham-tra.docx", "gui": "Phó Giám đốc" },
+        { "ma": "QD", "ten": "Quyết định hủy GCN và cấp lại", "mau": "mau/tra-lai-mat-gcn/QD-huy-cap-lai.docx", "gui": "Người đề nghị" }
+      ]
     }
   },
   "ro_dung_bo_mau": {

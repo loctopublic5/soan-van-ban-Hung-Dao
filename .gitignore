@@ -2,3 +2,6 @@
 dist/
 # File khoá Word tạo ra khi đang mở một .docx (vd. ~$ONG_DAN_CAN_BO.docx)
 ~$*
+# Dữ liệu thật của hồ sơ mất GCN: repo công khai, chỉ giữ trên máy người bảo trì
+skills/soan-van-ban/assets/mau/tra-lai-mat-gcn/bang_thay_*.json
+skills/soan-van-ban/assets/nguon_da_ky/tra-lai-mat-gcn/
