@@ -34,7 +34,7 @@ node scripts/lam_ngay.js --vao "<...>\hs chuyển" --can-bo "<tên>"   # thư m�
 node scripts/lam_ngay.js --vao "<...>\hs chuyển\A.pdf" --bo-mau "<tên mẫu>"
 ```
 
-`hs chuyển` không nhận mẫu trả lại: script dừng và bảo chuyển hồ sơ sang `hs trả lại`.
+`hs chuyển` không nhận mẫu trả lại (trừ `mất giấy chứng nhận`): script dừng và bảo chuyển hồ sơ sang `hs trả lại`.
 
 **Thư mục hồ sơ tự đặt theo tên chủ và loại biến động**: `<mã ngắn> <tên chủ> - <loại biến
 động>` (chưa có mã thì bỏ mã), ví dụ `Nguyễn Văn A - Tách thửa tặng cho`. Người dùng dặn "lưu
@@ -54,7 +54,7 @@ thửa tặng cho, file B trang 4") thì chạy mỗi nhóm một lệnh `--bo-m
 
 ## Tài nguyên
 
-**Mọi thứ nằm ngay trong skill này** — script, 27 mẫu `.docx` (17 BC-TB-PC + 10 trả lại), tài liệu, cấu hình. Mọi
+**Mọi thứ nằm ngay trong skill này** — script, 30 mẫu `.docx` (17 BC-TB-PC + 10 trả lại + 3 mất GCN), tài liệu, cấu hình. Mọi
 đường dẫn trong file này (`scripts/…`, `assets/…`, `references/…`) tính từ **thư mục của
 chính skill này**, tức thư mục chứa file SKILL.md đang đọc. Chạy lệnh từ đó:
 `node <thư mục skill>/scripts/lam_ngay.js …`. Script tự định vị mẫu theo vị trí của nó

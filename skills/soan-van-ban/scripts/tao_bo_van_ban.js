@@ -94,8 +94,9 @@ function tenAnToan(s) {
 
 /* --------------------------------------------------- kiểm số Giấy chứng nhận ---- */
 
-const RE_SERI = /\b[A-Z]{2}\s?\d{6,8}\b/g;
-const chuanSeri = (s) => s.replace(/\s+/g, '').replace(/^([A-Z]{2})/, '$1 ');
+// Seri có cả chữ Đ ("DĐ 123456"), mà \b không coi Đ là chữ nên đầu chuỗi dùng lookbehind.
+const RE_SERI = /(?<![\p{L}\d])[A-ZĐ]{2}\s?\d{6,8}\b/gu;
+const chuanSeri = (s) => s.replace(/\s+/g, '').replace(/^([A-ZĐ]{2})/, '$1 ');
 const seriTrong = (v) => ((Array.isArray(v) ? v.join(' ') : String(v || '')).match(RE_SERI) || []).map(chuanSeri);
 
 /**
@@ -110,7 +111,7 @@ const seriTrong = (v) => ((Array.isArray(v) ? v.join(' ') : String(v || '')).mat
  * Số cũ vẫn được phép xuất hiện ở chỗ khác (vd. "tách ra từ … tại GCN số AA …").
  */
 function kiemSoGCN(d) {
-  const cu = new Set([...seriTrong(d.gcn_cu_so), ...seriTrong(d.gcn_cu_so_dau_cham_phay)]);
+  const cu = new Set([...seriTrong(d.gcn_cu_so), ...seriTrong(d.gcn_cu_so_dau_cham_phay), ...seriTrong(d.gcn_so)]);
   if (!cu.size) return null;
 
   const moi = [];
