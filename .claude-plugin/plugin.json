@@ -1,6 +1,6 @@
 {
   "name": "vpdk",
-  "version": "1.2.0",
-  "description": "Phôi soạn văn bản hồ sơ đất đai cho các phòng, tổ của Văn phòng Đăng ký đất đai: bộ BC-TB-PC trình ký (skill soan-van-ban), thông báo trả lại hồ sơ (skill soan-tra-lai) và văn bản trả lời phiếu cung cấp thông tin (skill soan-tra-loi-cctt).",
+  "version": "1.3.0",
+  "description": "Phôi soạn văn bản hồ sơ đất đai cho các phòng, tổ của Văn phòng Đăng ký đất đai: bộ BC-TB-PC trình ký (skill soan-van-ban) và thông báo trả lại hồ sơ (skill soan-tra-lai).",
   "author": { "name": "Chi nhánh VPĐKĐĐ Quốc Oai" }
 }

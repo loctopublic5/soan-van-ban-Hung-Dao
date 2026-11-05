@@ -10,8 +10,6 @@
     "ten_chi_nhanh": "Quốc Oai",
     "ten_chi_nhanh_in_hoa": "QUỐC OAI",
     "dia_chi_chi_nhanh": "Số nhà 36 đường phố huyện, xã Quốc Oai, thành phố Hà Nội",
-    "ngay_thanh_lap_chi_nhanh": "31/3/2015",
-    "quyet_dinh_thanh_lap_chi_nhanh": "Quyết định 1358/QĐ-UBND của UBND thành phố Hà Nội",
     "ten_nguoi_ky": "Tạ Khắc Minh",
     "can_bo_thu_ly": "Nguyễn Quốc Đạt",
     "can_bo_hop_dong": "",
@@ -21,8 +19,6 @@
   },
 
   "_ghi_chu_chi_nhanh": "Ba khoá đầu là chỗ đổi khi dùng phôi cho phòng khác. tieu_de_chi_nhanh: dòng tiêu đề góc trái. ky_hieu_chi_nhanh: ký hiệu sau số văn bản (/TB-CNQO, /CV-CNQO). ten_chi_nhanh: tên trong câu ('Chi nhánh Văn phòng đăng ký đất đai Quốc Oai'), 'huyện Quốc Oai', và địa danh dòng ngày tháng. ten_chi_nhanh_in_hoa: tên in hoa trên Quyết định mất GCN. dia_chi_chi_nhanh: địa chỉ nhận đơn thư, kết quả niêm yết trên công văn mất GCN. Chữ riêng còn nằm trong mẫu: xem README mục Dùng cho phòng khác.",
-
-  "_ghi_chu_thanh_lap": "Hai khoá ngày, quyết định thành lập dùng cho văn bản trả lời CCTT. ngay_thanh_lap_chi_nhanh còn là mốc soan_cctt.js chặn: mẫu không có scan chỉ đúng với GCN cấp trước ngày này.",
 
   "_ghi_chu_co_quan_thue": "Cơ quan thuế đã đổi tên thành 'Thuế cơ sở 22 thành phố Hà Nội' — áp dụng cho CẢ HAI chỗ (xác nhận 10/09/2026). 'co_quan_thue' là nơi Báo cáo nhắc tới ở phần nghĩa vụ tài chính; 'co_quan_thue_nhan' là dòng 'Kính gửi' trên đầu Phiếu chuyển. Hai biến hiện cùng giá trị nhưng vẫn để riêng, vì mẫu gọi hai tên khác nhau và hai chỗ này từng khác nhau — bản đã ký cũ ghi 'Chi cục thuế khu vực Thạch Thất - Quốc Oai' ở Báo cáo, có nơi lại đảo thành 'Chi cục Khu vực Quốc Oai - Thạch Thất'. Gộp thành một biến thì lần sau tách lại phải sửa mẫu.",
 
